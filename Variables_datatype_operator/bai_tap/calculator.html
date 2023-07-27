@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+
+        button {
+            font-size: 25px;
+            font-weight: bold;
+            width: 122px;
+            height: 72px;
+        }
+
+        tr, td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<table border="2px">
+    <tr>
+        <td colspan="4" style="text-align: right; padding: 20px"> <span style="font-size: 18px;font-weight: normal" id="input2"></span><br>
+            <span style="font-size: 35px" id="input1">0</span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="addInput('(')">(</button>
+        </td>
+        <td>
+            <button onclick="addInput(')')">)</button>
+        </td>
+        <td>
+            <button onclick="addInput('%')">%</button>
+        </td>
+        <td>
+            <button onclick="clearInput()">AC</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="addInput('7')">7</button>
+        </td>
+        <td>
+            <button onclick="addInput('8')">8</button>
+        </td>
+        <td>
+            <button onclick="addInput('9')">9</button>
+        </td>
+        <td>
+            <button onclick="addInput('/')">/</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="addInput('4')">4</button>
+        </td>
+        <td>
+            <button onclick="addInput('5')">5</button>
+        </td>
+        <td>
+            <button onclick="addInput('6')">6</button>
+        </td>
+        <td>
+            <button onclick="addInput('*')">*</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="addInput('1')">1</button>
+        </td>
+        <td>
+            <button onclick="addInput('2')">2</button>
+        </td>
+        <td>
+            <button onclick="addInput('3')">3</button>
+        </td>
+        <td>
+            <button onclick="addInput('-')">-</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="addInput('0')">0</button>
+        </td>
+        <td>
+            <button onclick="addInput('.')">.</button>
+        </td>
+        <td>
+            <button style="background-color: blue; color: white" onclick="calulator()">=</button>
+        </td>
+        <td>
+            <button onclick="addInput('+')">+</button>
+        </td>
+    </tr>
+</table>
+<script>
+    let inputL = document.getElementById('input1');
+    let inputS = document.getElementById('input2');
+    let cal = true;
+
+    function addInput(value) {
+        if (cal) {
+            if (value != '.') {
+                inputL.innerHTML = ''
+            }
+            cal = false;
+        }
+        inputL.innerHTML += value;
+    }
+
+    function clearInput() {
+        inputL.innerHTML = '0';
+        inputS.innerHTML = '';
+        cal = true;
+    }
+
+    function calulator() {
+        let value = inputL.innerHTML;
+        let result = eval(value);
+        inputL.innerHTML = result;
+        inputS.innerHTML = value + "=";
+        cal = true;
+    }
+</script>
+</body>
+</html>

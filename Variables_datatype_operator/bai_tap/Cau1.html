@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau 1</title>
+</head>
+<body>
+Nhập điểm vật lý:
+<input type="text" id="M"><br><br>
+Nhập điểm hóa học:
+<input type="text" id="C"><br><br>
+Nhập điểm toán học:
+<input type="text" id="P"><br><br>
+<button onclick="calA()">Caculator</button>
+<p id="Result"></p>
+<script>
+    function calA() {
+        let M = +document.getElementById("M").value;
+        let C = +document.getElementById("C").value;
+        let P = +document.getElementById("P").value;
+        let Avarage = (M+C+P)/3;
+
+        document.getElementById("Result").innerHTML="Điểm trung bình = " + Avarage + "<br>Tổng điểm = "+ (M+C+P);
+    }
+</script> 
+</body>
+</html>

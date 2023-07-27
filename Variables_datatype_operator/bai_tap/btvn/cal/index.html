@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>May tinh</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div id="calculate" class="start" data-grap="true">
+    <div class="title" data-grap="true">
+        <i class="fa-solid fa-calculator"></i>
+        <p>Caculator</p>
+    </div>
+    <div class="input-container">
+        <input class="input" style="font-size: 17px;color: #969696;" type="text" id="input-two" Disabled>
+        <div class="input-main-wrap">
+            <p class="input input-main" type="text" id="input">0</p>
+        </div>
+    </div>
+    <div class="button-container" id="mouse">
+        <button onclick="addInput('%')">%
+        </button>
+        <button onclick="clearInput()">CE</button>
+        <button onclick="clearInput()">C</button>
+        <button onclick="deleteChar()">
+            DEL
+        </button>
+        <button onclick="motChia()"><span style="font-size:xx-small" ;>1</span><sub>/x</sub></button>
+        <button onclick="addInput('**')">x<sup><span style="font-size:xx-small" ;>2</span></sup></button>
+        <button onclick="canbacHai()">
+            sqrt
+        </button>
+        <button onclick="addInput('/')">
+            /
+        </button>
+
+        <button class="number" onclick="addInput('7')">7</button>
+        <button class="number" onclick="addInput('8')">8</button>
+        <button class="number" onclick="addInput('9')">9</button>
+        <button onclick="addInput('*')">
+            *
+        </button>
+        <button class="number" onclick="addInput('4')">4</button>
+        <button class="number" onclick="addInput('5')">5</button>
+        <button class="number" onclick="addInput('6')">6</button>
+        <button onclick="addInput('-')">
+            -
+        </button>
+        <button class="number" onclick="addInput('1')">1</button>
+        <button class="number" onclick="addInput('2')">2</button>
+        <button class="number" onclick="addInput('3')">3</button>
+        <button onclick="addInput('+')">
+            +
+        </button>
+        <button class="number" onclick="markNegative()">
+            -
+        </button>
+        <button class="number" onclick="addInput('0')">0</button>
+        <button class="number" onclick="addInput('.')">.</button>
+        <button class="calc" onclick="calculate()">
+            =
+        </button>
+    </div>
+</div>
+<script src="index.js"></script>
+<script src="grap.js"></script>
+</body>
+</html>

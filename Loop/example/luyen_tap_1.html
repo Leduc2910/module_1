@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 1</title>
+</head>
+<body>
+<button onclick="gamedoanso()">Bắt đầu</button>
+<script>
+    // // Sử dụng vòng lặp để đếm từ 1 đến 100. Khí số là 99, hiển thị hộp thoại thông báo là đã hoàn thành
+    // for (let i=1;i<=100;i++) {
+    //   if(i===99) {
+    //     alert("Đã hoàn thành!");
+    //     break;
+    //   }
+    // }
+    // // Kiểm tra nhiệt độ
+    // let check = true;
+    // let nhietdo;
+    // while (check) {
+    //   nhietdo = +prompt("Nhập vào nhiệt độ: ");
+    //   if (nhietdo > 100) {
+    //       alert("Giảm nhiệt độ!");
+    //   }
+    //   if (nhietdo < 20) {
+    //       alert("Tăng nhiệt độ");
+    //   }
+    //   if (nhietdo >=20 && nhietdo <=100) {
+    //       alert("Thích hợp");
+    //       check = false;
+    //   }
+    // }
+    // // Hiển thị ra 20 số trong dãy fibonacci đầu tiên
+    // let fibo = 0;
+    // for (let i=1; i<=20;i++) {
+    //     if (i == 1) {
+    //         document.write("The Fibo "+i+" is: 1 <br>");
+    //     }
+    //     if (i==2) {
+    //         document.write("The Fibo "+i+" is: 2 <br>")
+    //     }
+    //     if (i != 1 && i != 2) {
+    //         fibo = (i-1) + (i-2);
+    //         document.write("The Fibo "+i+" is: "+fibo+"<br>")
+    //     }
+    // }
+    // // Tìm số đầu tiên trong dãy fibonacci chia hết cho 5
+    // let fibo = 0;
+    // for (let i=1;;i++) {
+    //     fibo = (i-1) + (i-2);
+    //     if (fibo%5 == 0) {
+    //         document.write("The number is "+fibo);
+    //         break;
+    //     }
+    // }
+    // // Tíng tổng của 30 số chia hết cho 7 đâfu tiên trong các số tự nhiên
+    // let count=0;
+    // let sum =0;
+    // for (let i=0;;i+=7) {
+    //     sum += i;
+    //     count++;
+    //     if (count == 30) {1
+    //         break;
+    //     }
+    // }
+    // document.write("Tổng là "+sum);
+    // // Hãy viết một chương trình in ra các số từ 1 đến 100.
+    // // Nhưng nếu số chia hết cho 3 thì in ra "Fizz", 5 thì in ra "Buzz" thay vì in ra số đó.
+    // // Nếu chia hết cho cả 3 và 5 thì in ra "FizzBuzz"
+    // let result ='';
+    // for (let i=1; i<=100;i++) {
+    //     if (i%5==0 && i%3==0) {
+    //         result += "FizzBuzz<br>"
+    //     } else if (i%5==0) {
+    //         result += "Buzz<br>";
+    //     } else if (i%3==0) {
+    //         result += "Fizz<br>";
+    //     } else {
+    //         result += i + "<br>";
+    //     }
+    // }
+    // document.write(result);
+    function gamedoanso() {
+        let n = +prompt("Bạn muốn đoán trong khoảng nào");
+        let rdnumber = Math.floor(n*Math.random());
+        let guess = +prompt("Bạn đoán số nào");
+        let count=0;
+        while (true) {
+            if (count > 3) {
+                alert("Bạn đã hết lần đoán");
+                break;
+            }
+            if (guess == rdnumber) {
+                alert("Bạn đã đoán đúng");
+                break;
+            }
+            if (guess < rdnumber) {
+                alert("Lớn hơn");
+                guess = +prompt("Bạn đoán số nào");
+                count++;
+            }
+            if (guess > rdnumber) {
+                alert("Nhỏ hơn");
+                guess = +prompt("Bạn đoán số nào");
+                count++;
+            }
+        }
+    }
+</script>
+</body>
+</html>

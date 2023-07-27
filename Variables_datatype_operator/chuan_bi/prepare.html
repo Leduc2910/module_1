@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prepare</title>
+    <style>
+        hr {
+            border-width: 2px;
+        }
+
+        li {
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body style="line-height: 2">
+<h1>I. Variables (Biến)</h1>
+<hr>
+<ul>
+    <li><b>Biến</b>
+        <ul>
+            <li><b>Biến</b> là một tên gọi được gắn cho một vùng nhớ dữ chứa dữ liệu</li>
+            <li>Dữ liệu được lưu trữ trong vùng nhớ của biến được gọi là <b>giá trị</b> (value)</li>
+            <li>Có thể truy nhập, gán hay thay đổi giá trị của biến</li>
+            <li>Khi gắn một giá trị mới thì giá trị cũ sẽ bị ghi đè lên</li>
+            <li>Cần phải khai báo biến trước khi sử dụng</li>
+        </ul>
+    </li>
+
+    <li><b>Khai báo và gán giá trị cho biến</b>
+        <ul>
+            <li>Từ khóa <b>var</b> hoặc <b>let</b> được dùng để <b>khai báo</b> biến</li>
+            <li>tên biến</li>
+            <li>dấu bằng (=) được dùng để <b>gán giá trị</b>cho biến</li>
+        </ul>
+    </li>
+    <li><b>Giá trị của biến</b>
+        <ul>
+            <li>5: số/giá trị số nguyên(integer)</li>
+            <li>5.3: số/giá trị số thập phân(demical)</li>
+            <li>"Black": giá trị chuỗi(string)</li>
+            <li>'c': giá trị ký tự(character)</li>
+            <li>true và false là các giá trị logic (boolean)</li>
+        </ul>
+    </li>
+    <li><b>Hằng(constant)</b>
+        <ul>
+            <li>Hằng là một tên gọi đại diện cho một giá trị cố định</li>
+            <li>Giá trị của hằng không thể thay đổi</li>
+            <li>Giá trị của hằng cần phải được gắn tại thời điểm khai báo</li>
+            <li>Cú pháp khai báo hằng: <br><b>const tên = value;</b></li>
+            <li>Ví dụ, sử dụng hằng PI thay cho giá trị 3.14159:<br><b>const PI = 3.14159<br>var area = radius*radius*PI</b>
+            </li>
+        </ul>
+    </li>
+
+</ul>
+<h1>II. Kiểu dữ liệu (Data Type)</h1>
+<ul>
+    <li>Kiểu dữ liệu là một cách phân loại dữ liệu cho trình biên dịch hoặc thông dịch hiểu các lập trình viên muốn sử
+        dụng dữ liệu
+    </li>
+    <li>Kiểu dữ liệu mô tả loại dữ liệu sẽ được lưu tron gbiến</li>
+    <li>Các kiểu dữ liệu khác nhau được lưu trữ trong biến là:
+        <ul>
+            <li>Số (numbers): nguyên, thực, dương, âm</li>
+            <li>Chuỗi: "Hello"</li>
+            <li>Ký tự 'A'</li>
+            <li>Logic: true, false</li>
+        </ul>
+    </li>
+    <li>Một kiểu dữ liệu cung cấp một bộ các giá trị mà từ đó một biểu thức (như biến, hàm,...) có thể lấy giá trị của
+        nó
+    </li>
+    <li>Trong JS khi khai báo biến và gán cho biến một giá trị đồng nghĩa xác định kiểu dữ liệu cho biến đó.</li>
+</ul>
+<hr>
+<ol>
+    <li><b>Chuỗi</b>
+        <ul>
+            <li>Chuỗi bao gồm các ký tự liên tiếp nhau</li>
+            <li>Có thể khai báo chuỗi sử dụng dấu nháy đơn hoặc nháy kép</li>
+        </ul>
+    </li>
+
+    <li><b>Số</b>
+        <ul>
+            <li>Có thể sử dụng số nguyên hoặc số thập phân</li>
+        </ul>
+    </li>
+    <li><b>Boolean</b>
+        <ul>
+            <li>Kiểu dữ liệu boolean chỉ có hai giá trị là true và false</li>
+            <li>Tất cả mọi thứ có giá trị đều là true</li>
+            <li>Tất cả mọi thứ không có giá trị đều là false</li>
+        </ul>
+    </li>
+    <li><b>kiểu null</b>: có duy nhất một giá trị <i>null</i></li>
+    <li><b>Kiểu underfind</b>: một biến chưa được gán giá trị có giá tị <i>underfind</i></li>
+</ol>
+<h1>IV. Toán tử toán học</h1>
+<ul>
+    <li>Toán tử là các ký hiệu được sử dụng để thực hiện các thao tác trong các biểu thức và sinh ra kết quả cuối</li>
+    <li>Có nhiều loại toán tử khác nhau
+        <ul>
+            <li>Toán tử toán học</li>
+            <li>Toán tử gán</li>
+            <li>Toán tử cộng chuỗi</li>
+            <li>Toán tử so sánh</li>
+            <li>Toán tử logic</li>
+            <li>Toán tử typeof</li>
+        </ul>
+    </li>
+</ul>
+<hr>
+<ol>
+    <li><b>Toán tử toán học</b>
+        <ul>
+            <li>Toán tử toán học được sử dụng trong các biểu thức toán học</li>
+            <li>Toán tử toán học được sử dụng trên các giá trị số( hoặc là các biến kiểu số)</li>
+            <li>Toán tử toán học thông thường có 2 toán hạng</li>
+            <li>Ví dụ: 100 + 50<br>100, 50 là toán hạng còn dấu (+) là toán tử</br></li>
+            <li>Các loại toán tử: cộng (+), trừ (-), nhân (*), chia (/), chia lấy dư (%), tăng 1 giá trị (++), giảm 1
+                giá trị (--)
+            </li>
+            <li>Sử dụng được với giá trị, biến và biểu thức</li>
+        </ul>
+    </li>
+    <li><b>Toán tử gán (assignment)</b>
+        <ul>
+            <li>Toán tử gán được sử dụng để gán giá trị cho một biến</li>
+            <li>Toán tử gán có thể sử dụng với tất cả các kiểu dữ liệu</li>
+            <li>Các loại toán tử gán:
+                <ul>
+                    <li>x = y</li>
+                    <li>x += y | x = x + y</li>
+                    <li>x -= y | x = x - y</li>
+                    <li>x *= y | x = x * y</li>
+                    <li>x /= y | x = x / y</li>
+                    <li>x %= y | x = x % y</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><b>Toán tử cộng chuỗi (string concatenate)</b>
+        <ul>
+            <li>Toán tử cộng chuỗi được sử dụng để nối hai chuỗi</li>
+            <li>Có thể nối chuỗi với số</li>
+        </ul>
+    </li>
+    <li><b>Toán tử so sánh</b>
+        <ul>
+            <li>Toán tử so sánh được sử dụng để đánh giá mức độ tương quan giữa các giá trị</li>
+            <li>== | equal to (bằng)</li>
+            <li>=== | equal value and equal type</li>
+            <li>!= | not equal (khác)</li>
+            <li>!== | not equal and not value</li>
+            <li>greater than (lớn hơn)</li>
+            <li>less than (bé hơn)</li>
+            <li>less than or equal to (lớn hơn hoặc bằng)</li>
+            <li>less than or equal to (bes hơn hoặc bằng)</li>
+        </ul>
+    </li>
+    <li><b>Toán tử logic (logical)</b>
+        <ul>
+            <li>Toán tử logic được dùng trong các biểu thức logic (true/false)</li>
+            <li>&& là toán tử "và"</li>
+            <li>|| là toán tử "hoặc"</li>
+            <li>! là toán tử "phủ định"</li>
+        </ul>
+    </li>
+    <li><b>Toán tử typeof</b>
+        <p>Toán tử typeof được dùng để lấy giá trị về kiểu giá trị của một biến hoặc giá trị</p></li>
+    <li><b>Độ ưu tiên của các toán tử </b>
+        <ul>
+            <li>Trong một biểu thức có nhiều phép toán thì chúng sẽ lần lượt đánh giá dựa vào độ ưu tiên</li>
+            <li>Có thể sử dụng dấu ngoặc () để thay đổi độ uu tiên của các toán tử</li>
+            <li>Các toán tử có cùng độ ưu tiên thì sẽ thực hiện từ trái qua phải</li>
+            <img src="priority.png" height="431" width="523"/>
+        </ul>
+    </li>
+
+</ol>
+</body>
+</html>

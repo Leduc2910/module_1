@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau 2</title>
+    <style>
+        p {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<p>2 * (3 + '5') - '2' + 20 / '5' + ('1' + 2 + 6)</p>
+<p>= 2 * '35' - '2' + 20 / '5' + '126' <i>(tính trong ngoặc trước, số + chuỗi = chuỗi)</i></p>
+<p>= 70 - '2' + 4 + '126' <i>(nhân chia trước, đối với nhân, chia tự động chuyển chuỗi về số)</i></p>
+<p>= 68 + 4 + '126' <i>(thực hiện từ trái qua phải, số - chuỗi = số)</i></p>
+<p>= 72 + '126' <i>(thực hiện từ trái qua phải, số + số = số)</i></p>
+<p>= '72162' <i>(số + chuỗi = chuỗi)</i></p>
+<p id="1"></p>
+<script>
+    let a = 2 * (3 + '5') - '2' + 20 / '5' + ('1' + 2 + 6);
+    document.getElementById('1').innerHTML="= " + a;
+</script>
+</body>
+</html>

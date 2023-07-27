@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 2</title>
+</head>
+<body>
+Nhập a =
+<input type="number" id="1"><br><br>
+Nhập b =
+<input type="number" id="2"><br><br>
+<button onclick="plusMath()">Alert</button>
+<button onclick="plusMath2()">Document.write</button>
+<button onclick="plusMath3()">Console.log</button>
+<p id="3" onclick="plusMath2()"></p>
+<script>
+    var a = +document.getElementById("1").value;
+    var b = +document.getElementById("2").value;
+    var c = a+b;
+    function plusMath() {
+        alert(c);
+    }
+
+    function plusMath2() {
+
+        document.getElementById("3").innerHTML = "a + b = " +c;
+    }
+
+    function plusMath3() {
+
+        console.log(c);
+    }
+</script>
+</body>
+</html>

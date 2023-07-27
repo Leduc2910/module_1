@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau 2</title>
+</head>
+<body>
+Nhập nhiệt độ (C):
+<input type="text" id="C"><br><br>
+<button onclick="Exchange()">Exchange</button>
+<p id="print"></p>
+<script>
+    function Exchange() {
+        let C = +document.getElementById("C").value;
+        let F = C*9/5 + 32;
+        let chuoi = "Nhiệt độ (F) = " +F;
+        document.getElementById("print").innerHTML = chuoi;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example</title>
+</head>
+<body>
+<h3>Nhập vào năm, tháng rồi in ra số ngày (bằng if - else)</h3>
+<p>Nhập tháng: <select id="mm" style="width: 80px;height: 25px; text-align: center">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+</select></p>
+<p>Nhập năm: <input type="text" id="yyyy" style="width: 100px"></p>
+<button onclick="kiemtra()">if - else</button>
+<button onclick="kiemtra2()">switch - case</button>
+<p id="result" style="color: red"></p>
+<br><br><br>
+<h3>Các phép tính cơ bản với 2 số</h3>
+<input type="text" placeholder="a" id="a" style="width: 50px">
+<select id="math" style="width: 50px">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+    <option value="%">%</option>
+</select>
+<input type="text" placeholder="b" id="b" style="width: 50px">
+= <span id="result2" style="color: red">?</span><br><br>
+<button onclick="cal()">if - else</button>
+<button onclick="cal2()">switch - case</button>
+<script>
+    if(4) {
+        alert("hi");
+    }
+    if(2) {
+        alert("Hello")
+    }
+    function cal() {
+        let a = +document.getElementById('a').value;
+        let b = +document.getElementById('b').value;
+        let math = document.getElementById('math').value;
+        if (math == "+") {
+            document.getElementById('result2').innerHTML = a + b;
+        }
+        if (math == "-") {
+            document.getElementById('result2').innerHTML = a - b;
+        }
+        if (math == "*") {
+            document.getElementById('result2').innerHTML = a * b;
+        }
+        if (math == "/") {
+            document.getElementById('result2').innerHTML = a / b;
+        }
+        if (math == "%") {
+            document.getElementById('result2').innerHTML = a % b;
+        }
+    }
+
+    function cal2() {
+        let a = +document.getElementById('a').value;
+        let b = +document.getElementById('b').value;
+        let math = document.getElementById('math').value;
+        switch (math) {
+            case "+":
+                document.getElementById('result2').innerHTML = a + b;
+                break;
+            case "-":
+                document.getElementById('result2').innerHTML = a - b;
+                break;
+            case "*":
+                document.getElementById('result2').innerHTML = a * b;
+                break;
+            case "/":
+                document.getElementById('result2').innerHTML = a / b;
+                break;
+            case "%":
+                document.getElementById('result2').innerHTML = a % b;
+                break;
+            default:
+                "ERROR"
+        }
+    }
+
+    function isNamNhuan(year) {
+        if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
+            return true;
+        return false
+    }
+
+    function kiemtra() {
+        let month = +document.getElementById('mm').value;
+        let year = +document.getElementById('yyyy').value;
+        if (month == 1 && month == 3 && month == 5 && month == 7 && month == 8 && month == 10 && month == 12) {
+            document.getElementById('result').innerHTML = "Tháng " + month + " có 31 ngày"
+        } else if (month == 2) {
+            if (isNamNhuan(year)) {
+                document.getElementById('result').innerHTML = "Tháng 2 có 29 ngày";
+            } else {
+                document.getElementById('result').innerHTML = "Tháng 2 có 28 ngày";
+            }
+        } else {
+            document.getElementById('result').innerHTML = "Tháng " + month + " có 30 ngày"
+        }
+    }
+
+    function kiemtra2() {
+        let month = +document.getElementById('mm').value;
+        let year = +document.getElementById('yyyy').value;
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                document.getElementById('result').innerHTML = "Tháng " + month + " có 31 ngày"
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                document.getElementById('result').innerHTML = "Tháng " + month + " có 30 ngày"
+                break;
+            case 2:
+                if (isNamNhuan()) {
+                    document.getElementById('result').innerHTML = "Tháng 2 có 29 ngày";
+                } else {
+                    document.getElementById('result').innerHTML = "Tháng 2 có 28 ngày";
+                }
+                break;
+            default:
+                document.getElementById('result').innerHTML = "ERROR";
+        }
+
+    }
+    let name = prompt("Nhập tên của bạn");
+    (name=="Đức") ? alert("Hello Đức") : alert("Hello c06");
+</script>
+</body>
+</html>

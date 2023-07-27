@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau 3</title>
+</head>
+<body>
+<p>Nhập họ và tên: <input type="text" onchange="xinchao()" id='2'></p>
+<p id="1"></p>
+<script>
+    function xinchao() {
+        let name = document.getElementById('2').value;
+        document.getElementById('1').innerHTML = "Xin chào "+name;
+    }
+</script>
+</body>
+</html>

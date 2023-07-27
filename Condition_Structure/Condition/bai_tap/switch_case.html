@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Switch case</title>
+</head>
+<body style="line-height: 2">
+<p>Enter browser name: <input type="text" id="browser"></p>
+<button onclick="browsercheck()">Check</button>
+<p id="Result" style="color: red"></p>
+<hr>
+<p>Nhập a: <input type="text" id="a1"></p>
+<button onclick="checka1()">Check</button>
+<p id="Result2" style="color: red"></p>
+<hr>
+<p>Nhập a: <input type="text" id="a2"></p>
+<p>Nhập b: <input type="text" id="b2"></p>
+<button onclick="checksum()">Check</button>
+<p id="Result3" style="color: red"></p>
+<hr>
+<p>Nhập chuỗi: <input type="text" id="chuoi"></p>
+<button onclick="checkchuoi()">Check</button>
+<p id="Result4" style="color: red"></p>
+<hr>
+<img id="ball" src="https://vcdn-vnexpress.vnecdn.net/2019/03/02/bai-toan-3768-1551057063-6906-1551496131.png"
+     alt="quả bóng"
+     style="width: 10%">
+<p>Click button below to move the image to right</p>
+<button onclick="moveball()">Click me</button>
+<hr>
+<img id="nobita" src="https://upload.wikimedia.org/wikipedia/vi/2/2c/Nobita.png" alt="nobita"
+     style="position: relative;width: 10%;top:0;left:0"  onload="docReady()">
+<hr>
+<h3>Tính số ngày trong một tháng</h3>
+<p><input type="text" id="year" placeholder="Nhập năm bất kỳ"></p>
+<p><input type="text" id="month" placeholder="Nhập tháng (1-12)"></p>
+<button onclick="demngay()">Tính số ngày</button>
+<p id="Result5" style="color: red"></p>
+<script>
+    function browsercheck() {
+        let bname = document.getElementById('browser').value;
+        switch (bname) {
+            case "Edge":
+                document.getElementById('Result').innerHTML = "You've got the Edge!";
+                break;
+            case "Chrome":
+            case "Firefox" :
+            case "Safari":
+            case "Opera":
+                document.getElementById('Result').innerHTML = "Okey we support these browsers too!";
+                break;
+            default:
+                document.getElementById('Result').innerHTML = "We hope that this page looks ok!";
+        }
+    }
+
+    function checka1() {
+        let a = +document.getElementById('a1').value;
+        switch (a) {
+            case 2:
+            case 3:
+                document.getElementById('Result2').innerHTML = '2,3';
+                break;
+            case 1:
+                document.getElementById('Result2').innerHTML = 1;
+                break;
+            case 0:
+                document.getElementById('Result2').innerHTML = 0;
+                break;
+        }
+    }
+
+    function checksum() {
+        let a = +document.getElementById('a2').value;
+        let b = +document.getElementById('b2').value;
+        let result = ((a + b) < 4) ? "Below" : "Over";
+        document.getElementById('Result3').innerHTML = result;
+    }
+
+    function checkchuoi() {
+        let chuoi = document.getElementById('chuoi').value;
+        let result;
+        result = (chuoi == "Employee") ? "Hello" : (chuoi == "Director") ? "Greetings" : (chuoi == '') ? "No login" : "";
+        document.getElementById("Result4").innerHTML = result;
+    }
+
+    function moveball() {
+        let img = document.getElementById('ball');
+        img.style.position = 'relative';
+        img.style.left = parseInt(img.style.left) + 50 + 'px';
+    }
+
+    function upArrowPressed() {
+      let element = document.getElementById("nobita");
+      element.style.top = parseInt(element.style.top) - 5 + 'px';
+    }
+    function downArrowPressed() {
+      var element = document.getElementById("nobita");
+      element.style.top = parseInt(element.style.top) + 5 + 'px';
+    }
+    function leftArrowPressed() {
+      var element = document.getElementById("nobita");
+      element.style.left = parseInt(element.style.left) - 5 + 'px';
+    }
+    function rightArrowPressed() {
+      var element = document.getElementById("nobita");
+      element.style.left = parseInt(element.style.left) + 5 + 'px';
+
+    }
+    function moveSelection(evt) {
+      switch (evt.keyCode) {
+        case 37:
+          leftArrowPressed();
+          break;
+        case 39:
+          rightArrowPressed();
+          break;
+        case 38:
+          upArrowPressed();
+          break;
+        case 40:
+          downArrowPressed();
+          break;
+      }
+    }
+    function docReady() {
+      window.addEventListener('keydown', moveSelection);
+    }
+
+    function demngay() {
+      let year = +document.getElementById('year').value;
+      let month = +document.getElementById('month').value;
+      switch (month) {
+        case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+          document.getElementById('Result5').innerHTML = "Tháng này có 31 ngày";
+          break;
+        case 2:
+          if(year%400 == 0 || (year%4==0 && year%100 !=0)) {
+            document.getElementById('Result5').innerHTML = "Tháng này có 29 ngày";
+            break;
+          } else {
+            document.getElementById('Result5').innerHTML = "Tháng này có 28 ngày";
+            break;
+          }
+        case 4: case 6: case 9: case 11:
+          document.getElementById('Result5').innerHTML = "Tháng này có 30 ngày";
+          break;
+        default:
+          document.getElementById('Result5').innerHTML = "Nhập tháng từ 1 đến 12";
+      }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai tap</title>
+</head>
+<body>
+<p>Nhập vào năm bất kỳ: <input type="text" id="yyyy"></p>
+<button onclick="isNamNhuan()">Kiểm tra</button>
+<p id="Result" style="color: red"></p>
+<hr>
+<h3>What is the "offical" name of JavaScript?</h3>
+<p>Answer: <input type="text" id="in"></p>
+<button onclick="isRightAns()">Kiểm tra</button>
+<p id="Result1"></p>
+<hr>
+<p>Tài khoản: <input type="text" id="username" onchange="changeResult()"></p>
+<p id="right-user"></p>
+<button onclick="show()">Đăng nhập</button>
+<p id="Result2" style="color: red"></p>
+<hr>
+<h3>Nhập vào hai số a và b, và kiểm tra xem a có chia hết cho b hay không?</h3>
+<p>Nhập a: <input type="text" id="a"></p>
+<p>Nhập b: <input type="text" id="b"></p>
+<button onclick="checkamodb()">Kiểm tra</button>
+<p id="Result3" style="color: red"></p>
+<hr>
+<h3>Nhập tuổi và in ra kết quả nếu tuổi học sinh đó không đủ điều kiện vào học lớp 10.</h3>
+<p>Nhập tuổi của bạn: <input type="text" id="tuoi"></p>
+<button onclick="checktuoi()">Kiểm tra</button>
+<p id="Result4" style="color: red"></p>
+<hr>
+<h3>Nhập một số nguyên bất kỳ và in kết quả ra màn hình để nói cho người dùng biết số đó là lớn hay nhỏ hơn 0</h3>
+<p>Nhập một số bất kỳ <input type="text" id="randomNB"></p>
+<button onclick="ktrasonguyen()">Kiểm tra</button>
+<p id="Result5" style="color: red"></p>
+<hr>
+<h3>Nhập 3 số nguyên và tìm giá trị lớn nhất của ba số nguyên đó</h3>
+<p>Nhập a: <input type="text" id="a1"></p>
+<p>Nhập b: <input type="text" id="b1"></p>
+<p>Nhập c: <input type="text" id="c1"></p>
+<button onclick="maxabc()">Kiểm tra</button>
+<p id="Result6" style="color: red"></p>
+<hr>
+<h3>Tính chỉ số cân nặng của cơ thể</h3>
+<p>Nhập cân nặng: <input type="text" id="weight"></p>
+<p>Nhập chiều cao: <input type="text" id="height"></p>
+<button onclick="checkBMI()">Kiểm tra</button>
+<p id="Result7" style="color: red"></p>
+<hr>
+
+<script>
+    // //Nhập vào a, b. Nếu a > b in ra tổng, nếu a<b in ra tích, nếu a=b in ra "hihi"
+    // let a = +prompt("Nhâp a bất kỳ: ");
+    // let b = +prompt("Nhâp b bất kỳ: ");
+    // if(a>b) {
+    //   alert(a+b);
+    // } else if (a<b) {
+    //   alert(a*b);
+    // } else {
+    //   alert("hihi");
+    // }
+    // // Nhập vào điểm học viên
+    // let diem = +prompt("Nhập vào điểm của học viên: ");
+    // if (diem <= 100 && diem >= 80) {
+    //     alert("Học sinh tốt");
+    // } else if (diem >= 70) {
+    //     alert("Học sinh khá");
+    // } else if (diem >= 50) {
+    //     alert("Học sinh trung bình");
+    // } else if (&& diem >= 0) {
+    //     alert("Học sinh yếu");
+    // } else {
+    //     alert("Nhập điểm trong phạm vi từ 0 đến 100");
+    // }
+    // Kiểm tra năm nhuận
+    function isNamNhuan() {
+        let year = +document.getElementById("yyyy").value;
+        let result;
+        if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+            result = "Năm " + year + " là năm nhuận";
+        } else {
+            result = "Năm " + year + " không phải năm nhuận";
+        }
+        document.getElementById("Result").innerHTML = "Result: " + result;
+    }
+
+    function isRightAns() {
+        let ans = document.getElementById("in").value;
+        if (ans == "ECMAScript") {
+            document.getElementById("Result1").innerHTML = "Right!";
+        } else {
+            document.getElementById("Result1").innerHTML = "Didn't know? ECMAScript!";
+        }
+    }
+
+    function changeResult() {
+        let username = document.getElementById("username").value;
+        let result;
+        if (username == "Admin") {
+            document.getElementById('right-user').innerHTML = "Mật khẩu: <input type='password' id='password'>";
+            result = '';
+            show();
+        } else if (username == 'null') {
+            result = "Canceled";
+        } else {
+            result = "I don't know you";
+        }
+        document.getElementById("Result2").innerHTML = result;
+    }
+
+    function show() {
+        let password = document.getElementById('password').value;
+        let result;
+        if (password == "TheMaster") {
+            result = "Welcome";
+        } else if (password == "null") {
+            result = "Canceled"
+        } else {
+            result = "Wrong password";
+        }
+        document.getElementById("Result2").innerHTML = result;
+    }
+
+    function checkamodb() {
+        let a = +document.getElementById("a").value;
+        let b = +document.getElementById("b").value;
+        if (a % b == 0) {
+            document.getElementById('Result3').innerHTML = a + " có chia hết cho " + b;
+        } else {
+            document.getElementById('Result3').innerHTML = a + " không chia hết cho " + b;
+        }
+    }
+
+    function checktuoi() {
+        let tuoi = +document.getElementById('tuoi').value;
+        if (tuoi >= 0 && tuoi <= 15) {
+            document.getElementById('Result4').innerHTML = "Bạn không đủ điều kiện vào lớp 10!";
+        } else if (tuoi < 0) {
+            document.getElementById('Result4').innerHTML = "Hãy nhập tuổi hợp lệ";
+        } else {
+            document.getElementById('Result4').innerHTML = "Bạn đủ điều kiện vào lớp 10!";
+        }
+    }
+
+    function ktrasonguyen() {
+        let a = +document.getElementById('randomNB').value;
+        if (a > 0) {
+            document.getElementById('Result5').innerHTML = "Lớn hơn 0";
+        }
+        if (a < 0) {
+            document.getElementById('Result5').innerHTML = "Nhỏ hơn 0";
+        }
+        if (a == 0) {
+            document.getElementById('Result5').innerHTML = "Đây là số 0";
+        }
+    }
+
+    function maxabc() {
+        let a = +document.getElementById('a1').value;
+        let b = +document.getElementById('b1').value;
+        let c = +document.getElementById('c1').value;
+        if (a < b) {
+            if (b < c) {
+                document.getElementById('Result6').innerHTML = "Số lớn nhất là " + c;
+            } else {
+                document.getElementById('Result6').innerHTML = "Số lớn nhất là " + b;
+            }
+        } else {
+            if (a < c) {
+                document.getElementById('Result6').innerHTML = "Số lớn nhất là " + c;
+            } else {
+                document.getElementById('Result6').innerHTML = "Số lớn nhất là " + a;
+            }
+        }
+    }
+
+    function checkBMI() {
+        let w = +document.getElementById('weight').value;
+        let h = +document.getElementById('height').value;
+        let BMI = w / (h * h);
+        let result;
+        if (BMI < 18.5) {
+            result = "Suy dinh dưỡng";
+        } else if (BMI < 25) {
+            result = "Bình thường";
+        } else if (BMI < 30) {
+            result = "Thừa cân";
+        } else {
+            result = "Béo phí";
+        }
+        document.getElementById('Result7').innerHTML = result;
+    }
+
+</script>
+</body>
+</html>

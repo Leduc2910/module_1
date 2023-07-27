@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyen tap 2</title>
+</head>
+<body style="line-height: 2">
+<h3>Tại sao if(2) lại alert("Hello") còn if(0) lại alert("Hi")</h3>
+<p>Trong câu điều kiện if() đánh giá dựa trên giá trị boolean của biểu thức đó. Nếu giá trị đúng (true) thì khối lệnh
+    trong if được thực hiện và ngược lại</p>
+<p>Trong JS, các giá trị '0', 'null', 'NaN', 'underfinded' hoặc một chuỗi rỗng thì được gán giá trị là false, còn các
+    giá trị khác đều là true</p>
+<p>Vì vậy trong bài này if(2) (true) sẽ thực hiện thông báo Hello, còn if (0) (false) sẽ bỏ qua câu lệnh trong khối
+    if </p>
+<hr>
+<h3>Chuyển đổi giữa độ C và độ F</h3>
+<p>Chuyển nhiệt độ từ: <select id="choice">
+    <option value="1">C -> F</option>
+    <option value="2">F -> C</option>
+</select></p>
+<p>Nhập nhiệt độ: <input type="text" id="tempo"></p>
+<button onclick="exTempo()">Thực hiện</button>
+<p id="result" style="color: red"></p>
+<hr>
+<h3>Chuyển đổi giữa met và feet</h3>
+<p>Chuyển khoảng cách từ: <select id="choice2">
+    <option value="1">m -> ft</option>
+    <option value="2">ft-> m</option>
+</select></p>
+<p>Nhập khoảng cách: <input type="text" id="distance"></p>
+<button onclick="exDistance()">Thực hiện</button>
+<p id="result2" style="color: red"></p>
+<hr>
+<h3>Tính diện tích hình vuông khi biết cạnh a</h3>
+<p>Nhập cạnh hình vuông: <input type="text" id="canhhv"></p>
+<button onclick="dientichHV()">Thực hiện</button>
+<p id="result3" style="color:red"></p>
+<hr>
+<h3>Tính diện tích hình chữ nhật khi biết hai cạnh a, b</h3>
+<p>Nhập cạnh thứ nhất: <input type="text" id="canh1"></p>
+<p>Nhập cạnh thứ hai: <input type="text" id="canh2"></p>
+<button onclick="dientichHCN()">Thực hiện</button>
+<p id="result4" style="color: red"></p>
+<hr>
+<h3>Tính diện tích tam giác vuông khi biết 2 cạnh kề a, b</h3>
+<p>Nhập cạnh kề 1: <input type="text" id="canhke1"></p>
+<p>Nhập cạnh kề 2: <input type="text" id="canhke2"></p>
+<button onclick="dientichTGV()">Thực hiện</button>
+<p id="result5" style="color: red"></p>
+<hr>
+<h3>Giải phương trình bậc 1: ax+b=0</h3>
+<p>Nhập a: <input type="text" id="a"></p>
+<p>Nhập b: <input type="text" id="b"></p>
+<button onclick="giaiPTB1()">Thực hiện</button>
+<p id="result6" style="color: red"></p>
+<hr>
+<h3>Giải phương trình bậc 2: ax<sup>2</sup>+bx+c=0</h3>
+<p>Nhập a: <input type="text" id="a2"></p>
+<p>Nhập b: <input type="text" id="b2"></p>
+<p>Nhập c: <input type="text" id="c2"></p>
+<button onclick="giaiPTB2()">Thực hiện</button>
+<p id="result7" style="color: red"></p>
+<hr>
+<h3>Kiểm tra số nhập vào có phải là tuổi của một người không? (từ 0 đến 120)</h3>
+<p>Nhập tuổi của bạn: <input type="text" id="age"></p>
+<button onclick="ktratuoi()">Thực hiện</button>
+<p id="result8" style="color: red"></p>
+<hr>
+<h3>Kiểm tra 3 cạnh có tạo thành một tam giác không</h3>
+<p>Nhập a: <input type="text" id="a3"></p>
+<p>Nhập b: <input type="text" id="b3"></p>
+<p>Nhập c: <input type="text" id="c3"></p>
+<button onclick="dkienTG()">Thực hiện</button>
+<p id="result9" style="color: red"></p>
+<hr>
+<h3>Viết chương trình tính giá điện</h3>
+<p>Nhập số điện: <input type="text" id="sodien"></p>
+<button onclick="giadien()">Thực hiện</button>
+<p id="result10" style="color: red"></p>
+<hr>
+<h3>Viết chương trình tính thuế cá nhân trên một năm</h3>
+<p>Thu nhập cá nhân: <input type="text" id="thunhap"> x1.000.000 VNĐ</p>
+<button onclick="tinhthue()">Thực hiện</button>
+<p id="result11" style="color: red"></p>
+<hr>
+<h3>Viết chương trình tính lãi ngân hàng(lãi mẹ đẻ lãi con)</h3>
+</body>
+<script>
+    function tinhthue() {
+        let thunhap = +document.getElementById('thunhap').value;
+        let result;
+        if (thunhap >= 0 && thunhap <= 60) {
+            result = thunhap * 0.05 * 1000000
+        } else if (thunhap > 60 && thunhap <= 120) {
+            result = thunhap * 0.1 * 1000000
+        } else if (thunhap > 120 && thunhap <= 216) {
+            result = thunhap * 0.15 * 1000000
+        } else if (thunhap > 216 && thunhap <= 384) {
+            result = thunhap * 0.2 * 1000000
+        } else if (thunhap > 384 && thunhap <= 624) {
+            result = thunhap * 0.25 * 1000000
+        } else if (thunhap > 624 && thunhap <= 960) {
+            result = thunhap * 0.3 * 1000000
+        } else if (thunhap > 960) {
+            result = thunhap * 0.35 * 1000000
+        } else {
+            result = "Không hợp lệ!";
+        }
+        document.getElementById('result11').innerHTML = "Thuế bạn phải đóng = " + result;
+    }
+
+    function giadien() {
+        let sodien = +document.getElementById('sodien').value;
+        let result;
+        if (sodien >= 0 && sodien <= 50) {
+            result = sodien * 1728;
+        }
+        if (sodien>50 &&sodien <= 100) {
+            result = sodien * 1786;
+        }
+        if (sodien>100 && sodien <= 200) {
+            result = sodien * 2074;
+        }
+        if (sodien>200 &&sodien <= 300) {
+            result = sodien * 2612;
+        }
+        if (sodien>300 && sodien <= 400) {
+            result = sodien * 2919;
+        }
+        if (sodien > 400) {
+            result = sodien * 3015;
+        }
+        if (sodien <0){
+            result = "Nhập không hợp lệ mời nhập lại";
+        }
+        document.getElementById('result10').innerHTML = "Giá điện tháng này = " + result
+    }
+
+    function dkienTG() {
+        let a = +document.getElementById('a3').value;
+        let b = +document.getElementById('b3').value;
+        let c = +document.getElementById('c3').value;
+        let result;
+        if ((a + b > c || b + c > a || a + c > b) && a > 0 && b > 0 && c > 0) {
+            result = "3 cạnh đủ điều kiện tạo thành tam giác";
+        } else {
+            result = "3 cạnh không đủ điều kiện tạo thành tam giác";
+        }
+        document.getElementById('result9').innerHTML = result;
+    }
+
+    function ktratuoi() {
+        let age = +document.getElementById('age').value;
+        if (age >= 0 && age <= 120) {
+            document.getElementById("result8").innerHTML = "Tuôi hợp lệ!";
+        } else {
+            document.getElementById('result8').innerHTML = "Tuổi không hợp lệ!";
+        }
+    }
+
+    function giaiPTB2() {
+        let a = +document.getElementById('a2').value;
+        let b = +document.getElementById('b2').value;
+        let c = +document.getElementById('c2').value;
+        let delta, x1, x2, x, result;
+        delta = b * b - 4 * a * c;
+        if (a == 0) {
+            if (b == 0) {
+                if (c == 0) {
+                    result = "Phuong trình vô số nghiệm";
+                } else {
+                    result = "Phương trình vô nghiệm";
+                }
+            } else {
+                result = "Phương trình bậc nhất x = " + (-c / b);
+            }
+        } else {
+            if (delta < 0) {
+                result = "Phương trình vô nghiệm";
+            } else if (delta == 0) {
+                x = -b / (2 * a);
+                result = "Phương trình có nghiệm duy nhất <br> x1 = x2 = " + x;
+            } else {
+                x1 = (-b - Math.sqrt(delta)) / (2 * a);
+                x2 = (-b + Math.sqrt(delta)) / (2 * a);
+                result = "Phương trình có 2 nghiệm phân biệt <br>x1 = " + x1 + "<br>x2 = " + x2;
+            }
+        }
+        document.getElementById('result7').innerHTML = result;
+    }
+
+    function giaiPTB1() {
+        let a = +document.getElementById('a').value;
+        let b = +document.getElementById('b').value;
+        let result;
+        if (a == 0) {
+            if (b == 0) {
+                result = "Phương trình vô số nghiệm";
+            } else {
+                result = "Phương trình vô nghiệm";
+            }
+        } else {
+            result = "x = " + (-b / a);
+        }
+        document.getElementById('result6').innerHTML = result;
+    }
+
+    function dientichTGV() {
+        let canh1 = document.getElementById('canhke1').value;
+        let canh2 = document.getElementById('canhke2').value;
+        if (canh1 < 0 || canh2 < 0) {
+            document.getElementById('result5').innerHTML = "Hãy nhập các cạnh dương"
+        } else {
+            document.getElementById('result5').innerHTML = "Diện tích tam giác vuông = " + (canh1 * canh2) / 2;
+        }
+    }
+
+    function dientichHCN() {
+        let canh1 = +document.getElementById('canh1').value;
+        let canh2 = +document.getElementById('canh2').value;
+        if (canh1 < 0 || canh2 < 0) {
+            document.getElementById('result4').innerHTML = "Hãy nhập các cạnh dương";
+        } else {
+            document.getElementById('result4').innerHTML = "Diện tích hình chữ nhật = " + (canh1 * canh2);
+        }
+    }
+
+    function exTempo() {
+        let choice = +document.getElementById('choice').value;
+        let tempo = +document.getElementById('tempo').value;
+        let result;
+        if (choice == 1) {
+            result = tempo * 9 / 5 + 32;
+            document.getElementById('result').innerHTML = "Nhiệt độ F = " + result;
+        }
+        if (choice == 2) {
+            result = (tempo - 32) * 5 / 9;
+            document.getElementById('result').innerHTML = "Nhiệt độ C = " + result;
+        }
+    }
+
+    function exDistance() {
+        let choice = +document.getElementById('choice2').value;
+        let distance = +document.getElementById('distance').value;
+        let result;
+        if (choice == 1) {
+            result = distance * 3.2808;
+            document.getElementById('result2').innerHTML = "Khoảng cách (feet) = " + result;
+        }
+        if (choice == 2) {
+            result = distance / 3.2808;
+            document.getElementById('result2').innerHTML = "Khoảng cách (mét) = " + result;
+        }
+    }
+
+    function dientichHV() {
+        let canh = +document.getElementById('canhhv').value;
+        if (canh < 0) {
+            document.getElementById('result3').innerHTML = "Hãy nhập một số dương";
+        } else {
+            document.getElementById('result3').innerHTML = "Diện tích hình vuông = " + (canh * canh);
+        }
+    }
+</script>
+</html>

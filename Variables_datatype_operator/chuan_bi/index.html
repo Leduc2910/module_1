@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+<script>
+
+const PI = 3.14159;
+let chieu_rong= 5;
+let chieu_dai = '3';
+let area =chieu_dai*chieu_rong;
+document.writeln(area);
+document.writeln('<br>')
+let check = chieu_dai === chieu_rong;
+document.writeln(check);
+document.writeln('<br>')
+check = chieu_dai !== chieu_rong;
+document.writeln(check);
+document.writeln('<br>')
+// x++ và ++x
+let x=5;
+let z=5;
+let y;
+y = x++; // gán giá trị của x cho y xong mới thực hiện x cộng một
+document.writeln("x = "+x);
+document.writeln('<br>')
+document.writeln("y= "+y);
+document.writeln('<br>')
+y = ++z; // thực hiện cộng 1 cho x rồi mới gán giá trị cho y
+document.writeln("z = " +z);
+document.writeln('<br>')
+document.writeln("y= "+y);
+document.writeln('<br>')
+let r = x++ + ++z;
+// x sẽ trả về giá trị ban đầu sau đó mới tăng 1 đơn vị
+// z tăng 1 đơn vị lên 1 xong trả về giá trị đó
+// vì vậy r = 13;
+document.writeln("x = "+x);
+document.writeln("z = " +z);
+document.writeln("r= "+r);
+document.writeln('<br>')
+
+let f = '7' + 3 *(2+'1') - '2' +'5';
+document.write(f); // 2
+let c = 3;
+let bool = '3'
+document.writeln(c == bool)
+</script>
+</body>
+</html>

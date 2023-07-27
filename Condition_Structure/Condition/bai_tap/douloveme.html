@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Do u love me?</title>
+</head>
+<body>
+<h1 style="position: absolute;top: 170px; left: 800px">DO YOU LOVE ME?</h1>
+<button onclick="yesAnswer()" style="position: absolute; top: 270px;left: 870px;font-size: 15px">YES</button>
+<button onmouseover="noAnswer()" id="no" value="no" style="position: absolute;top: 270px;font-size: 15px;left: 970px">
+    NO
+</button>
+
+<script>
+    function yesAnswer() {
+        alert("I love u too <3")
+    }
+
+    function noAnswer() {
+        let top = Math.round(Math.random() * window.innerHeight);
+        let left = Math.round(Math.random() * window.innerWidth);
+        document.getElementById('no').style.top = top + 'px';
+        document.getElementById('no').style.left = left + 'px';
+    }
+</script>
+</body>
+</html>

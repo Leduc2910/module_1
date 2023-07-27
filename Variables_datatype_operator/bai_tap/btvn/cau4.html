@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau 4</title>
+</head>
+<body>
+<p>Nhập a: <input type="text" id='a'></p>
+<p>Nhập b: <input type="text" id='b'></p>
+<button onclick="compare()">Compare</button>
+<p id="result" style="font-weight: bold; font-size: 20px; color: red"></p>
+<script>
+function compare() {
+  let a = +document.getElementById('a').value;
+  let b = +document.getElementById('b').value;
+  if (a == b) {
+    document.getElementById('result').innerHTML = "Result: a bằng b";
+  } else if (a > b) {
+    document.getElementById('result').innerHTML = "Result: a lớn hơn b";
+  } else {
+    document.getElementById('result').innerHTML = "Result: a nhỏ hơn b";
+  }
+}
+</script>
+</body>
+</html>

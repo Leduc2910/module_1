@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Condition_Structure/Condition" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Condition_Structure/chuan_bi" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Form_Table/bai_tap_form_table/Basic_form" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Form_Table/bai_tap_form_table/Basic_table" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Form_Table/bai_tap_form_table/Enhance_table" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Form_Table/bai_tap_form_table/Register_form" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Form_Table/bai_tap_form_table/Survey_form" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Form_Table/thuc_hanh_form_table" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GIT,HTML/Bai_tap_git_1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GIT,HTML/Bai_tap_git_2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GIT,HTML/Bai_tap_git_3" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GIT,HTML/Profile" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/JavaScript Overview/BTVN" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/JavaScript Overview/chuan_bi" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Loop/Prepare" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Loop/example" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Variables_datatype_operator/bai_tap" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Variables_datatype_operator/chuan_bi" vcs="Git" />
+  </component>
+</project>

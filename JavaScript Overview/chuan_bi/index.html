@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prepare</title>
+    <style>
+        button {
+            width: 200px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <center>
+        <img src="https://antimatter.vn/wp-content/uploads/2022/06/hinh-anh-conan.jpg" id="image" style="width: 30%">
+        <h1 id="text">Who's this?</h1>
+        <table>
+            <tr>
+                <td>
+                    <button id="1" onclick="WrongAnswer()" onchange="WrongAnswer()">Edogawa Conan</button>
+                </td>
+                <td>
+                    <button onclick="WrongAnswer()">Kudo Shinichi</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="WrongAnswer()">Edogawa Shinichi</button>
+                </td>
+                <td>
+                    <button onclick="RightAnswer()">I don't know</button>
+                </td>
+            </tr>
+        </table>
+    </center>
+</div>
+<select id="select" onchange="do_change()">
+    <option value="hi">hi</option>
+    <option value="hello">hello</option>
+    <option value="bye">bye</option>
+    <option value="next">next</option>
+</select>
+<!--<select id="select2">-->
+<!--    <option value="hi">hi</option>-->
+<!--    <option value="hello">hello</option>-->
+<!--    <option value="bye">bye</option>-->
+<!--    <option value="next">next</option>-->
+<!--</select>-->
+<h2 id="mouse1" onmouseover="mouseover()" onmouseout="mouseout()">This is a text.But its text can change color</h2>
+<h2 id="mouse2">This is a text.But its text can change color</h2>
+<script src="main.js">
+</script>
+</body>
+</html>

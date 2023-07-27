@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loop</title>
+    <style>
+        body {
+            line-height: 2;
+        }
+
+        li {
+            font-size: 26px;
+        }
+
+        pre {
+            color: red
+        }
+    </style>
+</head>
+<body>
+<h1>I. Vòng lặp (loop)</h1>
+<hr>
+<ul>
+    <li>Vòng lặp cho phép tự động thực hiện một khối lệnh lặp đi lặp lại nhều lần dựa vào một điều kiện cho trước</li>
+    <li>Vòng lặp giúp cho lập trình viên viết được các mã nguồn ngắn gọn hơn so với việc phải viết lặp lại những dòng mã
+        tương tự nhau
+    </li>
+    <li>Vòng lặp bao gồm:
+        <ul>
+            <li>Một điều kiện để đánh giá (lúc nào thì lặp)</li>
+            <li>Một khối lệnh để thực thi (lặp cái gì)</li>
+        </ul>
+    </li>
+    <li>Các vòng lặp hỗ trợ bỏi JS: for, while, do-while</li>
+</ul>
+<h1>II. Vòng lặp for</h1>
+<hr>
+<ul>
+    <li>Cú pháp:
+        <pre>
+    for (initial-action; loop-condinuation-condition; action-after-each-iteration)
+    {
+        statement(s)
+    }
+</pre>
+    </li>
+    <li>Trong đó:
+        <ul>
+            <li>initial-action là các câu lệnh được thực thi một lần duy nhất khi vòng lặp bắt đầu chạy</li>
+            <li>loop-continuation-condition là biểu thức điều kiện để xác định xem vòng lặp có được tiếp tục hay không
+            </li>
+            <li>action-after-each-iteration là các câu lệnh được thực thi sau mỗi lần lặp</li>
+        </ul>
+    </li>
+</ul>
+<h3>Vòng lặp for: Luồng thực thi</h3>
+<hr>
+<pre>
+    for (initial-action; loop-condinuation-condition; action-after-each-iteration)
+    {
+        statement(s)
+    }
+</pre>
+<ol type="1">
+    <li>Các câu lệnh initial-action được thực thi</li>
+    <li>Biểu thức điều kiện được đánh giá. Nếu đk đúng thì khối lệnh bên trong được thực thi và ngược lại</li>
+    <li>Khối lệnh trong thân vòng lặp được thực thi</li>
+    <li>Các câu lệnh action-each-iteration được thực thi</li>
+    <li>Bắt đầu vòng lặp mới từ bước 2-3-4</li>
+</ol>
+<h3>Sử dụng dấu phẩy trong vòng lặp for</h3>
+<ul>
+    <li>Có thể sử dụng nhiều câu lệnh bên trong các phần initial-action và action-after-each-iteration của vòng lặp for,
+        các câu lệnh này cách nhau bởi dấu phẩy
+    </li>
+    <li>Ví dụ:
+        <pre>
+        for(let i=0,j=10;i<=10;i++,j--)
+        {
+            let sum = i+j;
+            document.write(i+"+"+j+"="+sum);
+        }
+    </pre>
+    </li>
+</ul>
+/
+<h1>Câu lệnh break</h1>
+<hr>
+<ul>
+    <li>Lệnh break dùng để thoát khỏi vòng lặp mà không đi tới điểm cuối</li>
+    <li>Khi gặp câu lệnh này trong vòng lặp, chương trình sẽ thoát ra khỏi vòng lặp và chỉ đeén câu lệnh liền sau nó
+    </li>
+    <li>Nếu nhiều vòng lặp thì break sẽ thoát ra khỏi vòng lặp gần nhất</li>
+    <li>Ngoài ra break còn được dùng trong cấu trúc lựa chon switch-case</li>
+</ul>
+<h1>Câu lệnh continue</h1>
+<hr>
+<ul>
+    <li>Lệnh continue để nhảy qua một phần của khối lệnh và bắt đầu dòng tiếp theo</li>
+    <li>Khi gặp lệnh này trong các vòng lặp, chương trình sẽ bỏ qua phần còn lại trong vòng lặp và tiếp tục thực hiện
+        lần lặp tiếp theo
+    </li>
+</ul>
+<h1>Vòng lặp lồng nhau</h1>
+<hr>
+<ul>
+    <li>Một vòng lặp có thể được đặt bên trong một vòng lặp khác</li>
+    <li>Không hạn chế số lượng vòng lặp lồng nhau</li>
+    <li style="color: red">Sử dụng quá nhiều vòng lặp lồng nhau sẽ làm tăng độ phức tạp của mã nguồn lên rất nhiều</li>
+</ul>
+<h1>Vòng lặp while</h1>
+<hr>
+<ul>
+    <li>Vòng lặp while thực thi lặp lại một khối lệnh nếu biểu thức điều kiện trả về giá trị đúng</li>
+    <li>Cú pháp:
+        <pre>
+        While(loop-condinuation-condition) {
+            statements;
+        }
+    </pre>
+    </li>
+</ul>
+<h2>Lặp vô hạn với while</h2>
+<hr>
+<pre>
+    while (true) {}
+    while (1) {}
+
+    Lưu ý: Khi vòng lặp thực thi vô tận thì có thể sẽ hao tốn rất nhiều tài nguyên
+    Cần thiết kế điều kiện dừng để tránh xảy ra trường hợp này
+</pre>
+<h1>Vòng lặp do-while</h1>
+<hr>
+<ul>
+    <li>Cú pháp:
+        <pre>
+        Do {
+            statements
+        } while (loop-continuation-condition);
+    </pre>
+    </li>
+</ul>
+<h1>Điểm khác biết giữa for, while, do - while</h1>
+<hr>
+<p>Các loại vòng lặp có thể được sử dụng thay thế cho nhau. Việc lựa chọn vognf lặp cho phù hợp với từng tình huống là
+    quan trọng</p>
+<ul>
+    <li>for: Thường được sử dụng khi biết trước số lần lặp</li>
+    <li>while: thường được sử dụng khi không biết số lần lặp</li>
+    <li>do-while: thân của vòng lặp này được thực hiện ít nhất là một lần kế cả biết thức điều kiện trả về giá trị
+        false
+    </li>
+</ul>
+</body>
+</html>

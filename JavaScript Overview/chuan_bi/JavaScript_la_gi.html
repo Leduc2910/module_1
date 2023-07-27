@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+    <style>
+        li {
+            font-size: 20px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body style="line-height: 1.5">
+<h1>I. JavaScript</h1>
+<hr>
+<ul>
+    <li>JavaScript là một ngôn ngữ lập trình được sử dụng để tạo trang Website tương tác.Từ làm mới bảng tin trên trang
+        mạng xã
+        hội đến hiển thị hình ảnh động và bản đồ tương tác, các chức năng của JavaScript có thể cải thiện trải nghiệm
+        người dùng của trang web. Là ngôn ngữ kịch bản phía máy khách, JavaScript là một trong những công nghệ cốt lõi
+        của World Wide Web.
+    </li>
+    <li>JavaScript là một ngôn ngữ script được dùng để tạo các script ở máy client và máy server. Các script ở máy
+        client có thể thực thi được trong
+        trình duyệt trong khi các script ở máy server lại thực hiện trên server.
+    </li>
+    <li style="color:red">JavaScript là một ngôn ngữ script dựa trên đối tượng nhằm phát triển các ứng dụng dựa trên
+        client và server
+    </li>
+</ul>
+<h1>II. Ứng dụng của JavaScript</h1>
+<hr>
+<ul>
+    <li>Lập trình web front end với các framework hàng đầu: JQuery, React, Angular, VueJS</li>
+    <li>JS còn được sử dụng dể tạo các ứng dụng ở phía back-end với NodeJS</li>
+    <li>Lập trình viên ứng dụng di động với React Native, Inoic, NativeScript</li>
+    <li>Lập trình game với Unity</li>
+    <li>Lập trình robot, IoT</li>
+</ul>
+<h1>III. Các cách nhúng JS vào HTML</h1>
+<hr>
+<ul>
+    <li>Viết mã JS bên trong thẻ &ltscript&gt&lt/script&gt</li>
+    <li>Sử dụng file .js và nhúng vào trang web</li>
+    <li>Sử dụng file .js từ bên ngoài</li>
+    <li>Viết trực tiếp mã JS trong thẻ html</li>
+</ul>
+<ol>
+    <li style="font-weight: bold">Thẻ &ltscript&gt</li>
+    <p>* Có thể đặt trong thẻ head hoặc thẻ body</p>
+    <p id="demo">A paragraph</p>
+    <button type="button" onclick="myFunction()">Try it</button>
+    <li style="font-weight: bold">File .js</li>
+    <p>* Nhúng file .js vào tài liệu HTML sử dụng thuộc tính src của thẻ &ltscript&gt</p>
+    <!--<script src="myScript.js"></script>-->
+    <li style="font-weight: bold">Sử dụng file .js từ bên ngoài</li>
+    <p>* Tái sử dụng các thư viện có sẵn</p>
+    <!--<script src="url"></script>-->
+    <li style="font-weight: bold">Viết mã JS ngay khi khai báo các thẻ HTML</li>
+    <button onclick="alert('Xin chao ban')">Click me</button>
+    <p>=> nên hạn chế sử dụng, vì gây khó cho việc bảo trì</p>
+</ol>
+<script>
+
+    // 1. sử dụng thẻ script
+    function myFunction() {
+        document.getElementById("demo").innerHTML = "Paragraph changed.";
+    }
+
+    //2. sử dụng alert
+    function printalert() {
+        alert("xin chao moi nguoi");
+    }
+
+    //3. sử dụng prompt
+    function printprompt() {
+        var s = prompt("Enter your name: ");
+        alert("Xin chao " + s);
+    }
+
+    //4. sử dụng confirm
+    function printconfirm() {
+        confirm("press a button!");
+    }
+
+    //5. Sử dụng document.write()
+    function showMessage() {
+        document.write('Xin chào!');
+    }
+
+    //6. Sử dụng console.log()
+    function showMessage2() {
+        console.log('Xin chào!');
+    }
+</script>
+<h1>IV. Các hàm có sẵn</h1>
+<hr>
+<ol>
+    <li>alert</li>
+    <button onclick="printalert()">click me</button>
+    <li>prompt</li>
+    <button onclick="printprompt()">click me</button>
+    <li>confirm</li>
+    <button onclick="printconfirm()">click me</button>
+    <li>document.write()</li>
+    <button type="button" onclick="showMessage();">click me</button>
+    <li>console.log()</li>
+    <button type="button" onclick="showMessage2();">click me</button>
+</ol>
+<h1>V. Cú pháp Javascript</h1>
+<hr>
+<p>Cú pháp JS bao gồm những quy tắc viết mã JS. Chúng ta phải tuân thủ cú pháp khi xây dựng một chương trình. Một chương
+    trình máy tính(computer program) là một danh sách các hướng dẫn (instruction) được máy tính thực thi(execute). Trong
+    các ngôn ngữ lập trình các hướng dẫn này được gọi là câu lệnh. Và ngăn cách bằng dấu chấm phẩy.</p>
+<ol style="font-weight: bold">
+    <li>Literal</li>
+    là giá trị cố định không thay đổi được. VD 10; 10.5; "Hà Nội",...
+    <li>Biến (Variable)</li>
+    được sử dụng để lưu trữ giá trị<br>
+    Một biến cần được khai báo trước khi sử dụng
+    var pass; khai báo một biến (sử dụng var hoặc let)
+    pass = 10; gắn giá trị cho biến
+    <li>Toán tử</li>
+    chẳng hạn như toán tử số học, toán tử so sánh, toán tử logic
+    <li>Biểu thức</li>
+    là kết hợp của giá trị, biến, toán tử
+    <li>Từ khóa</li>
+    là các từ được quy định sẵn của ngôn ngữ lập trình
+    <li>Chú thích</li>
+    Sử dụng 2 dấu gạch chéo (một dòng) hoặc /* */ (cho nhiều dòng)
+</ol>
+</body>
+</html>

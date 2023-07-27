@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 4</title>
+</head>
+<body>
+Nhập a =
+<input type="number" id="1"><br><br>
+Nhập b =
+<input type="number" id="2"><br><br>
+<button onclick="tinh_tong()">Generate</button>
+<script>
+    function tinh_tong() {
+        let a = +document.getElementById("1").value;
+        let b = +document.getElementById("2").value;
+        let c = a + b;
+        alert(c);
+    }
+</script>
+</body>
+</html>

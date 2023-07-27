@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prepare</title>
+    <style>
+        li {
+
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body style="line-height: 2">
+<h1>A. Câu lệnh điều kiện</h1>
+<hr>
+<ul>
+    <li>Câu lệnh điều kiện còn được gọi là câu lệnh ra quyết định (decision making)</li>
+    <li>Cho phép thay đổi luồng thực thi của chương trình</li>
+    <li>Lựa chọn thực thi một khối lệnh dựa trên việc đánh giá một điều kiện cho trước</li>
+    <li>JS hỗ trợ các cu lệnh điều kiện: if; switch-case</li>
+</ul>
+<ol type="I">
+    <li><b>Câu lệnh if</b>
+        <ul>
+            <li>Đánh giá một điều kiện và đưa ra lựa chọn thực thi một khối lệnh dựa trên điều kiện đó.</li>
+            <li>Nếu điều kiện có giá trị đúng (true) thì khối lệnh bên trong if được thực thi.</li>
+            <li>Nếu điều kiện có giá trị sai (false) thì khối lệnh bên trong if sẽ được bỏ qua.</li>
+            <li>Cú pháp:</li>
+            <li style="color: red">if (condition) {<br> // one or more statements<br>}<br>Trong đó:<br>condition: là
+                biểu thức trả về giá trị kiểu boolean<br>statements: các câu lệnh sẽ được thực thi nếu điều kiện trả về
+                true
+            </li>
+            <li>if với một câu lệnh bên trong thì chúng ta có thể bỏ các dấu ngoặc nhọn</li>
+        </ul>
+    </li>
+    <li><b>Câu lệnh if-else</b>
+        <ul>
+            <li>Câu lệnh if-else chọn thực thi 1 trong 2 khối lệnh thông qua việc đánh giá một điều kiện</li>
+            <li>Cú pháp: <br><span style="color: red">if (condition) {<br>//one or more statements;<br>} else {<br>//one or more statements <br>}</span>
+            </li>
+            <li>Trong đó: <br>condition: điều kiện để đánh giá. Nếu condition trả về true thì khối lệnh trong if được
+                thực hiện. Nếu condition trả về false thì khối lệnh trong else được thực hiện
+            </li>
+            <li>if-else với một dòng lệnh bên trong: có thể bỏ dấu ngoặc nhọn</li>
+        </ul>
+    </li>
+    <li><b>Câu lệnh if lồng nhau (nested if)</b>
+        <ul>
+            <li>Một câu lệnh if có thể được đặt trong câu lệnh if khác:
+                <pre style="color: red">
+if (condition) {
+    if (condition2) {
+        true-block statement(s);
+    } else {
+        false-block statement(s);
+    }
+} else {
+    false-block statement(s);
+}
+                </pre>
+            </li>
+        </ul>
+    </li>
+    <li><b>Câu lệnh if bậc thang</b>
+        <ul>
+            <li>Có thể đặt các câu lệnh điều kiện if else liên tiếp nhau:
+                <pre style="color: red">
+if (condition) {
+    // one or more statements;
+} else if (condition) {
+    // one or more statements;
+} else {
+    // one or more statements;
+}
+                </pre>
+            </li>
+        </ul>
+    </li>
+    <li><b>Các lỗi thường gặp</b>
+        <ol type="1">
+            <li>Quên dấu ngoặc</li>
+            <li>Dấu ; ở cuối</li>
+            <li>So sánh giá trị boolean : đây không phải là lỗi mà chỉ là việc so sách không cần thiết:
+                <pre style="color: red">
+Ví dụ:
+        if (even == true)
+                console.log("It is even");
+Sẽ tốt hơn nếu viết:
+        if (even)
+                console.log("It is even");
+        </pre>
+            </li>
+            <li>Nhầm khối lệnh if-else</li>
+            <li>So sánh số thực: khi so sánh các giá trị số thực (kiểu float hoặc double) thì có thể gặp trường hợp mà
+                độ chính xác không đúng.
+                <pre style="color: red">
+Ví dụ đoạn mã sau sẽ hiển thị false thay vì true:
+        var x = 1.0 - 0.1 - 0.1 -0.1 - 0.1;
+        console.log(x == 0.5);
+        console.log(x);
+Giá trị của biến x không phải là 0.5 mà là 0.5000...01;
+        </pre>
+            </li>
+            <li>So sánh kiểu số thực: Giải pháp
+                <ul>
+                    <li>So sánh gần đúng hiệu số của hai giá trị là một số rất nhro (epsilon)</li>
+                    <li>Thông thường: <br>Giá trị epsilon để so sánh giá trị float là 10<sup>-7</sup><br>Giá trị epsilon
+                        để so sánh giá trị double là 10<sup>-14</sup></li>
+                    <li>Ví dụ:
+                        <pre style="color: red">
+const EPSILON = 1E-14;
+var x = 1.0 - 0.1 - 0.1 - 0.1 - 0.1 - 0.1;
+if (Math.abs(x-0.5) < EPSILON)
+    console.log(x + "is approximately 0.5");
+                    </pre>
+                    </li>
+                </ul>
+            </li>
+            <li>Gán giá trị boolean: var even = number%2 == 0;</li>
+            <li>Lặp code</li>
+        </ol>
+    </li>
+</ol>
+<h1>B. Câu lệnh switch-case</h1>
+<hr>
+<ul>
+    <li>switch-case là một cấu trúc điều kiện cho phép lựa chọn thực thi các khối lệnh khác nhau dựa trên kết quả của
+        việc so sánh
+    </li>
+    <li>switch-case so sánh giá trị của một biến với lần lượt từng giá trị một nếu có giá trị phù hợp với biến thì khối
+        lệnh tương ứng sẽ được thực hiện
+    </li>
+    <li>switch-case không thể thay thế if else trong tất cả các trường hợp</li>
+    <li>câu lệnh:
+        <pre style="color: red">
+switch (biểu thức) {  //Giá trị của biểu thức sẽ được so sánh với từng trường hợp (case)
+    case n:
+            khối lệnh sẽ được thực thi; // nếu có trường hợp bằng khối lệnh tương ứng được thực thi
+            break;     //Nếu gặp câu lệnh break thì sẽ kết thúc khối switch-case
+    case m:
+            khối lệnh sẽ được thực thi;
+            break;
+    default:
+            khối lệnh sẽ được thực thi
+            nếu không chọn được trường hợp nào
+}
+    </pre>
+    </li>
+    <li>Gộp nhiều case: có thể lựa chọn thực thi một khối lệnh nếu giá trị bằng với một trong số nhiều case được gộp
+        lại với nhau
+        <pre style="color: blue">
+switch (day) {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+            console.log("Weekday");
+            break;
+    case 0:
+    case 6:
+            console.log("Weekend");
+    default:
+            console.log("Không có trường hợp");
+}
+    </pre>
+    </li>
+    <li>Clean code:
+        <pre style="color: blue">
+// Định nghĩa các hằng số:
+const MONDAY = 1; TUESDAY = 2; WEDNESDAY = 3; THURSDAY = 4; FRIDAY = 5; SATURDAY = 6; SUNDAY = 0;
+// Viết lại switch-case:
+switch (day) {
+    case MONDAY:
+    case TUESDAY:
+    case WEDNESDAY:
+    case THURSDAY:
+    case FRIDAY:
+            console.log("Weekday");
+            break;
+    case SATURDAY:
+    case SUNDAY:
+            console.log("Weekend");
+    default:
+            console.log("Không có trường hợp");
+}
+    </pre>
+    </li>
+</ul>
+
+<img src="if vs switch.png" height="534" width="945"/>
+<h1>C. Biểu thức điều kiện</h1>
+<hr>
+<ul>
+    <li>Biểu thức điều kiện đánh giá một biểu thức dựa vào một điều kiện cho trước</li>
+    <li>Biểu thức điều kiện là một toán tử 3 ngôi</li>
+    <li>Cú pháp:
+        <pre style="color: red">
+        condition ? expression_true_case : expression_false_case
+    </pre>
+    </li>
+    <li>Trong đó:
+        <ul>
+            <li>Condition: biểu thức điều kiện dùng để đánh giá</li>
+            <li>expression_true_case: biểu thức nếu điều kiện đúng (true)</li>
+            <li>expression_false_case: biểu thức nếu điều kiện sai (false)</li>
+        </ul>
+    </li>
+    <li>Ví dụ tìm giá trị lớn nhất trong 2 số
+        <pre style="color: blue">
+        var maxValue = number1 > number2 ? number1 : number2;
+    </pre></li>
+</ul>
+<hr>
+</body>
+</html>

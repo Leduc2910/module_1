@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 3</title>
+</head>
+<body>
+<h3>Cho a = 10, b=5, c=20, nhập vào d và tính (a+b*c-d)/2</h3>
+Nhập d=
+<input type="number" id="1"><br><br>
+<button onclick="Math1()">Alert</button>
+<button onclick="Math2()">Document.write</button>
+<button onclick="Math3()">Console.log</button>
+<script>
+    let a = 10;
+    let b = 5;
+    let c = 20;
+
+
+    function Math1() {
+        let d = +document.getElementById("1").value;
+        let e = (a + b * c - d) / 2;
+        alert(e);
+    }
+
+    function Math2() {
+        let d = +document.getElementById("1").value;
+        let e = (a + b * c - d) / 2;
+        document.write(e);
+    }
+
+    function Math3() {
+        let d = +document.getElementById("1").value;
+        let e = (a + b * c - d) / 2;
+        console.log(e);
+    }
+</script>
+</body>
+</html>

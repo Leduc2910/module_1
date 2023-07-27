@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+<form action="url" name="form-name">
+    <fieldset>
+        <legend>Register:</legend>
+        <label for="uname">Username:</label>
+        <input type="text" id="uname" name="uname"><br><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email"><br><br>
+        <label for="pass">Password:</label>
+        <input type="password" id="pass" name="pass"><br><br>
+        You are a:
+        <label><input type="radio" value="student" name="job" checked>student</label>
+        <label><input type="radio" value="teacher" name="job">teacher</label><br><br>
+        <label for="DOB">Date of birth:</label>
+        <input type="date" id="DOB" name="DOB"><br><br>
+        <label for="city">Country:</label>
+        <select id="city" name="City">
+            <option value="HN">Hà Nội</option>
+            <option value="HCM">Hồ Chí Minh</option>
+            <option value="HP">Hải Phòng</option>
+            <option value="HUE">Huế</option>
+            <option value="DN">Đà Nẵng</option>
+            <option value="NT">Nha Trang</option>
+            <option value="khac">Khác</option>
+        </select><br><br>
+        <label><input type="checkbox" value="accept">I have read .....</label><br><br>
+        <label><input type="checkbox" value="accept">I accept .....</label><br><br>
+        <button type="button">Submit</button>
+        <input type="reset" value="Reset">
+    </fieldset>
+</form>
+</body>
+</html>
