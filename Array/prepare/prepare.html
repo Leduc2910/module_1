@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mảng (Array)</title>
+    <style>
+        body {
+            line-height: 2;
+        }
+
+        li {
+            font-size: 26px;
+        }
+
+        pre {
+            font-size: 25px;
+            color: red
+        }
+    </style>
+</head>
+<body>
+<h1>Mảng là gì?</h1>
+<hr>
+<ul>
+    <li>Mảng là một loại biến đặc biệt, có thể lưu được nhiều giá trị thay vì chỉ một giá trị như các biến thông thường
+    </li>
+    <li>Mỗi giá trị trong mảng được gọi là một phần tử</li>
+    <li>Các phần tử được lưu trữ ở các vị trí kế tiếp nhau trong bộ nhớ</li>
+</ul>
+<h1>Các khái niệm của mảng</h1>
+<hr>
+<ul>
+    <li>Tên mảng: Tuân thử theo quy tắc đặt tên biến</li>
+    <li>Phần tử: các giá trị được lưu trữ trong mảng</li>
+    <li>Chỉ số: Vị trí của các phần tử trong mảng. Chỉ số bắt đầu từ 0</li>
+    <li>Độ dài: số lượng các phần tử của mảng</li>
+</ul>
+<h1>Khai báo mảng</h1>
+<hr>
+<ul>
+    <li>Cách 1:
+        <pre>
+    var array_name = [item1, item2,....];
+
+    var cars = ['Saab', 'Volvo', 'BMW'];
+  </pre>
+    </li>
+    <li>Cách 2: Sử dụng từ khóa new</li>
+    <pre>
+    var array_name = new Array(item1, item2,....);
+
+    var cars = new Array('Saab', 'Volvo', 'BMW');
+  </pre>
+    </li>
+</ul>
+<h1>Phần tử, chỉ số và độ dài của mảng</h1>
+<hr>
+<ul>
+    <li>Mỗi phần tử (item) được xác định bằng một số thứ tự còn gọi là chỉ số (index) duy nhất trong mảng</li>
+    <li>Chỉ số là một số nguyên dương</li>
+    <li>Chỉ số của phần tử đầu tiên là 0</li>
+    <li>Chỉ số của phần tử cuối cùng là n-1, trong đó n là độ dài của mảng</li>
+    <li>Có thể truy xuất đến phần tử của mảng thông qua chỉ số</li>
+    <li>Truy xuất phần tử của mảng
+        <ul>
+            <li>Mỗi phần tử trong mảng được thao tác giống như một biến</li>
+            <li>Truy xuất các phần tử thông qua chỉ số đặt trong dấu []</li>
+            <li>Ví dụ, giá giá trị cho phần tử đầu tiên của mảng:
+                <pre>
+              cars[0] = "Opel";
+            </pre>
+            </li>
+            <li>Ví dụ, lấy giá trị của một phần tử đầu tiên:
+                <pre>
+              var name = cars[0];
+            </pre>
+            </li>
+        </ul>
+    </li>
+    <li>Thuộc tính length là độ dài của mảng
+        <pre>
+    Ví dụ:
+      var fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+      alert(fruits.length);
+      Thuộc tính:
+          fruits: tên mảng
+          Banana, Orange, Apple, Mango : là các phần tử trong mảng, lần lượt các chỉ số trong mảng là 0,1,2,3
+          fruits.length : độ dài của mảng ở đây là 4 vì có 4 phần tử
+  </pre>
+    </li>
+</ul>
+<h1>Sử dụng for, for-in để duyệt mảng</h1>
+<hr>
+<ul>
+    <li>Vòng lặp for-in (còn gọi là enhanced for) được sử dụng để duyệt qua các phần tử của một collection, chẳng hạn
+        như mảng, danh sách,...
+    </li>
+    <li>Cú pháp:
+        <pre>
+        for (let element in array) {
+            console.log("element = "+array[element]);
+        }
+    </pre>
+    </li>
+    <li>Sử dụng vòng lặp for để duyệt qua tất cả các phần tử của mảng</li>
+    <li>Cú pháp:
+        <pre>
+        for (let i=0;i < array.length;i++) {
+            console.log("element="+array[i]);
+    </pre>
+    </li>
+    <li>Khác biệt khi sử dụng for và for-in:
+        <ul>
+            <li>Có thể sử dng index khi duyệt bằng for, không có index nếu sử dụng for-in</li>
+            <li>Có thể sử dụng for để duyệt theo các chiều khác nhau(từ đầu đến cuối, từ cuối đến đầu,..)</li>
+            <li>For in chỉ duệt từ đầu đến cuối mảng</li>
+        </ul>
+    </li>
+</ul>
+<h1>Thêm phần tử vào mảng: push(), length</h1>
+<hr>
+<ul>
+    <li>Phương thức push() cho phép thêm phần tử vào cuối mảng</li>
+    <li>Ví dụ:
+        <pre>
+        var fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+        fruits.push("Lemon");
+    </pre>
+    </li>
+    <li>Có thể thêm phần tử vào mảng bằng cách gán giá trị cho phần tử ở vị trí length</li>
+    <li>Ví dụ:
+        <pre>
+        var fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+        fruits[fruits.length] = "Lemon";
+    </pre>
+    </li>
+</ul>
+<h1>join()</h1>
+<hr>
+<ul>
+    <li>Phương thức join() chuyển tất cả các phần tử trong mảng thành chuỗi và nối chúng lại với nhau</li>
+    <li>Ví dụ:
+        <pre>
+        var a = [1, 2, 3];      // Tạo một mảng mới với 3 phần tử
+        a.join()                // => "1,2,3"
+        a.join(" ")             // => "1 2 3"
+        a.join("")              // => "123"
+        var b = new Array(10);  // Một mảng có chiều dài là 10 với không phần tử
+        b.join('-')             // => '---------' một chuỗi với 9 dấu gạch ngang
+    </pre>
+    </li>
+</ul>
+<h1>reverse()</h1>
+<hr>
+<ul>
+    <li>Phương thức reverse() đảo ngược các phần tử trong mảng, trả về một mảng các phần tử bị đảo ngược</li>
+    <li>Ví dụ:
+        <pre>
+        let a = [1,2,3];
+        a.reverse().join()      // => "3,2,1" và a = [3,2,1]
+    </pre>
+    </li>
+</ul>
+<h1>sort()</h1>
+<hr>
+<ul>
+    <li>Sắp xếp các phần tử của mảng sử dụng phương thức sort()</li>
+    <li>Ví dụ:
+        <pre>
+        let a = new Array("banana", "cherry", "apple");
+        a.sort();
+        let s = a.join(", ")        // s = "apple, banana, cherry"
+    </pre>
+    </li>
+</ul>
+<h1>concat()</h1>
+<hr>
+<ul>
+    <li>Nối các phần tử của hai mảng với nhau. Trả về mảng mới chứa phần từ của mảng gốc và mảng được nối</li>
+    <li>Ví dụ:
+        <pre>
+        let a = [1,2,3];
+        a.concat(4, 5)                // return [1,2,3,4,5]
+        a.concat([4,5]);              // return [1,2,3,4,5]
+        a.concat([4,5],[6,7]);        // return [1,2,3,4,5,6,7]
+        a.concat(4,[5,[6,7]])         // return [1,2,3,4,5,[6,7]]
+    </pre>
+    </li>
+</ul>
+<h1>push() và pop()</h1>
+<hr>
+<ul>
+    <li>Hai phương thức push và pop hoạt động giống cấu trúc ngăn xếp (FIFO):
+        <ul>
+            <li>Phương thức push() để thêm một hoặc nhiều phần tử vào cuối mảng</li>
+            <li>Phương thức pop() xóa đi phần tử cuối cùng của mảng, làm giảm kích thức và trả về giá trị của phần tử bị
+                xóa
+            </li>
+        </ul>
+    </li>
+    <li>Ví dụ:
+        <pre>
+        let stack = [];             // stack[]
+        stack.push(1,2);            // stack[1,2] return 2
+        stack.pop()                 // stack[1] return 2
+        stack.push(3)               // stack[1,3] return 2
+        stack.pop()                 // stack[1] return 3
+        stack.push([4,5])           // stack[1,[4,5]] return 2
+        stack.pop()                 // stack[1] return [4,5]
+        stack.pop()                 // stack[]  return 1
+    </pre>
+    </li>
+</ul>
+<h1>shift() và unshift()</h1>
+<ul>
+    <li>Phương thức shift() để xóa phần tử vào đầu mảng</li>
+    <li>Phương thức unshift() để nối phần tử đầu tiên của mảng</li>
+    <li>Ví dụ:
+    <pre>
+        let a = [];
+        a.unshift(1)           //a[1]   return 1
+        a.unshift(22)          //a[22,1]    return 2
+        a.shift()              // a[1]       return 22
+    </pre></li>
+</ul>
+<h1>toString()</h1>
+<hr>
+<ul>
+    <li>Phương thức chuyển toàn bộ các phần tử trong mảng sang dạng chuỗi</li>
+    <li>Ví dụ:
+    <pre>
+        [1,2,3].toString()          // Yields '1,2,3'
+        ['a', 'b', 'c'].toString()  // Yields 'a,b,c'
+        [1,[2,'c']].toString()      // Yields '1,2,3'
+    </pre></li>
+</ul>
+</body>
+</html>

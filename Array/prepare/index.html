@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+<script>
+// Cách thứ nhất
+let studentC06 = ['Linh', 'Lộc', 'Đức', 'Dân', 'Đề'];
+console.log(studentC06[2]); // lấy giá trị của studentC06 ở vị trí thứ 2 ==> Đức
+// Cách thứ 2
+let age = new Array(23,19,20,16,20);
+// Thay giá trị tại một ví trí
+studentC06[0]  = 'Lâm'; // thay giá trị Linh ở vị trí 0 thành Lâm
+// // in ra mảng
+// for (let i=0; i<studentC06.length;i++) {
+//   console.log(studentC06[i])
+// }
+// // một mảng trong JS có thể lưu trữ nhiều kiểu giá trị
+// let abc = [1,'Linh',true,0.5,{name: 'Dân'}];
+// for (let i=0; i<abc.length;i++) {
+//   console.log(abc[i])
+// }
+// // // push và pop
+// console.log(studentC06.push('Mai',['Hùng','Tiến Anh'],'Hiếu'));
+// for (let i=0; i<studentC06.length;i++) {
+//   console.log(studentC06[i])
+// }
+// console.log(studentC06.pop())
+// for (let i=0; i<studentC06.length;i++) {
+//   console.log(studentC06[i])
+// }
+// chuyển từ mảng sang chuỗi
+console.log(age.join());
+// đảo ngược mảng
+console.log(studentC06.reverse().join(','));
+// sắp xếp mảng
+age.sort()
+console.log(age)
+// gộp mảng
+let studentC07 = ['Linh', 'Như Anh']
+studentC06 = studentC06.concat(studentC07);
+console.log(studentC06)
+</script>
+</body>
+</html>
