@@ -30,20 +30,15 @@
     //       check = false;
     //   }
     // }
-    // // Hiển thị ra 20 số trong dãy fibonacci đầu tiên
-    // let fibo = 0;
-    // for (let i=1; i<=20;i++) {
-    //     if (i == 1) {
-    //         document.write("The Fibo "+i+" is: 1 <br>");
-    //     }
-    //     if (i==2) {
-    //         document.write("The Fibo "+i+" is: 2 <br>")
-    //     }
-    //     if (i != 1 && i != 2) {
-    //         fibo = (i-1) + (i-2);
-    //         document.write("The Fibo "+i+" is: "+fibo+"<br>")
-    //     }
-    // }
+    // Hiển thị ra 20 số trong dãy fibonacci đầu tiên
+    let fn = 0;
+    let fn1 = 0;
+    let fn2 = 1;
+    for (let i=1; i<=20;i++) {
+        fn = fn1 + fn2;
+        fn1 = fn2;
+        fn2 = fn;
+    }
     // // Tìm số đầu tiên trong dãy fibonacci chia hết cho 5
     // let fibo = 0;
     // for (let i=1;;i++) {
@@ -80,32 +75,32 @@
     //     }
     // }
     // document.write(result);
-    function gamedoanso() {
-        let n = +prompt("Bạn muốn đoán trong khoảng nào");
-        let rdnumber = Math.floor(n*Math.random());
-        let guess = +prompt("Bạn đoán số nào");
-        let count=0;
-        while (true) {
-            if (count > 3) {
-                alert("Bạn đã hết lần đoán");
-                break;
-            }
-            if (guess == rdnumber) {
-                alert("Bạn đã đoán đúng");
-                break;
-            }
-            if (guess < rdnumber) {
-                alert("Lớn hơn");
-                guess = +prompt("Bạn đoán số nào");
-                count++;
-            }
-            if (guess > rdnumber) {
-                alert("Nhỏ hơn");
-                guess = +prompt("Bạn đoán số nào");
-                count++;
-            }
-        }
-    }
+    // function gamedoanso() {
+    //     let n = +prompt("Bạn muốn đoán trong khoảng nào");
+    //     let rdnumber = Math.floor(n*Math.random());
+    //     let guess = +prompt("Bạn đoán số nào");
+    //     let count=0;
+    //     while (true) {
+    //         if (count > 3) {
+    //             alert("Bạn đã hết lần đoán");
+    //             break;
+    //         }
+    //         if (guess == rdnumber) {
+    //             alert("Bạn đã đoán đúng");
+    //             break;
+    //         }
+    //         if (guess < rdnumber) {
+    //             alert("Lớn hơn");
+    //             guess = +prompt("Bạn đoán số nào");
+    //             count++;
+    //         }
+    //         if (guess > rdnumber) {
+    //             alert("Nhỏ hơn");
+    //             guess = +prompt("Bạn đoán số nào");
+    //             count++;
+    //         }
+    //     }
+    // }
 </script>
 </body>
 </html>

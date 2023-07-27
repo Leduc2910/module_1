@@ -5,6 +5,84 @@
     <title>Luyện tập 2</title>
 </head>
 <body>
+<script>
+    // // In dãy fibonacci
+    // let count = 0;
+    // let fb, fb1 = 0, fb2 = 1;
+    // while (true) {
+    //     fb = fb1 + fb2;
+    //     fb1 = fb2;
+    //     fb2 = fb;
+    //     count++;
+    //     document.write("The fibo "+count+" is "+fb+"<br>")
+    //     if (count == 30) {
+    //         break;
+    //     }
+    // }
+    // // Tính giai thừa của một số nguyên dương
+    // let n = +prompt("Nhập số cần tính: ");
+    // let f = 1;
+    // let i = 1;
+    // while (i<=n) {
+    //     f *= i;
+    //     i++;
+    // }
+    // document.write(n+"! = "+f);
+    // ỉn ra tam giác vuông
+    for (let i = 1; i <= 5; i++) {
+        for (let j = 1; j <= i; j++) {
+            document.write('*');
+        }
+        document.write("<br>")
+    }
+    document.write("<br><br>")
+    for (let i=1;i<=5;i++) {
+        for (let j=1;j<=5-i+1;j++) {
+            document.write('*')
+        }
+        document.write('<br>')
+    }
+    document.write("<br>")
+    for (let i=1;i<=5;i++) {
+        for (let j=1;j<=5-i;j++) {
+            document.write("&nbsp&nbsp");
+        }
+        for (let k=1;k<=i;k++) {
+            document.write('*');
+        }
+        document.write('<br>')
+    }
+    document.write('<br>')
+    for (let i=1;i<=5;i++) {
+        for (let j=1;j<=i-1;j++) {
+            document.write('&nbsp&nbsp');
+        }
+        for (let k=1;k<=5-i+1;k++){
+            document.write('*');
+        }
+        document.write('<br>')
+    }
+    document.write('<br>')
+    // in hình chữ nhật
+    for (let i=1; i<=7; i++) {
+        for (let j=1;j<=20;j++) {
+            if (i==1 || i==7 || j==1 || j==20) {
+                document.write('*')
+            } else {
+                document.write('&nbsp&nbsp');
+            }
+        }
+        document.write('<br>')
+    }
+    // in hình trái tim
+    let sotien = +prompt("Nhập số tiền bạn muốn vay");
+    let sothang = +prompt("Nhập số tháng cho vay");
+    let laisuat = +prompt("Nhập lãi suất hàng tháng")
 
+    for (let i=1;i<=sothang;i++) {
+        sotien *= (1+laisuat);
+    }
+    document.write('Số tiền phải trả = '+Math.round(sotien))
+</script>
 </body>
 </html>
