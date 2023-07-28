@@ -111,7 +111,7 @@ for (let j=0;j<array[0].length;j++) {
 }
 // // trộn ngẫu nhiên các phần tử
 // for (let i=0;i<array.length;i++) {
-//     for (let j=0;i<array[i].length;j++) {
+//     for (let j=0;j<array[i].length;j++) {
 //         let i1 = Math.floor(Math.random()*array.length);
 //         let j1 = Math.floor(Math.random()*array[i].length);
 //         let temp = array[i][j];
@@ -119,8 +119,33 @@ for (let j=0;j<array[0].length;j++) {
 //         array[i1][j1] = temp;
 //     }
 // }
+// // duyệt mảng 2 chiều
+// for(let i=0;i<array.length;i++) {
+//     for(let j=0;j<array[i].length;j++) {
+//         console.log(array[i][j]);
+//     }
+// }
 // Tìm số lớn nhất trong mảng 2 chiều
+let max = array[0][0];
+for(let i=0;i<array.length;i++) {
+    for(let j=0;j<array[i].length;j++) {
+        if (max < array[i][j]) {
+            max = array[i][j];
+        }
+    }
+}
+console.log("Max number is "+max);
+
 // Tìm số nhỏ nhất trong mảng 2 chiều
+let min=array[0][0]
+for(let i=0;i<array.length;i++) {
+    for(let j=0;j<array[i].length;j++) {
+        if (min > array[i][j]) {
+            min = array[i][j];
+        }
+    }
+}
+console.log("Min number is "+min);
 </script>
 </body>
 </html>
