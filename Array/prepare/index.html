@@ -10,13 +10,16 @@
 let studentC06 = ['Linh', 'Lộc', 'Đức', 'Dân', 'Đề'];
 console.log(studentC06[2]); // lấy giá trị của studentC06 ở vị trí thứ 2 ==> Đức
 // Cách thứ 2
-let age = new Array(23,19,20,16,20);
+let age = new Array(23,199,20,16,20);
 // Thay giá trị tại một ví trí
 studentC06[0]  = 'Lâm'; // thay giá trị Linh ở vị trí 0 thành Lâm
 // // in ra mảng
 // for (let i=0; i<studentC06.length;i++) {
 //   console.log(studentC06[i])
 // }
+// studentC06.forEach(function (item) {
+//     document.write(item);
+// })
 // // một mảng trong JS có thể lưu trữ nhiều kiểu giá trị
 // let abc = [1,'Linh',true,0.5,{name: 'Dân'}];
 // for (let i=0; i<abc.length;i++) {
@@ -31,17 +34,45 @@ studentC06[0]  = 'Lâm'; // thay giá trị Linh ở vị trí 0 thành Lâm
 // for (let i=0; i<studentC06.length;i++) {
 //   console.log(studentC06[i])
 // }
-// chuyển từ mảng sang chuỗi
-console.log(age.join());
-// đảo ngược mảng
-console.log(studentC06.reverse().join(','));
+// // chuyển từ mảng sang chuỗi
+// console.log(age.join());
+// // đảo ngược mảng
+// console.log(studentC06.reverse().join(','));
 // sắp xếp mảng
-age.sort()
-console.log(age)
-// gộp mảng
-let studentC07 = ['Linh', 'Như Anh']
-studentC06 = studentC06.concat(studentC07);
-console.log(studentC06)
+// age.sort(function (a,b) {
+//     return a-b;
+// })
+// console.log(age)
+// // gộp mảng
+// let studentC07 = ['Linh', 'Như Anh']
+// studentC06 = studentC06.concat(studentC07);
+// console.log(studentC06)
+// sort
+// let a = [33, 4, 1111, 222];
+// a.sort();                               // Alphabetical order: 1111, 222, 33, 4
+// console.log(a)
+// a.sort(function(a,b) {       // Numerical order: 4, 33, 222, 1111
+//     return a-b;                    // Returns &lt; 0, 0, or &gt; 0, depending on order
+// });
+// console.log(a)
+// a.sort(function(a,b) {     // Reverse numerical order
+//     return b-a;
+// });
+// console.log(a)
+// // sort 2
+// let a = ['ant', 'Dog','Bug', 'cat'];
+// // a.sort();
+// // console.log(a);
+// a.sort(function (s,t) {
+//     let a = s.toLowerCase();
+//     console.log(a);
+//     let b = t.toLowerCase();
+//     console.log(b);
+//     if (a<b) return -1;
+//     if (a>b) return 1;
+//     return 0;
+// })
+// console.log(a)
 </script>
 </body>
 </html>

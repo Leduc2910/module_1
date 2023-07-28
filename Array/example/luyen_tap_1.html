@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 1</title>
+</head>
+<body>
+<script>
+    // // Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử.
+    // // Chương trình thực hiện tính và hiển thị xem có bao nhiêu số nguyên lớn hơn hoặc bằng 10
+    // let bai1 = [];
+    // let count=0;
+    // for (let i=0;i<10;i++) {
+    //   bai1.push(Math.floor(20*Math.random()));
+    // }
+    // for (let i=0; i<bai1.length;i++) {
+    //   if(bai1[i] >= 10) {
+    //     console.log(bai1[i])
+    //     count++;
+    //   }
+    // }
+    // console.log("Số ptu >= 10 : "+count);
+
+
+    // // Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử khác nhau
+    // // Chương trình hiển thị ra được phần tử lớn nhất và vị trí của phần tử đó
+    // let bai2 = [45,2,5,12,6,213,84,201,3,4];
+    // let max = bai2[0];
+    // let index = 0;
+    // for (let i=0;i<bai2.length;i++) {
+    //     if(max < bai2[i]) {
+    //       max = bai2[i];
+    //       index = i;
+    //     }
+    // }
+    // console.log('Số lớn nhất trong mảng là '+max);
+    // console.log('Chỉ số của số lớn nhất trong mảng là '+index);
+
+
+    // // Viết chương trình khởi tạo mảng số nguyên. Hiển hiện giá trị lớn nhất trong mảng đó.
+    // // In ra giá trị trung bình của các phần tử trong mảng.
+    // let bai3 = [45,2,5,12,6,213,84,201,3,4];
+    // let max = bai3[0];
+    // let average;
+    // let sum=0;
+    // for (let i=0;i<bai3.length;i++) {
+    //   if (max < bai3[i]) {
+    //     max = bai3[i];
+    //   }
+    //   sum += bai3[i];
+    // }
+    // console.log("Số lớn nhất trong mảng là "+max);
+    // average = sum/bai3.length;
+    // console.log("Giá trị trung bình của các phần tử là "+average);
+
+
+    // // Viết chương trình khởi tạo/nhập vào một mảng số nguyên và đảo ngược các phần tử trong mảng đó.
+    // let bai4 = [];
+    // let n = +prompt("Nhập số phần tử của mảng:");
+    // while (bai4.length<n) {
+    //   let element = +prompt("Nhập phần tử của mảng:");
+    //   bai4.push(element);
+    // }
+    // bai4.reverse();
+    // for (let i=0;i<bai4.length;i++) {
+    //   console.log(bai4[i]);
+    // }
+
+
+    // Viết chương trình đếm số nguyên âm trong một chuỗi
+
+
+
+    // // Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V.
+    // // Chương trình tìm xem V có nằm trong mảng số nguyên không?
+    // // Nếu V thuộc mảng số nguyên thì in ra "V is in the array" còn lại in ra "V is not in the array"
+    // let bai6 = [];
+    // let n = +prompt("Nhập số phần tử của mảng:");
+    // while (bai6.length<n)
+    // {
+    //     let element = +prompt("Nhập phần tử của mảng:");
+    //     bai6.push(element);
+    // }
+    // let search = +prompt("Nhập số nguyên cần tìm: ");
+    // let check = false;
+    // for (let i=0; i<bai6.length;i++) {
+    //     if (search == bai6[i]) {
+    //         check = true;
+    //         break;
+    //     }
+    // }
+    // if (check) {
+    //     console.log('V is in the array');
+    // } else {
+    //     console.log('V is not in the array');
+    // }
+
+
+    // // Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V.
+    // // Chương trình kiểm tra xem V có thuộc mảng đã cho không, nếu V thuộc mảng đã cho xoá V khỏi mảng
+    // // (Bản chất việc xoá ở đây tức là dịch phần tử ở bên phải V sang vị trí của V, và gán 0 cho phần tử cuối cùng của mảng)
+    // let bai7 = [];
+    // let n = +prompt("Nhập số phần tử của mảng:");
+    // while (bai7.length<n)
+    // {
+    //     let element = +prompt("Nhập phần tử của mảng:");
+    //     bai7.push(element);
+    // }
+    // let search = +prompt("Nhập số nguyên cần tìm: ");
+    // let index
+    // for (let i=0; i<bai7.length;i++) {
+    //     if (search == bai7[i]) {
+    //         index = i;
+    //         break;
+    //     }
+    // }
+    // for (let i = index;i<bai7.length;i++) {
+    //     bai7[i] = bai7[i+1];
+    // }
+    // bai7[n-1] = 0;
+    // console.log(bai7)
+
+
+    // // Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử.
+    // // Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.
+    // let bai8 = [];
+    // let n = +prompt("Nhập số phần tử của mảng:");
+    // while (bai8.length<n)
+    // {
+    //     let element = +prompt("Nhập phần tử của mảng:");
+    //     bai8.push(element);
+    // }
+    // bai8.sort(function (a,b) {
+    //     return b-a;
+    // })
+    // console.log(bai8)
+
+
+    // // Viết chương trình khởi tạo/nhập vào 2 mảng số nguyên gồm 10 phần tử, gọi là mảng a và b.
+    // // Mảng c là một mảng được khai báo gồm 20 phần tử số nguyên.
+    // // Chương trình sẽ lưu các phần tử được nối từ hai mảng b và a vào mảng c. Hiển thị mảng c.
+    // let bai9a = [];
+    // let bai9b = [];
+    // let bai9c = [];
+    // let n = +prompt("Nhập số phần tử của mảng: ");
+    // let element
+    // while (bai9a.length<n) {
+    //     element = +prompt("Nhập phần tử thứ của mảng a:")
+    //     bai9a.push(element);
+    // }
+    // while(bai9b.length<n) {
+    //     element = +prompt("Nhập phần tử thứ của mảng b:")
+    //     bai9b.push(element);
+    // }
+    // bai9c = bai9a.concat(bai9b);
+    // console.log(bai9c);
+</script>
+</body>
+</html>
