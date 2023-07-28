@@ -6,13 +6,13 @@
 </head>
 <body>
 <script>
-// Cách thứ nhất
-let studentC06 = ['Linh', 'Lộc', 'Đức', 'Dân', 'Đề'];
-console.log(studentC06[2]); // lấy giá trị của studentC06 ở vị trí thứ 2 ==> Đức
-// Cách thứ 2
-let age = new Array(23,199,20,16,20);
-// Thay giá trị tại một ví trí
-studentC06[0]  = 'Lâm'; // thay giá trị Linh ở vị trí 0 thành Lâm
+// // Cách thứ nhất
+// let studentC06 = ['Linh', 'Lộc', 'Đức', 'Dân', 'Đề'];
+// console.log(studentC06[2]); // lấy giá trị của studentC06 ở vị trí thứ 2 ==> Đức
+// // Cách thứ 2
+// let age = new Array(23,199,20,16,20);
+// // Thay giá trị tại một ví trí
+// studentC06[0]  = 'Lâm'; // thay giá trị Linh ở vị trí 0 thành Lâm
 // // in ra mảng
 // for (let i=0; i<studentC06.length;i++) {
 //   console.log(studentC06[i])
@@ -73,6 +73,54 @@ studentC06[0]  = 'Lâm'; // thay giá trị Linh ở vị trí 0 thành Lâm
 //     return 0;
 // })
 // console.log(a)
+
+
+
+// khởi tạo mảng 2 chiều
+let array = new Array(2);
+for (let i=0;i<array.length;i++) {
+    array[i] = new Array(2);
+}
+for(let i=0;i<array.length;i++) {
+    for(let j=0;j<array[i].length;j++) {
+        array[i][j] = Math.floor(100*Math.random()+1);
+    }
+}
+// duyệt mảng 2 chiều
+for(let i=0;i<array.length;i++) {
+    for(let j=0;j<array[i].length;j++) {
+        console.log(array[i][j]);
+    }
+}
+document.write('<br>')
+// tính tổng các phần tử số theo từng hàng
+for (let i = 0;i<array.length;i++) {
+    let sum = 0;
+    for (let j=0;j<array[i].length;j++) {
+        sum += array[i][j];
+    }
+    console.log('Sum for row '+i+" is "+sum);
+}
+// tính tổng các phần tử số theo từng cột
+for (let j=0;j<array[0].length;j++) {
+    let sum =0;
+    for (let i=0;i<array.length;i++) {
+        sum += array[i][j];
+    }
+    console.log('Sum for column '+j+" is "+sum);
+}
+// // trộn ngẫu nhiên các phần tử
+// for (let i=0;i<array.length;i++) {
+//     for (let j=0;i<array[i].length;j++) {
+//         let i1 = Math.floor(Math.random()*array.length);
+//         let j1 = Math.floor(Math.random()*array[i].length);
+//         let temp = array[i][j];
+//         array[i][j] = array[i1][j1]
+//         array[i1][j1] = temp;
+//     }
+// }
+// Tìm số lớn nhất trong mảng 2 chiều
+// Tìm số nhỏ nhất trong mảng 2 chiều
 </script>
 </body>
 </html>

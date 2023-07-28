@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mảng 2 chiều</title>
+    <style>
+        body {
+            line-height: 2;
+        }
+
+        li {
+            font-size: 26px;
+        }
+
+        pre {
+            font-size: 25px;
+            color: red
+        }
+    </style>
+</head>
+<body>
+<h1>Mảng 2 chiều</h1>
+<hr>
+<ul>
+    <li>Mảng hai chiều là mảng đa chiều được sử dụng phổ biến nhiều nhất</li>
+    <li>Mảng hai chiều bao gồm các phần tử, mỗi phần t là một mảng hai chiều</li>
+    <li>Mảng hai chiều là một bảng gồm n dòng và m cột
+        <img src="mang2chieu.png" alt=""></li>
+    <li>Số phần tử trong mảng là n*m</li>
+</ul>
+<h1>Phần tử và chỉ số mảng 2 chiều</h1>
+<hr>
+<ul>
+    <li>Một phần tử được xác định bằng chỉ số dòng và chỉ số cột trong mảng</li>
+    <li>Ví dụ mảng numbers với 3 cột x 5 dòng, có tổng cộng 15 phần tử lần lượt là
+        <ul>
+            <li>number[0][0]</li>
+            <li>number[1][0]</li>
+            <li>............</li>
+            <li>number[2][4]</li>
+            <li>đứng trước là chỉ số đòng và sau là chỉ số cột</li>
+        </ul>
+    </li>
+</ul>
+<h1>Khởi tạo mảng 2 chiều</h1>
+<hr>
+<h2>Cách 1:</h2>
+<ul>
+    <li>Sử dụng dấu ngoặc vuông để khởi tạo mảng với các phần tử</li>
+    <li>Ví dụ khởi tạo mảng có 3 dòng và 3 cột:
+        <pre>
+    var cities = [
+        ['Hanoi', 'SaiGon', 'Danang'],
+        ['New York', 'California', 'Miami'],
+        ['Tokyo', 'Nagoya', 'Osaka']
+    ]
+    </pre>
+    </li>
+</ul>
+<h2>Cách 2:</h2>
+<ul>
+    <li>Sử dụng từ khóa new để khởi tạo mảng</li>
+    <li>Ví dụ, khởi tạo mảng 3 dòng và 3 cột
+        <pre>
+    let citis = new Array(3);
+    for (let i=0;i<3;i++) {
+        cities[i] = new Array(3)
+    }
+    cities[0][0] = 'Hanoi'; cities[0][1] = 'SaiGon'; cities[0][2] = 'Danang';
+    cities[1][0] = 'New York'; cities[1][1] = 'California'; cities[1][2] = 'Miami';
+    cities[2][0] = 'Tokyo'; cities[2][1] = 'Nagoya'; cities[2][2] = 'Osaka';
+    </pre>
+    </li>
+</ul>
+<h1>Duyệt mảng 2 chiều</h1>
+<hr>
+<ul>
+    <li>Sử dụng vòng lặp lồng nhau để duyệt mảng đa chiều</li>
+    <li>Sử dụng 2 vòng lặp lồng nhau để duyệt mảng 2 chiều</li>
+    <li>Ví dụ:
+        <pre>
+        for (let i=0; i< cities.length; i++) {
+            for (let j=0; j< cities[i].length; j++) {
+                document.write(cities[i][j]);
+            }
+        }
+        </pre>
+    </li>
+</ul>
+</body>
+</html>
