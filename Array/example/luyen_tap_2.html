@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 2</title>
+</head>
+<body>
+<script>
+    // document.write('bai 1 <br>')
+    // let a = [
+    //     [1, 2, 1, 24],
+    //     [8, 11, 9, 4],
+    //     [7, 0, 7, 27],
+    //     [7, 4, 28, 14],
+    //     [3, 10, 26, 7]
+    // ];
+    // for (let i = 0; i < a.length; i++) {
+    //     document.write(`row ${i}<br>`);
+    //     for (let j = 0; j < a[i].length; j++) {
+    //         document.write(` ${a[i][j]}<br>`);
+    //     }
+    // }
+    // document.write('<br><br>')
+    // document.write('bai 2 <br>')
+    // let b = ['c','s','c','2','6','1'];
+    // document.write(b.reverse().join(''));
+    // document.write('<br><br>')
+    // document.write('bai 3 <br>')
+    // let n = +prompt("Nhập số lượng ký tự:")
+    // let c = new Array(n);
+    // let count = 0;
+    // for (let i = 0; i < c.length; i++) {
+    //   let elements = prompt('Nhập ký tự:')
+    //   c[i] = elements;
+    // }
+    // for (let i = 0; i < c.length; i++) {
+    //   if (!isNaN(c[i])) {
+    //     count++;
+    //   }
+    // }
+    // if (count != 0) {
+    //   document.write(`Mảng có ${count} ký tự số<br>`);
+    // } else {
+    //   document.write(`Mảng không có ký tự số<br>`);
+    // }
+    // document.write('<br><br>')
+    // document.write('bai 4 <br>')
+    // let chuoi = prompt("Nhập một chuỗi bất kỳ:");
+    // let arr = chuoi.split(" ");
+    // document.write("Số từ "+arr.length)
+
+
+    // // bai 5
+    //
+    // let chuoi1 = prompt("Nhập chuỗi thứ nhất:")
+    // let chuoi2 = prompt("Nhập chuỗi thứ hai:")
+    // let check = true;
+    // if (chuoi1.length != chuoi2.length) {
+    //   check = false;
+    // } else {
+    //   for (let i = 0; i < chuoi1.length; i++) {
+    //     if (chuoi1[i] != chuoi2[i]){
+    //       check = false;
+    //       break;
+    //     }
+    //   }
+    // }
+    // if (check) {
+    //   console.log("Hai chuỗi giống nhau")
+    // } else {
+    //   console.log("Hai chuỗi khác nhau")
+    // }
+
+
+    // bai 6
+    let n = +prompt("Nhập số lượng ký tự:")
+    let c = new Array(n);
+    let count = 0;
+    for (let i = 0; i < c.length; i++) {
+      let elements = prompt('Nhập ký tự:')
+      c[i] = elements;
+    }
+    for (let i = 0; i < c.length; i++) {
+      if (c[i] == '-') {
+        c[i] = '_';
+      }
+    }
+    console.log(c);
+</script>
+</body>
+</html>

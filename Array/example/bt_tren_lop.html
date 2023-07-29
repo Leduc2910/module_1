@@ -45,6 +45,52 @@
     //     }
     // }
     // document.write('<br>')
+
+    // // Tính 2 đường chéo của mảng 2 chiều
+    // let sumrow1 = 0;
+    // let sumrow2 = 0;
+    // for (let i = 0; i < array.length; i++) {
+    //     for (let j = 0; j < array[i].length; j++) {
+    //         if (i == j) {
+    //             sumrow1 += array[i][j];
+    //         }
+    //         if ((i+j) == (array.length-1)) {
+    //             sumrow2 += array[i][j];
+    //         }
+    //     }
+    // }
+    // for (let i = 0; i < array.length; i++) {
+    //     sumrow1 += array[i][i];
+    //     sumrow2 += array[i][array.length-1-i];
+    // }
+    // console.log("Đường chéo 1 " + sumrow1)
+    // console.log("Đường chéo 2 " + sumrow2)
+
+    // Tính phần tử lớn thứ 2 trong mảng 1 chiều
+    let array2 = [1,1,1,1,1,77,77,77]
+    let max = array2[0];
+    let max2;
+    for (let i = 0; i < array2.length; i++) {
+        if(max < array2[i]) {
+            max2 = max;
+            max = array2[i];
+        }
+        // 2 max nam o giua mang
+        if (max2 < array2[i] && array2[i] != max) {
+            max2 = array2[i]
+        }
+        // 1 max dau hoac cuoi
+        if ((max2 == undefined || max2 < array2[i]) && array2[i] < max ) {
+            max2 = array2[i];
+        }
+        //
+    }
+    console.log("Số lớn nhất "+max);
+    console.log("Số lớn thứ hai "+max2);
+
+
+    // đếm số lượng phần tử xuất hiện
+
 </script>
 </body>
 </html>
