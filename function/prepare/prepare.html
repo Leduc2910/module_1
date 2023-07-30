@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function</title>
+    <style>
+        body {
+            line-height: 2;
+        }
+
+        li {
+            font-size: 26px;
+        }
+
+        pre {
+            font-size: 25px;
+            color: red
+        }
+    </style>
+</head>
+<body>
+<h1>Hàm</h1>
+<hr>
+<ul>
+    <li>Hàm (function) là một nóm các câu lệnh thực hiện một nhiệm vụ nhất định</li>
+    <li>Hàm là thuật ngữ được sử dụng phổ biến trong Lập trình hướng đối tượng. Trong nhiều trường hợp khác, các ten gọi
+        được sử dụng là phương thức (method) và thủ tục(procedure)
+    </li>
+    <li>console.log(), Math.pow(), Math.random() là các hàm đã được định nghĩa sẵn cho chúng ta sử dụng</li>
+</ul>
+<h1>Khai báo hàm</h1>
+<hr>
+<ul>
+    <li>Cú pháp của hàm:</li>
+    <li>Các thành phần quan trọng của hàm:
+        <ul>
+            <li>name: tên hàm</li>
+            <li>parameter1, parameter2, ....: tham số</li>
+            <li>code to be executed: phần thân hàm(các lệnh thực thi hàm)</li>
+        </ul>
+    </li>
+</ul>
+<h1>Gọi hàm</h1>
+<hr>
+<ul>
+    <li>Gọi (call hoặc invoke) phương thức là cách để thực thi mộ thàm đã được định nghĩa trước đó</li>
+    <li>Khi gọi hàm thì cần truyền đối số vào</li>
+    <li>Ví dụ, gọi hàm không có giá trị trả về:
+        <pre>
+        console.log("Welcome to Java!");
+    </pre>
+    </li>
+    <li>Ví dụ, gọi hàm có giá trị trả về:
+        <pre>
+        let maxNumber = max(3,4);
+    </pre>
+    </li>
+</ul>
+<h1>Tham số (parameter) và đối số(argument)</h1>
+<hr>
+<ul>
+    <li>Tham số (còn được gọi đầy đủ là tham s hình thức - formal parameter) là các biến được khai báo trong phần
+        header
+    </li>
+    <li>Khi gọi hàm thì giá trị các biến này sẽ được truyền vào. Các giá trị này được gọi là tham số thực (actual
+        parameter) hoặc đối số (argument)
+    </li>
+    <li>Ví dụ:
+        <pre>
+        function isEven(number) {
+            return number%2 == 0;
+        }
+        isEven(5);
+
+        number: là tham số
+        5: là đối số
+    </pre>
+    </li>
+</ul>
+<h1>Giá trị trả về</h1>
+<hr>
+<ul>
+    <li>Giá trị trả về là kết quả sẽ được trả về tại vị trí hàm được gọi</li>
+    <li>Mỗi một hàm chỉ có một giá trị trả về. Các giá trị này có thể là một biến, một mảng hay một đối tượng, danh sách
+        đối tượng
+    </li>
+</ul>
+<h3>Hàm không tham số</h3>
+<button onclick="xinchao()">Click me</button>
+<script>
+    function xinchao() {
+        let name = prompt("Nhập tên của bạn:");
+        alert("Xin chào " + name);
+    }
+</script>
+<h3>Hàm có tham số</h3>
+<hr>
+Enter your name: <input type="text" id="name" onchange="hello()">
+<script>
+    function hello(name) {
+        name = document.getElementById('name').value
+        alert("Hello " + name);
+    }
+</script>
+<h3>Hàm có return</h3>
+<hr>
+Enter a number: <input type="text" id="num" onchange="multiNums()">
+<script>
+    function multiNums(x) {
+        x = +document.getElementById('num').value
+        return alert(x * 2);
+    }
+</script>
+<h1>Phạm vi của biến biến</h1>
+<hr>
+<ul>
+    <li>Phạm vi(scope) của biến là các vị trí trong chương trình mà một biến có thể được sử dụng</li>
+    <li>Một biến được khai báo trong một phương thức thì được gọi là biến địa phương (local variable)</li>
+    <li>Phạm vi của biến địa phương bắt đầu từ vị trí nó được khai báo cho đến điểm kết thúc của khối lệnh chứa nó</li>
+    <li>Một biến địa phương cần được khai báo và gán giá trị trước khi sử dụng</li>
+    <li>Tham số của hàm cũng là các biến địa phương</li>
+    <li>Phạm vi của các tham số là trong toàn bộ hàm đó</li>
+</ul>
+<h1>Hàm vô danh hoặc không được đặt tên</h1>
+<hr>
+<p>Các hàm bạn đã thấy ở trên đều được định nghĩa theo chuẩn. Tuy nhiên, JavaScript không đòi hỏi hàm phải được định
+    nghĩa theo cách đó. Ví dụ, với cách tạo hàm không tên hay còn gọi là hàm vô danh, hàm có thể được định nghĩa và gắn
+    với biến như sau:</p>
+<pre>
+    let divNums = function (firstNum, secondNum) {
+                    return firstNum/secondNum;
+    }
+    Các hàm vô danh thường được dùng trong JavaScript hướng đối tượng và dùng làm hàm xử lý sự kiện.
+</pre>
+<h1>Bao đóng - closure</h1>
+<hr>
+<p>rong JavaScript, các hàm con bên trong có quyền truy cập đến các biến của hàm cha bên ngoài. Closure chỉ sự tồn tại
+    của các biến bên ngoài ngữ cảnh thực thi thông thường của hàm.</p>
+<pre>
+    function myFunction() {
+            let myNum = 10;
+            function showNum() {
+                        alert(myNum);
+}
+return showNum();
+}
+let callFunc = myFunction();
+    
+</pre>
+<p>Hàm showNum() có quyền truy cập tới biến myNum</p>
+</body>
+</html>
