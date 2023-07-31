@@ -1,0 +1,12 @@
+.container {
+    margin-top: 1em;
+    margin: auto;
+}
+img {
+    width: 600px;
+    height: 150px;
+    box-shadow: 2px 3px 3px black;
+    padding: 0.2em;
+    display: block;
+    margin: 1em;
+}

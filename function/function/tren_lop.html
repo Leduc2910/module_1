@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lý thuyết</title>
+</head>
+<body>
+<script>
+    // let name = prompt("Nhập tên của bạn:");
+    // function xinchao(name) {
+    //     alert("Xin chào"+name);
+    // }
+    // xinchao(name);
+    // let a = 5; // biến toàn cục
+    // for (let i = 0; i < 5; i++) {
+    //     a = 1; // biến cục bộ
+    //     a +=i;
+    // }
+    // alert(a);
+
+    // Viết hàm nhập vào một mảng, trả về tổng các phần tử trong mảng. Sử dụng hàm
+    let arr = initArray();
+
+    function tongphantu(arr) {
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        return sum;
+    }
+
+    console.log("Tổng các phần tử = " + tongphantu(arr));
+
+
+    function tongphantule(arr) {
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 != 0) {
+                sum += arr[i];
+            }
+        }
+        return sum;
+    }
+
+    console.log("Tổng các phần tử lẻ = " + tongphantule(arr));
+
+
+    function demphantule(arr) {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 != 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    console.log("Số các phần tử lẻ = " + demphantule(arr));
+
+
+    function tinhTBCsole(arr) {
+        let avg = tongphantule(arr) / demphantule(arr);
+        console.log("Trung bình cộng của các phần tử lẻ = " + avg);
+    }
+
+    tinhTBCsole(arr);
+
+
+    let x = +prompt("Nhập số cần tìm:");
+
+    function timsobatky(arr, x) {
+        let check = false;
+        let index;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] == x) {
+                index = i;
+                check = true;
+                break;
+            }
+        }
+        if (check) {
+            return index;
+        } else {
+            return -1;
+        }
+    }
+
+    console.log(`Vị trí của số ${x} trong mảng là ${timsobatky(arr, x)}`);
+
+
+    function initArray() {
+        let arr = [];
+        let n = +prompt("Nhập số lượng phần tử của mảng:");
+        for (let i = 0; i < n; i++) {
+            let elements = +prompt(`Phần tử thứ ${i + 1} = `);
+            arr.push(elements);
+        }
+        return arr;
+    }
+
+    function findIndexofMax(arr) {
+        let max = arr[0];
+        for (let i = 0; i < arr.length; i++) {
+            if (max < arr[i]) {
+                max = arr[i];
+            }
+        }
+        console.log("Vị trí của phần tử max = ");
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] == max) {
+                console.log(`${i}`);
+            }
+        }
+    }
+
+    findIndexofMax(arr);
+
+    let num = +prompt("Nhập số cần kiểm tra:");
+
+    function kiemtraSNT(num) {
+        if (num == 2) {
+            return true;
+        } else if (num > 2) {
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
+    if (kiemtraSNT(num)) {
+        console.log(`${num} là số nguyên tố`);
+    } else {
+        console.log(`${num} không là số nguyên tố`);
+    }
+
+    function demSNT(arr) {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] == 2) {
+                count++;
+            } else if (arr[i] > 2) {
+                let check = kiemtraSNT(arr[i])
+                if (check) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    console.log(`Số lượng số nguyên tố trong hàm = ${demSNT(arr)}`);
+
+
+    let a = +prompt("Nhập số khởi đầu:")
+    let b = +prompt("Nhập số kết thúc:")
+
+    function inSNT(a, b) {
+        for (let i = a; i <= b; i++) {
+            let check = kiemtraSNT(i);
+
+            if (check) {
+                console.log(i);
+            }
+        }
+    }
+
+    console.log(`Số nguyên tố từ ${a} đến ${b} là:`)
+    inSNT(a, b);
+</script>
+</body>
+</html>
