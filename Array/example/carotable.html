@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caro Game</title>
+</head>
+<body>
+<center>
+        <h1>Caro Game Simple</h1>
+        <p id="carogame"></p>
+        <input type="button" value="Change Value" onclick="changeValue()"
+               style="height: 50px;width: 320px; font-weight: bold;font-size: larger">
+        <br><br>
+        <input type="reset" style="height: 50px;width: 320px; font-weight: bold;font-size: larger" value="Reset" onclick="reload()">
+    <script>
+        let b = document.getElementById('carogame');
+        let array = [];
+        let value = '';
+        let turn = 1;
+        for (let i = 0; i < 5; i++) {
+            array[i] = new Array(' ', ' ', ' ', ' ', ' ');
+        }
+        updateArray()
+
+        function updateArray() {
+            value += '<table border="1" cellspacing="0" cellpadding="30">'
+            for (let i = 0; i < 3; i++) {
+                value += '<tr>'
+                for (let j = 0; j < 3; j++) {
+                    value += '<th>' + array[i][j] + '</th>'
+                }
+                value += '</tr>'
+            }
+            value += '</table>'
+
+            b.innerHTML = value;
+        }
+
+        function changeValue() {
+            value = '';
+            let posX, posY;
+            do {
+                posX = +prompt('Nhập tọa độ x:');
+                posY = +prompt('Nhập tọa độ y:');
+            } while (posX < 0 || posX > 2 || posY < 0 || posY > 2);
+
+            if (array[posX][posY] == ' ') {
+                if (turn % 2 == 0) {
+                    array[posX][posY] = 'O';
+                } else {
+                    array[posX][posY] = 'X';
+                }
+                turn++;
+            }
+            updateArray();
+
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if ((array[i][j] == 'X' && array[i][j + 1] == 'X' && array[i][j + 2] == 'X')
+                        || (array[i][j] == 'X' && array[i + 1][j] == 'X' && array[i + 2][j] == 'X')
+                        || (array[i][j] == 'X' && array[i + 1][j + 1] == 'X' && array[i + 2][j + 2] == 'X')
+                        || (array[i][j] == 'X' && array[i + 1][j - 1] == 'X' && array[i + 2][j - 2] == 'X')) {
+                        alert("X thắng");
+                        changeColor(i, j, 'X');
+                    } else if ((array[i][j] == 'O' && array[i][j + 1] == 'O' && array[i][j + 2] == 'O')
+                        || (array[i][j] == 'O' && array[i + 1][j] == 'O' && array[i + 2][j] == 'O')
+                        || (array[i][j] == 'O' && array[i + 1][j + 1] == 'O' && array[i + 2][j + 2] == 'O')
+                        || (array[i][j] == 'O' && array[i + 1][j - 1] == 'O' && array[i + 2][j - 2] == 'O')) {
+                        alert("O thắng")
+                        changeColor(i, j, 'O');
+                    }
+                }
+            }
+        }
+
+        function changeColor(i, j, player) {
+            if (array[i][j] == player && array[i][j + 1] == player && array[i][j + 2] == player) {
+                array[i][j] = array[i][j + 1] = array[i][j + 2] = `<span style="color: red;font-weight: bold">${player}</span>`
+            }
+            if (array[i][j] == player && array[i + 1][j] == player && array[i + 2][j] == player) {
+                array[i][j] = array[i + 1][j] = array[i + 2][j] = `<span style="color: red;font-weight: bold">${player}</span>`
+            }
+            if (array[i][j] == player && array[i + 1][j + 1] == player && array[i + 2][j + 2] == player) {
+                array[i][j] = array[i + 1][j + 1] = array[i + 2][j + 2] = `<span style="color: red;font-weight: bold">${player}</span>`
+            }
+            if (array[i][j] == player && array[i + 1][j - 1] == player && array[i + 2][j - 2] == player) {
+                array[i][j] = array[i + 1][j - 1] = array[i + 2][j - 2] = `<span style="color: red;font-weight: bold">${player}</span>`
+            }
+            value = '';
+            updateArray();
+        }
+        function reload() {
+          location.reload();
+        }
+    </script>
+</center>
+</body>
+</html>
