@@ -6,19 +6,18 @@
 </head>
 <body>
 <script>
-    // let name = prompt("Nhập tên của bạn:");
-    // function xinchao(name) {
-    //     alert("Xin chào"+name);
-    // }
-    // xinchao(name);
-    // let a = 5; // biến toàn cục
-    // for (let i = 0; i < 5; i++) {
-    //     a = 1; // biến cục bộ
-    //     a +=i;
-    // }
-    // alert(a);
+    let name = prompt("Nhập tên của bạn:");
+    function xinchao(name) {
+        alert("Xin chào"+name);
+    }
+    xinchao(name);
+    let a = 5; // biến toàn cục
+    for (let i = 0; i < 5; i++) {
+        a = 1; // biến cục bộ
+        a +=i;
+    }
+    alert(a);
 
-    // Viết hàm nhập vào một mảng, trả về tổng các phần tử trong mảng. Sử dụng hàm
     let arr = initArray();
 
     function tongphantu(arr) {
@@ -128,6 +127,7 @@
             }
             return true;
         }
+        return false;
     }
 
     if (kiemtraSNT(num)) {

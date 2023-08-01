@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Số nguyên tố</title>
+</head>
+<body>
+<script>
+  let numbers = +prompt("Số lượng số nguyên tố cần in ra:");
+  let count=0;
+  let N=2;
+  while (count < numbers) {
+      if(N == 2) {
+        document.write(N+'<br>');
+        count++;
+      } else {
+        let check = true;
+        for (let i = 2; i < N-1;i++) {
+            if(N%i == 0) {
+              check = false;
+              break;
+            }
+        }
+        if (check) {
+          document.write(N+'<br>');
+          count++;
+        }
+      }
+      N++;
+  }
+</script>
+</body>
+</html>
