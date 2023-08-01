@@ -5,6 +5,92 @@
     <title>Luyện tập 1</title>
 </head>
 <body>
+<h2>Bài 1:</h2>
+<button onclick="alertMessage()">Hiển thị thông báo</button>
+<hr>
+<h2>Bài 2: </h2>
+<p>Nhập một số: <input type="text" id="num"></p>
+<button onclick="displayResult()">Tăng đối số lên 1</button>
+<p id="result"></p>
+<hr>
+<h2>Bài 3:</h2>
+<p>Nhập số thứ nhất: <input type="text" id="a"></p>
+<p>Nhập số thứ hai: <input type="text" id="b"></p>
+<button onclick="displayResult2()">So sánh và tính</button>
+<hr>
+<h2>Bài 4:</h2>
+<button onclick="displayResult3()">Thực hiện</button>
+<hr>
+<h2>Bài 5:</h2>
+<p>Nhập tên ngôi sao: <input type="text" id="star"></p>
+<button onclick="displayResult3()">Tìm kiếm</button>
+<p id="result2"></p>
+<script>
+    // bai 1
+    function alertMessage() {
+        alert("Xin chào");
+    }
 
+    // bai 2
+    function increaseNumber(num) {
+        return num + 1;
+    }
+
+    function displayResult() {
+        let num = +document.getElementById('num').value;
+        let increasenum = increaseNumber(num);
+        document.getElementById('result').innerHTML = `Giá trị sau khi tăng = ${increasenum}`;
+    }
+
+    // bai 3
+    function sumNums(a, b) {
+
+        if (a > b) {
+            alert("Số thứ nhất lớn hơn số thứ hai");
+        } else {
+            return a + b;
+        }
+    }
+
+    function displayResult2() {
+        let a = +document.getElementById('a').value;
+        let b = +document.getElementById('b').value;
+        let result = sumNums(a, b);
+        if (result != undefined) {
+            alert("Kết quả " + result);
+        }
+    }
+
+    // bai 4
+    result = 0;
+
+    function addNumbers() {
+        firstNum = 4;
+        secondNum = 8;
+        result = firstNum + secondNum;
+        return result;
+    }
+
+    function displayResult3() {
+        alert(result);
+        result = addNumbers();
+        alert(result)
+    }
+
+    // bai 5
+    let mangNgoisao = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+    let mangChomsao = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+
+    function displayResult3() {
+        let star = document.getElementById('star').value;
+        let result = timchomsao(star);
+        document.getElementById('result2').innerHTML = `Chòm sao tương ứng là ${result}`;
+    }
+
+    function timchomsao(star) {
+        let index = mangNgoisao.indexOf(star);
+        return mangChomsao[index];
+    }
+</script>
 </body>
 </html>
