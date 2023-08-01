@@ -23,7 +23,7 @@
 <hr>
 <h2>Bài 5:</h2>
 <p>Nhập tên ngôi sao: <input type="text" id="star"></p>
-<button onclick="displayResult3()">Tìm kiếm</button>
+<button onclick="displayResult4()">Tìm kiếm</button>
 <p id="result2"></p>
 <script>
     // bai 1
@@ -81,14 +81,21 @@
     let mangNgoisao = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
     let mangChomsao = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
 
-    function displayResult3() {
+    function displayResult4() {
         let star = document.getElementById('star').value;
         let result = timchomsao(star);
-        document.getElementById('result2').innerHTML = `Chòm sao tương ứng là ${result}`;
+        if (result != -1) {
+            document.getElementById('result2').innerHTML = `Chòm sao tương ứng là ${result}`;
+        } else {
+            document.getElementById('result2').innerHTML = "Không có chòm sao tương ứng!"
+        }
+
     }
 
     function timchomsao(star) {
         let index = mangNgoisao.indexOf(star);
+        if (index == -1)
+            return -1;
         return mangChomsao[index];
     }
 </script>
