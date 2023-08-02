@@ -131,13 +131,8 @@
     function demSNT(arr) {
         let count = 0;
         for (let i = 0; i < arr.length; i++) {
-            if (arr[i] == 2) {
+            if(kiemtraSNT(arr[i])) {
                 count++;
-            } else if (arr[i] > 2) {
-                let check = kiemtraSNT(arr[i])
-                if (check) {
-                    count++;
-                }
             }
         }
         return count;
@@ -151,9 +146,7 @@
 
     function inSNT(a, b) {
         for (let i = a; i <= b; i++) {
-            let check = kiemtraSNT(i);
-
-            if (check) {
+            if(kiemtraSNT(i)) {
                 console.log(i);
             }
         }
