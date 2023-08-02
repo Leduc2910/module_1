@@ -6,17 +6,17 @@
 </head>
 <body>
 <script>
-    let name = prompt("Nhập tên của bạn:");
-    function xinchao(name) {
-        alert("Xin chào"+name);
-    }
-    xinchao(name);
-    let a = 5; // biến toàn cục
-    for (let i = 0; i < 5; i++) {
-        a = 1; // biến cục bộ
-        a +=i;
-    }
-    alert(a);
+    // let name = prompt("Nhập tên của bạn:");
+    // function xinchao(name) {
+    //     alert("Xin chào"+name);
+    // }
+    // xinchao(name);
+    // let a = 5; // biến toàn cục
+    // for (let i = 0; i < 5; i++) {
+    //     a = 1; // biến cục bộ
+    //     a +=i;
+    // }
+    // alert(a);
 
     let arr = initArray();
 
@@ -68,20 +68,12 @@
     let x = +prompt("Nhập số cần tìm:");
 
     function timsobatky(arr, x) {
-        let check = false;
-        let index;
         for (let i = 0; i < arr.length; i++) {
             if (arr[i] == x) {
-                index = i;
-                check = true;
-                break;
+                return i;
             }
         }
-        if (check) {
-            return index;
-        } else {
-            return -1;
-        }
+        return -1;
     }
 
     console.log(`Vị trí của số ${x} trong mảng là ${timsobatky(arr, x)}`);

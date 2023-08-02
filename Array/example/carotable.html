@@ -17,8 +17,8 @@
         let array = [];
         let value = '';
         let turn = 1;
-        for (let i = 0; i < 5; i++) {
-            array[i] = new Array(' ', ' ', ' ', ' ', ' ');
+        for (let i = 0; i < 3; i++) {
+            array[i] = new Array(' ', ' ', ' ');
         }
         updateArray()
 
@@ -27,7 +27,7 @@
             for (let i = 0; i < 3; i++) {
                 value += '<tr>'
                 for (let j = 0; j < 3; j++) {
-                    value += '<th>' + array[i][j] + '</th>'
+                    value += '<th onclick="changeValue(' + i + ',' + j + ')">' + array[i][j] + '</th>'
                 }
                 value += '</tr>'
             }
@@ -36,14 +36,8 @@
             b.innerHTML = value;
         }
 
-        function changeValue() {
+        function changeValue(posX,posY) {
             value = '';
-            let posX, posY;
-            do {
-                posX = +prompt('Nhập tọa độ x:');
-                posY = +prompt('Nhập tọa độ y:');
-            } while (posX < 0 || posX > 2 || posY < 0 || posY > 2);
-
             if (array[posX][posY] == ' ') {
                 if (turn % 2 == 0) {
                     array[posX][posY] = 'O';
