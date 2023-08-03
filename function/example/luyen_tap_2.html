@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 2</title>
+</head>
+<body>
+<script>
+    const PI = 3.14;
+
+    function tinhbinhphuong(x) {
+        return x * x;
+    }
+
+    function tinhDientich(r) {
+        return r * r * PI;
+    }
+
+    function tinhChuvi(r) {
+        return 2 * r * PI;
+    }
+
+    function tinhGiaithua(x) {
+        let gthua = 1;
+        for (let i = 1; i <= x; i++) {
+            gthua *= i;
+        }
+        return gthua;
+    }
+
+    function kiemtraKytu(x) {
+        if (!isNaN)
+            return true;
+        return false;
+    }
+
+    function findMinNum(a, b, c) {
+        if (a > b) {
+            if (b > c) {
+                return c;
+            } else {
+                return b;
+            }
+        } else {
+            if (a > c) {
+                return c;
+            } else {
+                return a;
+            }
+        }
+    }
+
+    function kiemtraSoguyenduong(x) {
+
+        if (x > 0 && Number.isInteger(x)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function swap(a, b) {
+        console.log(`Trước khi đổi chỗ: a = ${a}<br>b = ${b}`);
+        let temp = a;
+        a = b;
+        b = temp;
+        console.log(`Sau khi đổi chỗ : a = ${a}<br>b = ${b}`);
+    }
+
+    function daonguocmang(arr) {
+        let first = 0;
+        let last = arr.length - 1;
+        console.log(arr);
+        while (first < last) {
+            let temp = arr[first];
+            arr[first] = arr[last];
+            arr[last] = temp;
+            first++;
+            last--;
+        }
+        console.log(arr);
+    }
+
+    function timKytu(chuoi, x) {
+        let count = 0;
+        for (let i = 0; i < chuoi.length; i++) {
+            if (x === chuoi[i]) {
+                count++;
+            }
+        }
+        if (count != 0) {
+            return alert(`Ký tự xuất hiện ${count} lần`);
+        } else {
+            return alert(-1);
+        }
+    }
+
+    function isPalindrome(s) {
+        let first = 0;
+        let last = s.length - 1;
+        while (first < last) {
+            if (s[first] != s[last]) {
+                return false;
+            }
+            first++;
+            last--;
+        }
+        return true;
+    }
+    if (isPalindrome("redder")) {
+        alert("là chuỗi palindrome!")
+    } else {
+        alert("không là chuỗi palindrome!")
+    }
+</script>
+</body>
+</html>

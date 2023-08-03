@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QLSP</title>
+</head>
+<body>
+<div>
+    <p>Add product</p>
+    <input type="text" id="add">
+    <button onclick="addProducts()">Add</button>
+    <p>Display all products</p>
+</div>
+<table id="displayArea" border="1" cellspacing="0" cellpadding="10">
+</table>
+<p id="edit"></p>
+<script>
+    let listProduct = ['Ip12', 'Note 10', 'S10', 'Ip13', 'Nokia 1280'];
+    displayProducts();
+
+    function displayProducts() {
+        let str = '<tr>' +
+            '<td>Product Name</td>' +
+            '<td></td>' +
+            '<td>' + listProduct.length + ' products</td>' +
+            '</tr>\n';
+        for (let i = 0; i < listProduct.length; i++) {
+            str += '<tr><td>' + listProduct[i] + '</td>' +
+                '<td><button onclick="showFormEdit(' + i + ')">Edit</button></td>' +
+                '<td><button onclick="deleteProduct(' + i + ')">Delete</button></td></tr>'
+        }
+        document.getElementById('displayArea').innerHTML = str;
+    }
+
+    function addProducts() {
+        let productName = document.getElementById('add').value;
+        document.getElementById('add').value = '';
+        listProduct.push(productName);
+        displayProducts();
+    }
+
+    function deleteProduct(index) {
+        listProduct.splice(index, 1);
+        document.getElementById('add').value = '';
+        displayProducts();
+    }
+
+    function showFormEdit(index) {
+        let str = '';
+        str = '<input type="text" id="editProduct" value="' + listProduct[index] + '"><button onclick="saveProduct(' + index + ')">Save</button>';
+        document.getElementById('edit').innerHTML = str;
+    }
+
+    function saveProduct(index) {
+        listProduct[index] = document.getElementById('editProduct').value;
+        displayProducts();
+    }
+</script>
+
+</body>
+</html>
