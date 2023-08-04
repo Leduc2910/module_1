@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OOP</title>
+    <style>
+        body {
+            line-height: 2;
+        }
+
+        li {
+            font-size: 26px;
+        }
+
+        pre {
+            font-size: 25px;
+            color: red
+        }
+
+        p {
+            font-size: 26px;
+        }
+    </style>
+</head>
+<body>
+<h1>Lập trình thử tục (Procedural Programming)</h1>
+<hr>
+<ul>
+    <li>là một mô hình lập trình ra đời rất sớm, dựa trên mô hình lập trình hướng cấu trúc (Structured Programming)</li>
+    <li>Các ngôn ngữ thủ tục thường là các ngôn ngữ bậc cao ra đời từ rất sớm</li>
+    <li>Đặc trưng bởi các thủ tục, bao gồm các tập lệnh tuyến tính nối tiếp nhau</li>
+    <li>Tập trung vào cấu trúc (structure) của chương trình</li>
+    <li>Ví dụ: C, COBOL, Fortran, LISP, Peri, VBScript</li>
+</ul>
+<h1>Lập trình hướng đối tượng (Object Oriented Programming)</h1>
+<hr>
+<ul>
+    <li>Không tập trung vào cấu trúc như ngôn ngữ thủ tục, mà tập trung vào mô hình hóa dữ liệu (data modeling)</li>
+    <li>Lập trình viên sử dụng các lớp (class) khi lập trình</li>
+    <li>Mô phỏng các đối tượng trong thế giới thực vào trong các chương trình</li>
+    <li>Ví dụ: C++, C#, Java, PHP, Javascript,...</li>
+    <li>OOP là một triết lý xây dựng chương trình</li>
+    <li>Tất cả mọi thứ trong OOP đều là đối tượng. Một chương trình phần mềm được coi như là một thế giới bao gồm các
+        đối tượng tương tác với nhau
+    </li>
+    <li>Mã lệnh và dữ liệu được kết hợp trong một thể thống nhất- đó là <i>đối tượng</i></li>
+    <li>Đối tượng bao gồm:
+        <ul>
+            <li>Thuộc tính: các dữ liệu, tính chất của đối tượng</li>
+            <li>Hành vi: các khả năng, hành động mà đối tượng có thể thực hiện</li>
+        </ul>
+    </li>
+    <li>Các đối tượng có thể có quan hệ với nhau</li>
+</ul>
+<h1>So sánh lập trình thủ tục và hương đối tượng</h1>
+<hr>
+<ul>
+    <li>Lập trình hướng cấu trúc:
+        <ul>
+            <li>Hướng tiếp cận: từ trên xuống (top down)</li>
+            <li>Chia nhỏ bài toán thành các module chức năng</li>
+            <li>Dữ liệu và mã lệnh phân tán</li>
+        </ul>
+    </li>
+    <li>Hạn chế:
+        <ul>
+            <li>Tính ổn định giảm khi hệ thống phát triển</li>
+            <li>Khó bảo trì và tái sử dụng</li>
+            <li>Chi phí phát triển cao</li>
+        </ul>
+    </li>
+
+    <li>Lập trình hướng đối tượng:
+        <ul>
+            <li>Hướng tiếp cận đa dạng gần với thực tế</li>
+            <li>Tìm và phân tích mối quan hệ giữa các đối tượng và các bài toán</li>
+            <li>Mã lệnh và dữ liệu liên kết trong thể thống nhất</li>
+        </ul>
+    </li>
+    <li>Ưu thế:
+        <ul>
+            <li>Khả năng tái sử dụng cao</li>
+            <li>Ổn định và dễ bảo trì</li>
+            <li>Chi phí giảm dần</li>
+        </ul>
+    </li>
+</ul>
+<h1>Đối tượng</h1>
+<hr>
+<p>Mỗi đối tượng có những <span style="color: red">thuộc tính</span> hay những đặc điểm mô tả và những <span
+        style="color: red">hành vi</span> riêng biệt nhằm phân biệt nó với các đối tượng khác.</p>
+<h1>Thuộc tính và hành vi</h1>
+<hr>
+<ul>
+    <li>Thuộc tính là những đặc điểm đặc trưng của đối tượng, thể hiện thông qua những giá trị cụ thể</li>
+    <li>Hành vi là những cách thức mà qua đó đối tượng thể hiện sự hoạt động hay chức năng của chúng</li>
+</ul>
+<h1>Lớp</h1>
+<hr>
+<ul>
+    <li><b>Lớp</b> là khớp niệm dùng để mô tả một <b>loại đối tượng</b> có những thuộc tính, hành vi và những mối quan
+        hệ thông thường tương tự nhau
+    </li>
+    <li>Thuật ngữ lớp có thể hiểu là cách nói viết tắt của cụm từ "lớp các đối tượng".</li>
+    <li>Như vậy mỗi đối tượng được coi như là một thể hiện của lớp với những giá trị thuộc tính cũng như cách thức hoạt
+        động đặc trưng.
+    </li>
+</ul>
+<img src="so_do_mo_ta_lop.png" height="332" width="678"/>;
+<h1>Khai báo đối tượng</h1>
+<hr>
+<pre>
+    - Cú pháp:
+        let objectName = {};
+    hoặc
+        let objectName = { property1: value1, property2: value2,...};
+    - Ví dụ:
+        let person = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 50,
+            eyeColor: "blue
+        };
+</pre>
+<h1>Định nghĩa lớp</h1>
+<hr>
+<ul>
+    <li>Tạo lớp mới với thuộc tính và phương thức:
+        <pre>
+        function person(firstName, lastName, age, eyeColor) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.eyeColor = eyeColor;
+            this.changeName = function (name) {
+                this.lastName = name;
+            }
+        };
+    </pre>
+    </li>
+    <li>Tạo đối tượng:
+        <pre>
+        let myClassmate1 = new person('Dinh','De',20,'brown');
+        let myClassmate2 = new person('Phung','Lam',25,'brown');
+    </pre>
+    </li>
+</ul>
+<h1>Sử dụng thuộc tính</h1>
+<hr>
+<ul>
+    <li>Truy xuất giá trị của thuộc tính của đối tượng
+        <pre>
+        objectName.property            // person.age       // myClassmate2.age
+    </pre>
+    </li>
+    <li>Sử dụng câu lệnh for-in để truy xuất đến tất cả các thuộc tính của đối tượng
+        <pre>
+        objectName["property"]        // person['age'];
+
+        let person = {fname:"John", lname:"Doe", age:25};
+        for (x in person) {
+            txt += person[x];
+        }
+    </pre>
+    </li>
+</ul>
+<h1>Sử dụng phương thức</h1>
+<hr>
+<ul>
+    <li>Gọi một phương thức của đối tượng:
+        <pre>
+        objectName.methodName(parameters);
+    </pre>
+    </li>
+    <li>Truyền tham số khi gọi phương thức của đối tượng
+        <pre>
+        myClassmate2.changeName('Anh');
+    </pre>
+    </li>
+</ul>
+</body>
+</html>
