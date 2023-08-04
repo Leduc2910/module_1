@@ -19,15 +19,16 @@
     displayProducts();
 
     function displayProducts() {
-        let str = '<tr>' +
-            '<td>Product Name</td>' +
-            '<td></td>' +
-            '<td>' + listProduct.length + ' products</td>' +
-            '</tr>\n';
+        let str = `<tr>
+                <td>Product Name</td>
+                <td></td>
+                <td>${listProduct.length}  products</td>
+            </tr>`;
         for (let i = 0; i < listProduct.length; i++) {
-            str += '<tr><td>' + listProduct[i] + '</td>' +
-                '<td><button onclick="showFormEdit(' + i + ')">Edit</button></td>' +
-                '<td><button onclick="deleteProduct(' + i + ')">Delete</button></td></tr>'
+            str += `<tr><td>${listProduct[i]}</td>
+                        <td><button onclick="showFormEdit(${i})">Edit</button></td>
+                        <td><button onclick="deleteProduct(${i})">Delete</button></td>
+                </tr>`
         }
         document.getElementById('displayArea').innerHTML = str;
     }
@@ -47,7 +48,7 @@
 
     function showFormEdit(index) {
         let str = '';
-        str = '<input type="text" id="editProduct" value="' + listProduct[index] + '"><button onclick="saveProduct(' + index + ')">Save</button>';
+        str = `<input type="text" id="editProduct" value="${listProduct[index]}"><button onclick="saveProduct(${index})">Save</button>`;
         document.getElementById('edit').innerHTML = str;
     }
 
