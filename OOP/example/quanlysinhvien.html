@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý sinh viên</title>
+</head>
+<body>
+<p>Thêm sinh viên</p>
+<input type="text" placeholder="nhập tên sinh viên" id="them">
+<button onclick="themSV()">Thêm</button>
+<br><br>
+
+<table border="1" cellspacing="0" cellpadding="3">
+    <tr>
+        <th>Họ và tên</th>
+        <th colspan="2"></th>
+    </tr>
+    <tbody id="sinhvien">
+    </tbody>
+</table>
+<p id="sua"></p>
+<script>
+    let danhsach = ['Lê Minh Đức', 'Doãn Đình Đề', 'Bùi Thị Mai', 'Nguyễn Mạnh Hùng', 'Nguyễn Chí Thành Lộc'];
+    displayList(danhsach);
+
+    function displayList() {
+        let chuoi = '';
+        for (let i = 0; i < danhsach.length; i++) {
+            chuoi += `    <tr><td>${danhsach[i]}</td>
+                          <td><button onclick="hienthiSua(${i})">Sửa</button></td>
+                          <td><button onclick="xoaSV(${i})">Xóa</button></td></tr>`
+        }
+        chuoi += `<tr><th>Số lượng sinh viên</th>
+                  <th colspan="2">${danhsach.length}</th></tr>`
+        document.getElementById('sinhvien').innerHTML = chuoi;
+    }
+
+    function themSV() {
+        let sv = document.getElementById('them').value;
+        danhsach.push(sv);
+        displayList(danhsach);
+    }
+    function xoaSV(index) {
+        danhsach.splice(index, 1);
+        displayList();
+    }
+    function hienthiSua(index) {
+      document.getElementById('sua').innerHTML = `<input type="text" value="${danhsach[index]}" id="suasinhvien"><button onclick="suasinhvien(${index})">Xác nhận</button>`;
+    }
+    function suasinhvien(index) {
+      danhsach[index] = document.getElementById('suasinhvien').value;
+      document.getElementById('sua').innerHTML = '';
+      displayList();
+    }
+</script>
+</body>
+</html>
