@@ -6,112 +6,115 @@
 </head>
 <body>
 <script>
-    // let people = {};
-    // console.log(people)
-    let person = [{
-        firstName: "John",
-        lastName: "Doe",
-        age: 50,
-        eyeColor: "blue"
-    },
-        {
-            firstName: "John",
-            lastName: "Doe",
-            age: 50,
-            eyeColor: "blue"
-
-        }]
-    console.log(person[0])
-    console.log(person[1].age)
-
-    function people(firstName, lastName, age, eyeColor) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.eyeColor = eyeColor;
-        this.changeName = function (name) {
-            this.lastName = name;
-        }
-
-    }
-
-    // people.prototype.changeName = function (name) {
-    //     this.lastName = name;
+    // // let people = {};
+    // // console.log(people)
+    // let person = [{
+    //     firstName: "John",
+    //     lastName: "Doe",
+    //     age: 50,
+    //     eyeColor: "blue"
+    // },
+    //     {
+    //         firstName: "John",
+    //         lastName: "Doe",
+    //         age: 50,
+    //         eyeColor: "blue"
+    //
+    //     }]
+    // console.log(person[0])
+    // console.log(person[1].age)
+    //
+    // function people(firstName, lastName, age, eyeColor) {
+    //     this.firstName = firstName;
+    //     this.lastName = lastName;
+    //     this.age = age;
+    //     this.eyeColor = eyeColor;
+    //     this.changeName = function (name) {
+    //         this.lastName = name;
+    //     }
+    //
     // }
-    let myClassmate1 = new people('Dinh', 'De', 20, 'brown');
-    let myClassmate2 = new people('Phung', 'Lam', 25, 'brown');
-    console.log(myClassmate1.lastName);
-    txt = '';
-    let person2 = {fname: "John", lname: "Doe", age: 25};
-    for (let x in person2) {
-        txt += person2[x];
-    }
-    console.log(txt)
-
-    txt2 = 0;
-    for (let y in person) {
-        txt2 += person[y].age;
-    }
-    console.log(txt2)
-
-    function people2(firstName, lastName, age, eyeColor) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.eyeColor = eyeColor;
-        this.changeName = function (name) {
-            this.lastName = name;
-        }
-    }
-
-    let classMate3 = new people2()
-    console.log(classMate3)
-
-    console.log(person2.age);
-    console.log(myClassmate2)
-    myClassmate2.changeName("Thanh");
-    console.log(myClassmate2)
-
-
-    // tính diện tích hình tròn
-    // let Circle = function(radius) {
-    //     this.getRadius = function() {
+    //
+    // // people.prototype.changeName = function (name) {
+    // //     this.lastName = name;
+    // // }
+    // let myClassmate1 = new people('Dinh', 'De', 20, 'brown');
+    // let myClassmate2 = new people('Phung', 'Lam', 25, 'brown');
+    // console.log(myClassmate1.lastName);
+    // txt = '';
+    // let person2 = {fname: "John", lname: "Doe", age: 25};
+    // for (let x in person2) {
+    //     txt += person2[x];
+    // }
+    // console.log(txt)
+    //
+    // txt2 = 0;
+    // for (let y in person) {
+    //     txt2 += person[y].age;
+    // }
+    // console.log(txt2)
+    //
+    // function people2(firstName, lastName, age, eyeColor) {
+    //     this.firstName = firstName;
+    //     this.lastName = lastName;
+    //     this.age = age;
+    //     this.eyeColor = eyeColor;
+    //     this.changeName = function (name) {
+    //         this.lastName = name;
+    //     }
+    // }
+    //
+    // let classMate3 = new people2()
+    // console.log(classMate3)
+    //
+    // console.log(person2.age);
+    // console.log(myClassmate2)
+    // myClassmate2.changeName("Thanh");
+    // console.log(myClassmate2)
+    //
+    //
+    // // tính diện tích hình tròn
+    // // let Circle = function(radius) {
+    // //     this.getRadius = function() {
+    // //         return radius;
+    // //     }
+    // //     this.getArea = function () {
+    // //         return Math.PI*radius*radius;
+    // //     }
+    // // }
+    // // let circle = new Circle(2);
+    // //
+    // // console.log(circle.getRadius());
+    // // console.log(circle.getArea());
+    //
+    // function Circle(radius) {
+    //     this.radius = radius;
+    //     this.getRadius = function () {
     //         return radius;
     //     }
     //     this.getArea = function () {
-    //         return Math.PI*radius*radius;
+    //         return Math.PI * radius * radius;
     //     }
     // }
-    // let circle = new Circle(2);
     //
+    // let circle = new Circle(2);
     // console.log(circle.getRadius());
     // console.log(circle.getArea());
+    // let circle2 = {
+    //     radius: 2,
+    //     getRadius: function () {
+    //         return this.radius;
+    //     },
+    //     getArea: function () {
+    //         return Math.PI * this.radius * this.radius;
+    //     }
+    // }
+    // console.log(circle2["radius"]) // cách gọi thứ 2
+    // console.log(circle2.getRadius())
+    // console.log(circle2["getArea"]()) // cách gọi thứ 2
 
-    function Circle(radius) {
-        this.radius = radius;
-        this.getRadius = function () {
-            return radius;
-        }
-        this.getArea = function () {
-            return Math.PI * radius * radius;
-        }
-    }
 
-    let circle = new Circle(2);
-    console.log(circle.getRadius());
-    console.log(circle.getArea());
-    let circle2 = {
-        radius: 2,
-        getRadius: function () {
-            return this.radius;
-        },
-        getArea: function () {
-            return Math.PI * this.radius * this.radius;
-        }
-    }
-    console.log(circle2["radius"]) // cách gọi thứ 2
-    console.log(circle2.getRadius())
-    console.log(circle2["getArea"]()) // cách gọi thứ 2
+
 </script>
 </body>
 </html>

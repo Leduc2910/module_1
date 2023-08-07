@@ -123,27 +123,89 @@
 // main()
 
 
+// // Xây dựng lớp mô tả Temperature
+// class Temperature {
+//     tempo;
+//     constructor(tempo) {
+//         this.tempo = tempo;
+//     }
+//     exchangeToF() {
+//         return this.tempo*9/5+32;
+//     }
+//     exchangeToK() {
+//         return this.tempo+273;
+//     }
+//     setTempo(tempo) {
+//         this.tempo = tempo
+//     }
+// }
+// function main() {
+//     let nhietdo = new Temperature(50);
+//     nhietdo.setTempo(25);
+//     alert("Độ F = "+nhietdo.exchangeToF());
+//     alert("Độ K = "+nhietdo.exchangeToK());
+// }
+// main();
 
-// Xây dựng lớp mô tả Temperature
-class Temperature {
-    tempo;
-    constructor(tempo) {
-        this.tempo = tempo;
+
+class Address {
+    houseNumber;
+    district;
+
+    constructor(houseNumberInput, districtInput) {
+        this.houseNumber = houseNumberInput;
+        this.district = districtInput;
     }
-    exchangeToF() {
-        return this.tempo*9/5+32;
+
+    getHouseNumber() {
+        return this.houseNumber;
     }
-    exchangeToK() {
-        return this.tempo+273;
+
+    getDistrict() {
+        return this.district;
     }
-    setTempo(tempo) {
-        this.tempo = tempo
+
+    setHouseNumber(houseNumberInput) {
+        this.houseNumber = houseNumberInput;
+    }
+
+    setDistrict(districInput) {
+        this.district = districInput;
     }
 }
+
+class Student {
+    nameStudent;
+    age;
+    address;
+    constructor(nameInput, ageInput, addressInput) {
+        this.nameStudent = nameInput;
+        this.age = ageInput;
+        this.address = addressInput;
+    }
+    getNameStudent() {
+        return this.nameStudent;
+    }
+    getAge() {
+        return this.age;
+    }
+    getAddress() {
+        return this.address;
+    }
+    setNameSudent(nameInput) {
+        this.nameStudent = nameInput;
+    }
+    setAge(ageInput) {
+        this.age = ageInput;
+    }
+    setAddress(addressInput) {
+        this.address = addressInput;
+    }
+}
+
 function main() {
-    let nhietdo = new Temperature(50);
-    nhietdo.setTempo(25);
-    alert("Độ F = "+nhietdo.exchangeToF());
-    alert("Độ K = "+nhietdo.exchangeToK());
+    let diachi1 = new Address(12, "Chuong My");
+    let sinhvien1 = new Student('Duc', 20, diachi1);
+    alert(sinhvien1.getAddress().getHouseNumber())
 }
-main();
+main()

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OOP2</title>
+</head>
+<body>
+<p id="result"></p>
+<script>
+    class Student {
+        name;
+        age;
+
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        getname() { // sv.name tu goi ham get
+            return this.name;
+        }
+
+        setname(value) {
+            this.name = value;
+        }
+
+        getage() {
+            return this.age;
+        }
+
+        setage(value) {
+            this.age = value;
+        }
+    }
+
+    class Clazz {
+        listStudent;
+        name;
+
+        constructor(nameInput) {
+            this.name = nameInput;
+            this.listStudent = [];
+        }
+
+        add(newStudent) {
+            this.listStudent.push(newStudent);
+        }
+
+        show() {
+            return this.listStudent;
+        }
+
+        remove(index) {
+            this.listStudent.splice(index, 1);
+        }
+
+        edit(index, studentInput) {
+            this.listStudent[index] = studentInput;
+        }
+    }
+
+    function main() {
+        let C06 = new Clazz('C0623L1');
+        let sv1 = new Student('Duc', 20);
+        C06.add(sv1);
+        let sv2 = new Student('Dan', 17);
+        C06.add(sv2);
+        C06.remove(1);
+        let sv3 = new Student('De', 20);
+        C06.edit(0, sv3)
+        let studentsC06 = C06.show();
+        for (let i = 0; i < studentsC06.length; i++) {
+            console.log(studentsC06[i].getname());
+        }
+    }
+
+    class Kind {
+        nameKind;
+        featherColor;
+
+        constructor(nameKind, featherColor) {
+            this.nameKind = nameKind;
+            this.featherColor = featherColor;
+        }
+
+        setNameKind(nameKind) {
+            this.nameKind = nameKind;
+        }
+
+        setFeatherColor(featherColor) {
+            this.featherColor = featherColor;
+        }
+
+        getNameKind() {
+            return this.nameKind;
+        }
+
+        getFeatherColor() {
+            return this.featherColor;
+        }
+    }
+
+    class Dog {
+        nameDog;
+        age;
+        kindDog;
+        isSick;
+
+        constructor(nameDog, age, kindDog, isSick) {
+            this.nameDog = nameDog;
+            this.age = age;
+            this.kindDog = kindDog;
+            this.isSick = isSick;
+        }
+
+        getIsSick() {
+            return this.isSick;
+        }
+
+        setIsSick(value) {
+            this.isSick = value;
+        }
+
+        getNameDog() {
+            return this.nameDog;
+        }
+
+        setNameDog(value) {
+            this.nameDog = value;
+        }
+
+        getAge() {
+            return this.age;
+        }
+
+        setAge(value) {
+            this.age = value;
+        }
+
+        getkindDog() {
+            return this.kindDog;
+        }
+
+        setkindDog(value) {
+            this.kindDog = value;
+        }
+
+        checkSick() {
+            if (!this.isSick) {
+                return `${this.nameDog}-${this.age}-${this.kindDog.getNameKind()}-${this.kindDog.getFeatherColor()}`
+            } else {
+                return 'Khỏe';
+            }
+        }
+
+    }
+
+    function main2() {
+        let loai1 = new Kind('Husky', 'white');
+        let cho1 = new Dog('Bach', 2, loai1, false);
+        let loai2 = new Kind('Pug', 'black');
+        let cho2 = new Dog('Den', 2, loai2, true);
+        alert(cho1.checkSick());
+        alert(cho2.checkSick());
+    }
+
+    class Product {
+        id;
+        name;
+        quality;
+        price;
+
+        constructor(id, name, quality, price) {
+            this.id = id;
+            this.name = name;
+            this.quality = quality;
+            this.price = price;
+        }
+
+        getid() {
+            return this.id;
+        }
+
+        setid(value) {
+            this.id = value;
+        }
+
+        getname() {
+            return this.name;
+        }
+
+        setname(value) {
+            this.name = value;
+        }
+
+        getquality() {
+            return this.quality;
+        }
+
+        setquality(value) {
+            this.quality = value;
+        }
+
+        getprice() {
+            return this.price;
+        }
+
+        setprice(value) {
+            this.price = value;
+        }
+    }
+
+    class Store {
+        listProducts;
+
+        constructor() {
+            this.listProduct = []
+        }
+
+        add(value) {
+            this.listProduct.push(value);
+        }
+
+        remove(index) {
+            this.listProduct.splice(index, 1);
+        }
+
+        findAll() {
+            return this.listProduct;
+        }
+
+        edit(index, value) {
+            this.listProduct[index] = value;
+        }
+
+        lonhon2000(arr) {
+            let mang = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].getprice() > 2000) {
+                    mang.push(arr[i]);
+                }
+            }
+            return mang;
+        }
+    }
+
+    function main3() {
+        let mang = new Store();
+        let p1 = new Product(1, 'book', 'new', 100);
+        let p2 = new Product(2, 'pen', 'old', 50);
+        let p3 = new Product(3, 'pencil', 'old', 30222);
+        let p4 = new Product(4, 'comic', 'new', 80);
+        let p5 = new Product(5, 'ruler', 'new', 10000);
+        mang.add(p1);
+        mang.add(p2);
+        mang.add(p3);
+        mang.add(p4);
+        mang.add(p5);
+        let array = mang.findAll();
+        showProduct(array);
+        // mang.remove(3);
+        // showProduct(array);
+        // let sua = new Product(5, 'khongnghira', 'like-new', 10000);
+        // mang.edit(3, sua);
+        // showProduct(array);
+        showProduct(mang.lonhon2000(array));
+    }
+
+    1
+
+    function showProduct(array) {
+        let str = ''
+        str += `<table border="1" cellpadding="5"><td>STT</td>
+<td>Name</td>
+<td>Quality</td>
+<td>Price</td>`
+        for (let i = 0; i < array.length; i++) {
+            str += `<tr><td>${array[i].getid()}</td>
+        <td>${array[i].getname()}</td>
+        <td>${array[i].getquality()}</td>
+        <td>${array[i].getprice()}</td></tr>`
+        }
+        str += `</table>`
+        document.getElementById('result').innerHTML = str;
+    }
+
+    main3();
+
+</script>
+</body>
+</html>
