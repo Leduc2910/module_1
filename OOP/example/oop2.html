@@ -243,27 +243,27 @@
             return mang;
         }
     }
-
+    let store = new Store();
     function main3() {
-        let mang = new Store();
+
         let p1 = new Product(1, 'book', 'new', 100);
         let p2 = new Product(2, 'pen', 'old', 50);
         let p3 = new Product(3, 'pencil', 'old', 30222);
         let p4 = new Product(4, 'comic', 'new', 80);
         let p5 = new Product(5, 'ruler', 'new', 10000);
-        mang.add(p1);
-        mang.add(p2);
-        mang.add(p3);
-        mang.add(p4);
-        mang.add(p5);
-        let array = mang.findAll();
+        store.add(p1);
+        store.add(p2);
+        store.add(p3);
+        store.add(p4);
+        store.add(p5);
+        let array = store.findAll();
         showProduct(array);
         // mang.remove(3);
         // showProduct(array);
         // let sua = new Product(5, 'khongnghira', 'like-new', 10000);
         // mang.edit(3, sua);
         // showProduct(array);
-        showProduct(mang.lonhon2000(array));
+        showProduct(store.lonhon2000(array));
     }
 
     function showProduct(array) {
