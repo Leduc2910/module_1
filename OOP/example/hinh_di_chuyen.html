@@ -3,47 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-  <style>
-    img {
-      width: 200px;
-      height: 200px;
-      position: absolute;
-    }
-  </style>
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+    </style>
 </head>
 <body>
 <div id="game">
 
 </div>
 <script>
-    class Image {
+    class Img {
         img;
-        left;
         v;
-
-        constructor(imgInput, vInput) {
-            this.img = imgInput;
-            this.v = vInput;
+        left;
+        constructor(img, v) {
+            this.img = img;
+            this.v = v;
             this.left = 0;
         }
-        getHTMLgirl() {
-          return `<img src="${this.img}" style="left: ${this.left}px">`
+        displayImg() {
+            return`<img src="${this.img}" style="left: ${this.left}px">`
         }
         move() {
-          this.left += this.v;
+            this.left += this.v;
         }
     }
-
-    let img = new Image("https://vcdn1-dulich.vnecdn.net/2021/07/16/1-1626437591.jpg?w=460&h=0&q=100&dpr=2&fit=crop&s=i2M2IgCcw574LT-bXFY92g", 5);
-
+    let img = new Img('https://vapa.vn/wp-content/uploads/2022/12/anh-3d-thien-nhien.jpeg',5);
     function main() {
-      img.move();
-      document.getElementById('game').innerHTML = img.getHTMLgirl();
-      if (img.left > window.innerWidth -200 || img.left <0) {
-        img.v = -img.v;
-      }
-      setTimeout(main, 5);
-
+        if (img.left > window.innerWidth - 200 || img.left <0) {
+            img.v = -img.v;
+        }
+        img.move();
+        document.getElementById('game').innerHTML = img.displayImg();
+        setTimeout(main,5);
     }
     main();
 </script>

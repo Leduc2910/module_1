@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Switch Lamp</title>
+</head>
+<body>
+<script>
+    class ElectricLamp {
+        status;
+
+        constructor() {
+            this.status = false;
+        }
+
+        turnOff() {
+            return this.status = false;
+        }
+
+        turnOn() {
+            return this.status = true;
+        }
+
+        getStatusLamp() {
+            return this.status;
+        }
+    }
+
+    class SwitchButton {
+        status;
+        lamp;
+
+        constructor() {
+            this.status = false;
+        }
+
+        connectToLamp(ElectricLamp) {
+            this.lamp = ElectricLamp;
+        }
+
+        switchOff() {
+            this.lamp.turnOff();
+            this.status = false;
+        }
+
+        switchOn() {
+            this.lamp.turnOn();
+            this.status = true;
+        }
+
+        getLamp() {
+            return this.lamp.getStatusLamp();
+        }
+
+    }
+
+    function main() {
+        let switchbtn = new SwitchButton();
+        let eleclamp = new ElectricLamp();
+        switchbtn.connectToLamp(eleclamp);
+        for (let i = 0; i < 10; i++) {
+            if (switchbtn.getLamp()) {
+                switchbtn.switchOff();
+                console.log("Tắt đèn!");
+            } else {
+                switchbtn.switchOn();
+                console.log("Bật đèn!");
+            }
+        }
+    }
+
+    main();
+</script>
+</body>
+</html>
