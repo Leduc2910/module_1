@@ -1,13 +1,13 @@
 class Product {
     id;
     name;
-    quality;
+    quantity;
     price;
 
-    constructor(id, name, quality, price) {
+    constructor(id, name, quantity, price) {
         this.id = id;
         this.name = name;
-        this.quality = quality;
+        this.quantity = quantity;
         this.price = price;
     }
 
@@ -27,12 +27,12 @@ class Product {
         this.name = value;
     }
 
-    getquality() {
-        return this.quality;
+    getquantity() {
+        return this.quantity;
     }
 
-    setquality(value) {
-        this.quality = value;
+    setquantity(value) {
+        this.quantity = value;
     }
 
     getprice() {
