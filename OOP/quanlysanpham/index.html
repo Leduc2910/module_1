@@ -6,11 +6,23 @@
 </head>
 <body>
 <center>
+    <div id="form-add"></div>
+    <div id="form-edit"></div>
     <h1>My Store</h1>
-    <a href="add.html"></a>
-    <p id="result"></p>
+    <button onclick="showFormAdd()">Add product</button>
+    <button onclick="search()">Search product</button>
+    <table border="1" cellspacing="0" cellpadding="5" style="margin-top: 30px">
+        <tr>
+            <th>STT</th>
+            <th>Name</th>
+            <th>Quality</th>
+            <th>Price</th>
+            <th colspan="2">Action</th>
+        </tr>
+        <tbody id="result">
+        </tbody>
+    </table>
 </center>
-
 <script src="enity/Product.js"></script>
 <script src="manager/Store.js"></script>
 <script src="view/main.js"></script>

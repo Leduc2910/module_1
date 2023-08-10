@@ -30,4 +30,7 @@ class Store {
         }
         return mang;
     }
+    search() {
+
+    }
 }
