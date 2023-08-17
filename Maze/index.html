@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maze</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body background="Elements/background.png">
+<div id="container">
+    <div id="board-background">
+        <img src="Elements/1.png" width="770"/>
+        <div id="grass-background">
+            <img src="Elements/grass.png" width="600"/>
+            <div id="board">
+            </div>
+        </div>
+        <div id="menu-background">
+            <img src="Elements/3.png" height="830"/>
+            <div id='menu'>
+                <div><b style="color: #692705; font-size: 35px">MAZE RUNNER</b></div>
+                <div  style="padding-top: 10px"><b style="color: #692705;font-size: 22px">Giải mã mê cung</b></div>
+                <hr style="background-color: black; height: 3px; width: 100%">
+                <p style="font-size: 20px; text-align: left; color: #692705">• Mode: <span id="mode" style="font-weight: normal">select source & destination to start</span></p>
+                <button id="selectP-button"><img src="Elements/greenP.png" width="150"/></button>
+                <button id="selectSD-button"><img src="Elements/redS.png" width="150"/></button>
+                <p style="font-size: 20px; text-align: left; color: #692705">• Result: </p>
+                <p style="font-size: 19px; font-weight: normal; color: #692705;text-align: left; padding-left: 30px ">Total cost: <span id="count">0</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>

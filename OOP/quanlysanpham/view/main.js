@@ -1,30 +1,17 @@
 let store = new Store();
-let p1 = new Product(1, 'pen', 34, 50);
-let p2 = new Product(2, 'pencil', 42, 30222);
-let p3 = new Product(3, 'comic', 15, 80);
-let p4 = new Product(4, 'ruler', 10, 10000);
-store.add(p1);
-store.add(p2);
-store.add(p3);
-store.add(p4);
 let array = store.findAll();
 showProduct()
-// function main3() {
-//
 
-//     showProduct();
-// }
-//
-// main3();
-
+// localStorage.setItem("listProduct",JSON.stringify([]));
 function showProduct() {
 
     let str = ''
     for (let i = 0; i < array.length; i++) {
-        str += `<tr><td>${array[i].getid()}</td>
-        <td>${array[i].getname()}</td>
-        <td>${array[i].getquantity()}</td>
-        <td>${array[i].getprice()}</td>
+        str += `<tr><td>${array[i].id}</td>
+        <td>${array[i].name}</td>
+        <td>${array[i].quantity}</td>
+        <td>${array[i].price}</td>
+        <td><img src="${array[i].img}" alt="Ảnh sản phẩm" style="width: 50px;"></td>
         <td><button style="background-color: rgba(255,0,0,0.66)" onclick="remove(${i})">Remove</button></td>
         <td><button style="background-color: rgba(0,0,255,0.38)" onclick="showFormEdit(${i})">Edit</button></td></tr>`
     }
@@ -44,7 +31,8 @@ function add() {
     let name = document.getElementById('name').value;
     let quantity = +document.getElementById('quantity').value;
     let price = +document.getElementById('price').value;
-    let product = new Product(id, name, quantity, price)
+    let image = document.getElementById('image').value;
+    let product = new Product(id, name, quantity, price, image);
     store.add(product);
     console.log(store)
     showProduct();
@@ -56,20 +44,23 @@ function edit(index) {
     let name = document.getElementById('name2').value;
     let quantity = +document.getElementById('quantity2').value;
     let price = +document.getElementById('price2').value;
-    let editProduct = new Product(id, name, quantity, price)
+    let image = document.getElementById('image2').value;
+    let editProduct = new Product(id, name, quantity, price, image);
     store.edit(index, editProduct);
     showProduct();
+    document.getElementById('form-edit').innerHTML = '';
 }
 
 function search() {
     let name_product = prompt("Nhập tên sản phẩm cần tìm:");
     let str = '';
     for (let i = 0; i < array.length; i++) {
-        if (array[i].getname().toLowerCase().indexOf(name_product.toLowerCase()) !== -1) {
-            str += `<tr><td>${array[i].getid()}</td>
-                    <td>${array[i].getname()}</td>
-                    <td>${array[i].getquantity()}</td>
-                    <td>${array[i].getprice()}</td>
+        if (store.search(i, name_product) !== -1) {
+            str += `<tr><td>${array[i].id}</td>
+                    <td>${array[i].name}</td>
+                    <td>${array[i].quantity}</td>
+                    <td>${array[i].price}</td>
+                    <td><img src="${array[i].img}" alt=""></td>
                     <td><button style="background-color: rgba(255,0,0,0.66)" onclick="remove(${i})">Remove</button></td>
                     <td><button style="background-color: rgba(0,0,255,0.38)" onclick="showFormEdit(${i})">Edit</button></td></tr>`
         }
@@ -83,20 +74,26 @@ function showFormEdit(index) {
           <table style="border: 1px solid black">
             <tr>
                 <td>Id:</td>
-                <td><input type="number" value="${array[index].getid()}" id="id2"></td>
+                <td><input type="number" value="${array[index].id}" id="id2"></td>
             </tr>
             <tr>
                 <td>Name:</td>
-                <td><input type="text" value="${array[index].getname()}" id="name2"></td>
+                <td><input type="text" value="${array[index].name}" id="name2"></td>
             </tr>
             <tr>
                 <td>Quantity:</td>
-                <td><input type="number" value="${array[index].getquantity()}" id="quantity2"></td>
+                <td><input type="number" value="${array[index].quantity}" id="quantity2"></td>
 
             </tr>
             <tr>
                 <td>Price:</td>
-                <td><input type="number" value="${array[index].getprice()}" id="price2"></td>
+                <td><input type="number" value="${array[index].price}" id="price2"></td>
+            </tr>
+            <tr>
+            <td>Image:</td>
+            
+            <td><img src="${array[index].img}" alt="" style="width: 50px">
+            <input type="text" value="${array[index].img}" id="image2"></td>
             </tr>
             <tr>
                 <th colspan="2">
@@ -128,9 +125,62 @@ function showFormAdd() {
                 <td><input type="number" id="price"></td>
             </tr>
             <tr>
+            <td>Image: </td>
+            <td><input type="text" id="image"></td>
+</tr>
+            <tr>
                 <th colspan="2">
                     <button onclick="add()">Add</button>
                 </th>
             </tr>
         </table>`;
 }
+
+
+class Car {
+    speed;
+    mark;
+    price;
+    constructor(speedIn, markIn, priceIn) {
+        this.speed = speedIn;
+        this.mark = markIn;
+        this.price = priceIn;
+    }
+    setSpeed(speedIn) {
+        this.speed = speedIn;
+    }
+    setMark(markIn) {
+        this.mark = markIn;
+    }
+    setPrice(priceIn) {
+        this.price = priceIn;
+    }
+    getSpeed () {
+        return this.speed;
+    }
+    getMark() {
+        return this.mark;
+    }
+    getPrice() {
+        return this.price;
+    }
+    showAll() {
+        return `This is a ${this.mark} having a speed of ${this.speed} km/h
+       `;
+    }
+}
+pr
+
+function main() {
+    // Khởi tạo một đối tượng và gán vào car1
+    let car1 = new Car(200, 'Mercedes', 40000);
+    // Truy xuất giá trị của thuộc tính
+    alert(car1.mark);   // Mercedes
+    // hoặc
+    alert(car1.getMark());  // Mercedes
+    // Thay đổi giá trị của một thuộc tính
+    car1.setMark('Porsche');
+    alert(car1.getMark());  // Porsche
+}
+
+
