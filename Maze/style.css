@@ -37,8 +37,7 @@ body {
 #board div {
     width: 28px;
     height: 28px;
-    border: 1px solid whitesmoke;
-    opacity: 0.5;
+    border: 1px solid rgba(245, 245, 245, 0.38);
 }
 
 #menu-background {
@@ -55,35 +54,39 @@ body {
     top: 150px;
 }
 
-#selectSD-button {
+/*#selectSD-button {*/
+/*    border: none;*/
+/*    font-weight: bold;*/
+/*    background-color: transparent;*/
+/*}*/
+
+/*#selectP-button {*/
+/*    border: none;*/
+/*    font-weight: bold;*/
+/*    background-color: transparent;*/
+/*}*/
+#playButton {
     border: none;
-    font-weight: bold;
     background-color: transparent;
 }
-
-#selectP-button {
-    border: none;
-    font-weight: bold;
-    background-color: transparent;
-}
-
 .wall {
-    width: 28px;
-    height: 28px;
-    border: 1px solid whitesmoke;
-    background-color: black;
+    /*width: 28px;*/
+    /*height: 28px;*/
 }
 
 .source {
-    background-color: green;
+    /*background-color: green;*/
+    border: 1px solid rgba(245, 245, 245, 0.38);
 }
 
 .destination {
-    background-color: red;
+    /*background-color: red;*/
+    border: 1px solid rgba(245, 245, 245, 0.38);
 }
 
 .path {
-    background-color: yellow;
+    /*background-color: yellow;*/
+    border: 1px solid rgba(245, 245, 245, 0.38);
 }
 
 
