@@ -224,8 +224,11 @@ function deleteEnemies() {
     }
 }
 
+let directionRight = false;
+let directionDown = false;
+let turn = 1;
 function moveEnemies() {
-    let turn = 1;
+
     if (playGame) {
         for (let i = 0; i < enemiesLocation.length; i++) {
             let id = enemiesLocation[i];
@@ -233,23 +236,61 @@ function moveEnemies() {
             let colEnemy = parseInt(id.split('-')[1]);
             let enemy = document.getElementById(id);
             if (turn % 2 !== 0) {
-                if (!wallLocation.includes(rowEnemy.toString() + '-' + (colEnemy + 1).toString()) &&
-                    !enemiesLocation.includes(rowEnemy.toString() + '-' + (colEnemy + 1).toString()) &&
-                    destinationCell.id !== id &&
-                    colEnemy + 1 < cols && colEnemy + 1 >= 0) {
-                    id = rowEnemy.toString() + '-' + (colEnemy + 1).toString();
+                if (directionRight) {
+                    if (
+                        !wallLocation.includes(rowEnemy.toString() + '-' + (colEnemy + 1).toString()) &&
+                        !enemiesLocation.includes(rowEnemy.toString() + '-' + (colEnemy + 1).toString()) &&
+                        destinationCell.id !== id &&
+                        colEnemy + 1 >= 0 && colEnemy + 1 < cols
+                    ) {
+                        id = rowEnemy.toString() + '-' + (colEnemy + 1).toString();
+                    } else {
+                        directionRight = false;
+                    }
                 } else {
-                    id = rowEnemy.toString() + '-' + (colEnemy - 1).toString();
+                    if (
+                        !wallLocation.includes(rowEnemy.toString() + '-' + (colEnemy - 1).toString()) &&
+                        !enemiesLocation.includes(rowEnemy.toString() + '-' + (colEnemy - 1).toString()) &&
+                        destinationCell.id !== id &&
+                        colEnemy - 1 >= 0 && colEnemy - 1 < cols
+                    ) {
+                        id = rowEnemy.toString() + '-' + (colEnemy - 1).toString();
+                    } else {
+                        directionRight = true;
+                    }
                 }
             } else {
-                if (!wallLocation.includes((rowEnemy + 1).toString() + '-' + colEnemy.toString()) &&
-                    !enemiesLocation.includes((rowEnemy + 1).toString() + '-' + colEnemy.toString()) &&
-                    destinationCell.id !== id &&
-                    (rowEnemy + 1) < rows && (rowEnemy + 1) >= 0) {
-                    id = (rowEnemy + 1).toString() + '-' + colEnemy.toString();
+                if (directionDown) {
+                    if (
+                        !wallLocation.includes((rowEnemy + 1).toString() + '-' + colEnemy.toString()) &&
+                        !enemiesLocation.includes((rowEnemy + 1).toString() + '-' + colEnemy.toString()) &&
+                        destinationCell.id !== id &&
+                        rowEnemy + 1 >= 0 && rowEnemy + 1 < rows
+                    ) {
+                        id = (rowEnemy + 1).toString() + '-' + colEnemy.toString();
+                    } else {
+                        directionDown = false;
+                    }
                 } else {
-                    id = (rowEnemy - 1).toString() + '-' + colEnemy.toString();
+                    if (
+                        !wallLocation.includes((rowEnemy - 1).toString() + '-' + colEnemy.toString()) &&
+                        !enemiesLocation.includes((rowEnemy - 1).toString() + '-' + colEnemy.toString()) &&
+                        destinationCell.id !== id &&
+                        rowEnemy - 1 >= 0 && rowEnemy - 1 < rows
+                    ) {
+                        id = (rowEnemy - 1).toString() + '-' + colEnemy.toString();
+                    } else {
+                        directionDown = true;
+                    }
                 }
+            }
+            if (sourceCell.id === id) {
+                alert('You lose');
+                playGame = false;
+                clearInterval(timerInterval);
+                window.addEventListener('click', reloadGame);
+                document.getElementById('count').innerHTML = count;
+                return;
             }
             let newEnemy = document.getElementById(id);
             enemiesLocation.splice(i, 1, id);
