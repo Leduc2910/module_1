@@ -54,41 +54,25 @@ body {
     top: 150px;
 }
 
-/*#selectSD-button {*/
-/*    border: none;*/
-/*    font-weight: bold;*/
-/*    background-color: transparent;*/
-/*}*/
-
-/*#selectP-button {*/
-/*    border: none;*/
-/*    font-weight: bold;*/
-/*    background-color: transparent;*/
-/*}*/
 #playButton {
     border: none;
     background-color: transparent;
 }
+
 .wall {
-    /*width: 28px;*/
-    /*height: 28px;*/
 }
 
 .source {
-    /*background-color: green;*/
-    border: 1px solid rgba(245, 245, 245, 0.38);
 }
 
 .destination {
-    /*background-color: red;*/
-    border: 1px solid rgba(245, 245, 245, 0.38);
 }
 
 .path {
-    /*background-color: yellow;*/
-    border: 1px solid rgba(245, 245, 245, 0.38);
 }
 
+.enemy {
+}
 
 
 

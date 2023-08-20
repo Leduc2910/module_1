@@ -3,14 +3,13 @@ let rows = 20;
 let cols = 20;
 
 let wallLocation = [];
-
-// let selectSD = true;
-// let createWall = false;
+let enemiesLocation = [];
 
 let sourceCell = null;
 let destinationCell = null;
 
 let playGame = false;
+let axeStatus = false;
 
 window.onload = function () {
     mazeGenerator();
@@ -107,11 +106,11 @@ function generator() {
             }
         }
     }
-    drill(70);
+    drill(82);
 }
 
 function mazeGenerator() {
-    // document.getElementById('selectSD-button').addEventListener('click', setButton);
+    document.getElementById('axe').addEventListener('click', setAxe);
     document.getElementById('playButton').addEventListener('click', setButton);
 
     boardInit();
@@ -132,8 +131,18 @@ function mazeGenerator() {
         board.push(row);
     }
     randomSourceDestination();
+    randomEnemies();
+    randomEnemies();
+
 }
 
+function distanceR(a1, b1, a2, b2) {
+    // return Math.sqrt(Math.pow((a1 - a2), 2) + Math.pow((b1 - b2), 2));
+    return Math.abs(a1-a2);
+}
+function distanceC(b1,b2) {
+    return  Math.abs(b1-b2);
+}
 function randomSourceDestination() {
     let randomRowIndexS, randomColIndexS, randomRowIndexD, randomColIndexD;
     do {
@@ -149,14 +158,90 @@ function randomSourceDestination() {
             randomColIndexD = Math.floor(Math.random() * cols);
         } while (wallLocation.includes(randomRowIndexD.toString() + '-' + randomColIndexD.toString()));
         destinationCell = board[randomRowIndexD][randomColIndexD];
-    } while (sourceCell === destinationCell || Math.abs(randomRowIndexS - randomRowIndexD) < 10 || Math.abs(randomColIndexS - randomColIndexD) < 10);
+    } while (sourceCell === destinationCell || distance(randomRowIndexS, randomColIndexS, randomRowIndexD, randomColIndexD) < 15);
     destinationCell.classList.add('destination');
     imgDestination(destinationCell);
 }
 
 
+function addition() {
+    let numberPokemon = +document.getElementById('numberP').value;
+    if (!playGame) {
+        if (numberPokemon < 4) {
+            numberPokemon++
+            randomEnemies();
+        }
+        document.getElementById('numberP').value = numberPokemon;
+    }
+}
+
+function subtraction() {
+    let numberPokemon = +document.getElementById('numberP').value;
+    if (!playGame) {
+        if (numberPokemon > 0) {
+            numberPokemon--;
+            deleteEnemies();
+        }
+        document.getElementById('numberP').value = numberPokemon;
+    }
+}
+
+function randomEnemies() {
+    let randomRowIndex, randomColIndex, enemy, id, isClosed;
+    let rowDestination = parseInt(destinationCell.id.split('-')[0]);
+    let colDestination = parseInt(destinationCell.id.split('-')[1]);
+    do {
+        randomRowIndex = Math.floor(Math.random() * rows);
+        randomColIndex = Math.floor(Math.random() * cols);
+        id = randomRowIndex.toString() + '-' + randomColIndex.toString();
+
+        isClosed = false;
+        for (let i = 0; i < enemiesLocation.length; i++) {
+            let rowEnemy = parseInt(enemiesLocation[i].split('-')[0]);
+            let colEnemy = parseInt(enemiesLocation[i].split('-')[1]);
+            if (distance(rowEnemy, colEnemy, randomRowIndex, randomColIndex) < 4) {
+                isClosed = true;
+                break;
+            }
+        }
+    } while (isClosed || enemiesLocation.includes(id) || wallLocation.includes(id) || sourceCell.id === id || destinationCell === id || distance(randomRowIndex, randomColIndex, rowDestination, colDestination) > 9 || distance(randomRowIndex, randomColIndex, rowDestination, colDestination) < 2) ;
+    enemy = board[randomRowIndex][randomColIndex];
+    enemy.classList.add('enemy');
+    enemiesLocation.push(id);
+    let random = Math.floor(Math.random() * 5);
+    switch (random) {
+        case 0:
+            imgPonyta(enemy);
+            break;
+        case 1:
+            imgChar(enemy);
+            break;
+        case 2:
+            imgGengar(enemy);
+            break;
+        case 3:
+            imgSquirtle(enemy);
+            break;
+        case 4:
+            imgRayquaza(enemy);
+            break;
+    }
+}
+
+function deleteEnemies() {
+    let randomIndex = Math.floor(Math.random() * enemiesLocation.length);
+    let cell = document.getElementById(enemiesLocation[randomIndex]);
+    console.log(cell);
+    enemiesLocation.splice(randomIndex, 1);
+    cell.classList.remove('enemy');
+    while (cell.firstChild) {
+        cell.removeChild(cell.firstChild);
+    }
+}
+
 function setButton() {
     if (playGame) {
+        startTimer();
         playGame = false;
         document.getElementById('playButton').innerHTML = `<img src="Elements/playButton2.png" width="150">`
         return;
@@ -168,8 +253,16 @@ function setButton() {
     }
 }
 
-function digWall() {
-
+function setAxe() {
+    if (playGame) {
+        if (axeStatus) {
+            axeStatus = false;
+            document.getElementById('axe').style.backgroundColor = 'transparent';
+        } else {
+            axeStatus = true;
+            document.getElementById('axe').style.backgroundColor = '#3de009';
+        }
+    }
 }
 
 // function clickCell() {
@@ -245,6 +338,7 @@ function digWall() {
 // }
 
 let count = 0;
+let axeRemain = 3;
 
 function moveSourceCell(event) {
     if (playGame) {
@@ -262,11 +356,16 @@ function moveSourceCell(event) {
             if (newCell && !wallLocation.includes(newCell.id)) {
                 if (newCell.id === destinationCell.id) {
                     alert('Chúc mừng bạn!!!');
-                    window.location.reload();
-                    // playGame = false;
-                    // document.getElementById('playButton').innerHTML = `<img src="Elements/playButton2.png" width="150">`
-                    // count = 0;
-                    // document.getElementById('count').innerHTML = count;
+                    clearInterval(timerInterval);
+                    window.addEventListener('click', reloadGame);
+                    playGame = false;
+                    document.getElementById('count').innerHTML = count;
+                } else if (enemiesLocation.includes(newCell.id)) {
+                    alert('You lose');
+                    clearInterval(timerInterval);
+                    window.addEventListener('click', reloadGame);
+                    playGame = false;
+                    document.getElementById('count').innerHTML = count;
                 } else {
                     while (sourceCell.firstChild) {
                         sourceCell.removeChild(sourceCell.firstChild);
@@ -278,14 +377,34 @@ function moveSourceCell(event) {
                     count++;
                     document.getElementById('count').innerHTML = count;
                 }
+            } else if (newCell && axeStatus && wallLocation.includes(newCell.id) && axeRemain > 0 && !enemiesLocation.includes(newCell.id)) {
+                wallLocation.splice(wallLocation.indexOf(newCell.id), 1);
+                newCell.classList.remove('wall');
+                while (newCell.firstChild) {
+                    newCell.removeChild(newCell.firstChild);
+                }
+                while (sourceCell.firstChild) {
+                    sourceCell.removeChild(sourceCell.firstChild);
+                }
+                newCell.classList.add('source');
+                imgSource(newCell);
+                sourceCell.classList.remove('source');
+                sourceCell = newCell;
+                axeRemain--;
+                document.getElementById('axeRemain').innerHTML = axeRemain;
+                count++;
+                document.getElementById('count').innerHTML = count;
+
             }
         }
     }
 }
 
+
 let startTime = null;
 let elapsedTime = 0;
-
+let timerInterval;
+let isTimeRemaining = false;
 
 function formatTime(seconds) {
     const MINUTE = Math.floor((seconds % 3600) / 60);
@@ -300,15 +419,19 @@ function padZero(number) {
 }
 
 function updateTimer() {
-    const currentTime = new Date().getTime();
-    elapsedTime = Math.floor((currentTime - startTime) / 1000);
-
+    elapsedTime++;
     document.getElementById('time').innerHTML = formatTime(elapsedTime);
 }
 
 function startTimer() {
-    startTime = new Date().getTime();
-    timerInterval = setInterval(updateTimer, 1000);
+    if (!isTimeRemaining) {
+        startTime = new Date().getTime();
+        timerInterval = setInterval(updateTimer, 1000);
+        isTimeRemaining = true;
+    } else {
+        clearInterval(timerInterval);
+        isTimeRemaining = false;
+    }
 }
 
 
@@ -331,6 +454,46 @@ function imgDestination(cell) {
 function imgTree(cell) {
     let img = document.createElement('img');
     img.src = 'Elements/tree.png';
+    img.style.width = '28px';
+    img.style.height = '28px';
+    cell.appendChild(img);
+}
+
+function imgGengar(cell) {
+    let img = document.createElement('img');
+    img.src = 'Elements/gengar.png';
+    img.style.width = '28px';
+    img.style.height = '28px';
+    cell.appendChild(img);
+}
+
+function imgChar(cell) {
+    let img = document.createElement('img');
+    img.src = 'Elements/charmanderX.png';
+    img.style.width = '28px';
+    img.style.height = '28px';
+    cell.appendChild(img);
+}
+
+function imgPonyta(cell) {
+    let img = document.createElement('img');
+    img.src = 'Elements/ponyta.png';
+    img.style.width = '28px';
+    img.style.height = '28px';
+    cell.appendChild(img);
+}
+
+function imgRayquaza(cell) {
+    let img = document.createElement('img');
+    img.src = 'Elements/rayquaza.png';
+    img.style.width = '28px';
+    img.style.height = '28px';
+    cell.appendChild(img);
+}
+
+function imgSquirtle(cell) {
+    let img = document.createElement('img');
+    img.src = 'Elements/squirtle.png';
     img.style.width = '28px';
     img.style.height = '28px';
     cell.appendChild(img);
