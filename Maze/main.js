@@ -133,16 +133,18 @@ function mazeGenerator() {
     randomSourceDestination();
     randomEnemies();
     randomEnemies();
-
 }
 
-function distanceR(a1, b1, a2, b2) {
-    // return Math.sqrt(Math.pow((a1 - a2), 2) + Math.pow((b1 - b2), 2));
-    return Math.abs(a1-a2);
+function distance(a1, b1, a2, b2) {
+    return Math.sqrt(Math.pow((a1 - a2), 2) + Math.pow((b1 - b2), 2));
 }
-function distanceC(b1,b2) {
-    return  Math.abs(b1-b2);
+
+function distance2(a1, a2) {
+
+    return Math.abs(a1 - a2);
 }
+
+
 function randomSourceDestination() {
     let randomRowIndexS, randomColIndexS, randomRowIndexD, randomColIndexD;
     do {
@@ -158,7 +160,7 @@ function randomSourceDestination() {
             randomColIndexD = Math.floor(Math.random() * cols);
         } while (wallLocation.includes(randomRowIndexD.toString() + '-' + randomColIndexD.toString()));
         destinationCell = board[randomRowIndexD][randomColIndexD];
-    } while (sourceCell === destinationCell || distance(randomRowIndexS, randomColIndexS, randomRowIndexD, randomColIndexD) < 15);
+    } while (sourceCell === destinationCell || distance2(randomRowIndexS, randomRowIndexD) < 10 || distance2(randomColIndexS, randomColIndexD) < 10);
     destinationCell.classList.add('destination');
     imgDestination(destinationCell);
 }
@@ -204,28 +206,11 @@ function randomEnemies() {
                 break;
             }
         }
-    } while (isClosed || enemiesLocation.includes(id) || wallLocation.includes(id) || sourceCell.id === id || destinationCell === id || distance(randomRowIndex, randomColIndex, rowDestination, colDestination) > 9 || distance(randomRowIndex, randomColIndex, rowDestination, colDestination) < 2) ;
+    } while (isClosed || enemiesLocation.includes(id) || wallLocation.includes(id) || sourceCell.id === id || destinationCell === id || distance(randomRowIndex, randomColIndex, rowDestination, colDestination) > 10 || distance(randomRowIndex, randomColIndex, rowDestination, colDestination) < 4) ;
     enemy = board[randomRowIndex][randomColIndex];
     enemy.classList.add('enemy');
     enemiesLocation.push(id);
-    let random = Math.floor(Math.random() * 5);
-    switch (random) {
-        case 0:
-            imgPonyta(enemy);
-            break;
-        case 1:
-            imgChar(enemy);
-            break;
-        case 2:
-            imgGengar(enemy);
-            break;
-        case 3:
-            imgSquirtle(enemy);
-            break;
-        case 4:
-            imgRayquaza(enemy);
-            break;
-    }
+    imgGengar(enemy);
 }
 
 function deleteEnemies() {
@@ -239,6 +224,41 @@ function deleteEnemies() {
     }
 }
 
+function moveEnemies() {
+    let turn = 1;
+    if (playGame) {
+        for (let i = 0; i < enemiesLocation.length; i++) {
+            let id = enemiesLocation[i];
+            let rowEnemy = parseInt(id.split('-')[0]);
+            let colEnemy = parseInt(id.split('-')[1]);
+            let enemy = document.getElementById(id);
+
+            if (turn % 2 !== 0) {
+                if (!wallLocation.includes(rowEnemy.toString() + '-' + (colEnemy + 1).toString()) &&
+                    !enemiesLocation.includes(rowEnemy.toString() + '-' + (colEnemy + 1).toString()) &&
+                    destinationCell.id !== id &&
+                    colEnemy + 1 < cols) {
+                    id = rowEnemy.toString() + '-' + (colEnemy + 1).toString();
+                } else {
+                    id = rowEnemy.toString() + '-' + (colEnemy - 1).toString()
+                }
+            }
+            let newEnemy = document.getElementById(id);
+            enemiesLocation.splice(i, 1, id);
+            while (enemy.firstChild) {
+                enemy.removeChild(enemy.firstChild);
+            }
+            newEnemy.classList.add('enemy');
+            imgGengar(newEnemy);
+            enemy.classList.remove('enemy');
+            enemy = newEnemy;
+        }
+    }
+}
+
+setInterval(moveEnemies, 200);
+
+// moveEnemies();
 function setButton() {
     if (playGame) {
         startTimer();
