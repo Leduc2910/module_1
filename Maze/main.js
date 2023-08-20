@@ -496,35 +496,3 @@ function imgGengar(cell) {
     img.style.height = '28px';
     cell.appendChild(img);
 }
-
-function imgChar(cell) {
-    let img = document.createElement('img');
-    img.src = 'Elements/charmanderX.png';
-    img.style.width = '28px';
-    img.style.height = '28px';
-    cell.appendChild(img);
-}
-
-function imgPonyta(cell) {
-    let img = document.createElement('img');
-    img.src = 'Elements/ponyta.png';
-    img.style.width = '28px';
-    img.style.height = '28px';
-    cell.appendChild(img);
-}
-
-function imgRayquaza(cell) {
-    let img = document.createElement('img');
-    img.src = 'Elements/rayquaza.png';
-    img.style.width = '28px';
-    img.style.height = '28px';
-    cell.appendChild(img);
-}
-
-function imgSquirtle(cell) {
-    let img = document.createElement('img');
-    img.src = 'Elements/squirtle.png';
-    img.style.width = '28px';
-    img.style.height = '28px';
-    cell.appendChild(img);
-}
