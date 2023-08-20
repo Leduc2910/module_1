@@ -232,15 +232,23 @@ function moveEnemies() {
             let rowEnemy = parseInt(id.split('-')[0]);
             let colEnemy = parseInt(id.split('-')[1]);
             let enemy = document.getElementById(id);
-
             if (turn % 2 !== 0) {
                 if (!wallLocation.includes(rowEnemy.toString() + '-' + (colEnemy + 1).toString()) &&
                     !enemiesLocation.includes(rowEnemy.toString() + '-' + (colEnemy + 1).toString()) &&
                     destinationCell.id !== id &&
-                    colEnemy + 1 < cols) {
+                    colEnemy + 1 < cols && colEnemy + 1 >= 0) {
                     id = rowEnemy.toString() + '-' + (colEnemy + 1).toString();
                 } else {
-                    id = rowEnemy.toString() + '-' + (colEnemy - 1).toString()
+                    id = rowEnemy.toString() + '-' + (colEnemy - 1).toString();
+                }
+            } else {
+                if (!wallLocation.includes((rowEnemy + 1).toString() + '-' + colEnemy.toString()) &&
+                    !enemiesLocation.includes((rowEnemy + 1).toString() + '-' + colEnemy.toString()) &&
+                    destinationCell.id !== id &&
+                    (rowEnemy + 1) < rows && (rowEnemy + 1) >= 0) {
+                    id = (rowEnemy + 1).toString() + '-' + colEnemy.toString();
+                } else {
+                    id = (rowEnemy - 1).toString() + '-' + colEnemy.toString();
                 }
             }
             let newEnemy = document.getElementById(id);
@@ -252,8 +260,10 @@ function moveEnemies() {
             imgGengar(newEnemy);
             enemy.classList.remove('enemy');
             enemy = newEnemy;
+            turn++;
         }
     }
+
 }
 
 setInterval(moveEnemies, 200);
