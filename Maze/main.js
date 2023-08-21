@@ -106,7 +106,7 @@ function generator() {
             }
         }
     }
-    drill(82);
+    drill(75);
 }
 
 function mazeGenerator() {
@@ -131,8 +131,12 @@ function mazeGenerator() {
         board.push(row);
     }
     randomSourceDestination();
-    randomEnemies();
-    randomEnemies();
+    let countEnemy = +document.getElementById('numberP').value;
+    for (let i = 0; i < countEnemy; i++) {
+        randomEnemies();
+    }
+    moveEnemies();
+
 }
 
 function distance(a1, b1, a2, b2) {
@@ -169,9 +173,9 @@ function randomSourceDestination() {
 function addition() {
     let numberPokemon = +document.getElementById('numberP').value;
     if (!playGame) {
-        if (numberPokemon < 4) {
-            numberPokemon++
+        if (numberPokemon < 10) {
             randomEnemies();
+            numberPokemon++
         }
         document.getElementById('numberP').value = numberPokemon;
     }
@@ -201,12 +205,14 @@ function randomEnemies() {
         for (let i = 0; i < enemiesLocation.length; i++) {
             let rowEnemy = parseInt(enemiesLocation[i].split('-')[0]);
             let colEnemy = parseInt(enemiesLocation[i].split('-')[1]);
-            if (distance(rowEnemy, colEnemy, randomRowIndex, randomColIndex) < 4) {
+            if (distance(rowEnemy, colEnemy, randomRowIndex, randomColIndex) < 2) {
                 isClosed = true;
                 break;
             }
         }
-    } while (isClosed || enemiesLocation.includes(id) || wallLocation.includes(id) || sourceCell.id === id || destinationCell === id || distance(randomRowIndex, randomColIndex, rowDestination, colDestination) > 10 || distance(randomRowIndex, randomColIndex, rowDestination, colDestination) < 4) ;
+    } while (isClosed || enemiesLocation.includes(id) || wallLocation.includes(id) || sourceCell.id === id || destinationCell === id ||
+    distance(randomRowIndex, randomColIndex, rowDestination, colDestination) > 12 ||
+    distance(randomRowIndex, randomColIndex, rowDestination, colDestination) < 5);
     enemy = board[randomRowIndex][randomColIndex];
     enemy.classList.add('enemy');
     enemiesLocation.push(id);
@@ -216,21 +222,24 @@ function randomEnemies() {
 function deleteEnemies() {
     let randomIndex = Math.floor(Math.random() * enemiesLocation.length);
     let cell = document.getElementById(enemiesLocation[randomIndex]);
-    console.log(cell);
     enemiesLocation.splice(randomIndex, 1);
     cell.classList.remove('enemy');
     while (cell.firstChild) {
         cell.removeChild(cell.firstChild);
     }
 }
+
 let directionRight = [];
-function moveEachEnemy(enemyIndex) {
+
+function moveEachEnemyCol(enemyIndex) {
+
     let id = enemiesLocation[enemyIndex];
     let rowEnemy = parseInt(id.split('-')[0]);
     let colEnemy = parseInt(id.split('-')[1]);
     let enemy = document.getElementById(id);
 
     let newId = null;
+
 
     if (directionRight[enemyIndex]) {
         newId = rowEnemy.toString() + '-' + (colEnemy + 1).toString();
@@ -239,8 +248,9 @@ function moveEachEnemy(enemyIndex) {
     }
 
     if (
-        (directionRight[enemyIndex] && (colEnemy + 1 < cols) && !wallLocation.includes(newId) && !enemiesLocation.includes(newId)) ||
-        (!directionRight[enemyIndex] && (colEnemy - 1 >= 0) && !wallLocation.includes(newId) && !enemiesLocation.includes(newId))
+        ((directionRight[enemyIndex] && (colEnemy + 1 < cols) && !wallLocation.includes(newId) && !enemiesLocation.includes(newId)) ||
+            (!directionRight[enemyIndex] && (colEnemy - 1 >= 0) && !wallLocation.includes(newId) && !enemiesLocation.includes(newId))) && (destinationCell.id !== newId) &&
+        distance(rowEnemy, parseInt(newId.split('-')[0]), parseInt(destinationCell.id.split('-')[0]), parseInt(destinationCell.id.split('-')[1])) < 12
     ) {
         let newEnemy = document.getElementById(newId);
         enemiesLocation[enemyIndex] = newId;
@@ -255,7 +265,48 @@ function moveEachEnemy(enemyIndex) {
     } else {
         directionRight[enemyIndex] = !directionRight[enemyIndex];
     }
+    if (sourceCell.id === newId) {
+        alert('You lose');
+        playGame = false;
+        clearInterval(timerInterval);
+        window.addEventListener('click', reloadGame);
+        document.getElementById('count').innerHTML = count;
+    }
+}
 
+let directionUp = [];
+
+function moveEachEnemyRow(enemyIndex) {
+    let id = enemiesLocation[enemyIndex];
+    let rowEnemy = parseInt(id.split('-')[0]);
+    let colEnemy = parseInt(id.split('-')[1]);
+    let enemy = document.getElementById(id);
+
+    let newId = null;
+
+    if (directionUp[enemyIndex]) {
+        newId = (rowEnemy - 1).toString() + '-' + (colEnemy).toString();
+    } else {
+        newId = (rowEnemy + 1).toString() + '-' + (colEnemy).toString();
+    }
+    if (
+        ((directionUp[enemyIndex] && (rowEnemy - 1 >= 0) && !wallLocation.includes(newId) && !enemiesLocation.includes(newId)) ||
+            (!directionUp[enemyIndex] && (rowEnemy + 1 < rows) && !wallLocation.includes(newId) && !enemiesLocation.includes(newId))) && (destinationCell.id !== newId) &&
+        distance(parseInt(newId.split('-')[0]), colEnemy, parseInt(destinationCell.id.split('-')[0]), parseInt(destinationCell.id.split('-')[1])) < 12
+    ) {
+        let newEnemy = document.getElementById(newId);
+        enemiesLocation[enemyIndex] = newId;
+
+        while (enemy.firstChild) {
+            enemy.removeChild(enemy.firstChild);
+        }
+        newEnemy.classList.add('enemy');
+        imgGengar(newEnemy);
+        enemy.classList.remove('enemy');
+        enemy = newEnemy;
+    } else {
+        directionUp[enemyIndex] = !directionUp[enemyIndex];
+    }
     if (sourceCell.id === newId) {
         alert('You lose');
         playGame = false;
@@ -268,25 +319,34 @@ function moveEachEnemy(enemyIndex) {
 function moveEnemies() {
     if (playGame) {
         for (let i = 0; i < enemiesLocation.length; i++) {
-            moveEachEnemy(i);
+            if (Math.random() < 0.5) {
+                moveEachEnemyRow(i);
+            } else {
+                moveEachEnemyCol(i);
+            }
+
         }
     }
 }
 
-setInterval(moveEnemies, 200);
+let speed = +document.getElementById('speed').value;
+let intervalId = setInterval(moveEnemies, speed);
+document.getElementById('speed').addEventListener('change', updateSpeed);
+function updateSpeed() {
+        speed = +document.getElementById('speed').value;
+        clearInterval(intervalId);
+        intervalId = setInterval(moveEnemies, speed);
+}
 
-// moveEnemies();
 function setButton() {
     if (playGame) {
         startTimer();
         playGame = false;
         document.getElementById('playButton').innerHTML = `<img src="Elements/playButton2.png" width="150">`
-        return;
     } else {
         startTimer();
         playGame = true;
         document.getElementById('playButton').innerHTML = `<img src="Elements/playbutton.png" width="150">`
-        return;
     }
 }
 
@@ -297,7 +357,7 @@ function setAxe() {
             document.getElementById('axe').style.backgroundColor = 'transparent';
         } else {
             axeStatus = true;
-            document.getElementById('axe').style.backgroundColor = '#3de009';
+            document.getElementById('axe').style.backgroundColor = '#0be30b';
         }
     }
 }
@@ -431,7 +491,9 @@ function moveSourceCell(event) {
                 document.getElementById('axeRemain').innerHTML = axeRemain;
                 count++;
                 document.getElementById('count').innerHTML = count;
-
+                if (axeRemain === 0) {
+                    document.getElementById('axe').style.backgroundColor = 'transparent';
+                }
             }
         }
     }

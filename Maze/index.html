@@ -15,9 +15,9 @@
             </div>
             <div id="tool">
                 <center>
-                    <table>
-                        <tr>
-                            <td style="text-align: center"><button id="axe" style="background-color: transparent;"><img src="Elements/axe.png" alt="" style="width: 40px"></button><br>Remaining: <span id="axeRemain">3</span></td>
+                    <table style="border-collapse: separate; border-spacing: 6px; ">
+                        <tr >
+                            <td style="text-align: center"><button id="axe" style="background-color: rgba(11,227,11,0);"><img src="Elements/axe.png" alt="" style="width: 40px"></button><br>Amount: <span id="axeRemain">3</span></td>
                         </tr>
                     </table>
                 </center>
@@ -32,8 +32,18 @@
                 <div id="number">
                     <p style="font-size: 20px; text-align: left; color: #692705; padding-right: 100px">• Choose number of pokemon: </p>
                     <button onclick="subtraction()">-</button>
-                    <input type="text" id="numberP" disabled value="2">
+                    <input type="text" id="numberP" disabled value="5">
                     <button onclick="addition()">+</button>
+                </div>
+                <div id="speed-container">
+                    <p style="font-size: 20px; text-align: left; color: #692705; padding-right: 100px">• Set speed:
+                    <select id="speed" style="width: 80px; text-align: center;height: 25px">
+                        <option>150</option>
+                        <option>50</option>
+                        <option>100</option>
+                        <option>200</option>
+                        <option>250</option>
+                    </select></p>
                 </div>
                 <p style="font-size: 20px; text-align: left; color: #692705">• Result: </p>
                 <p style="font-size: 19px; font-weight: normal; color: #692705;text-align: left; padding-left: 30px ">Time: <span id="time">00:00</span></p>
